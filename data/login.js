@@ -1,10 +1,8 @@
-const Utils = require('root/app/helper/Global.js');
-
 module.exports = {
 
     theme: 'LIGHT',
 
-    uri: Utils.getURL({ key: 'user', subKey: 'login' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/login',
 
     successMessage: '',
 

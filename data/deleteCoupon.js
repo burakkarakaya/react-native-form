@@ -1,13 +1,13 @@
-const Utils = require('root/app/helper/Global.js');
-
 module.exports = {
 
-    uri: Utils.getURL({ key: 'cart', subKey: 'deleteCoupon' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/Cart/deleteCoupon',
 
     successMessage: 'Kodunuz İptal Edilmiştir.',
 
     showButton: false,
+
     buttonText: 'İptal',
+    
     buttonStyle: {
         width: 60
     },

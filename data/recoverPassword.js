@@ -1,7 +1,5 @@
-const Utils = require('root/app/helper/Global.js');
-
 module.exports = {
-    uri: Utils.getURL({ key: 'user', subKey: 'recoverPassword' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/recoverPassword',
 
     successMessage: '',
 

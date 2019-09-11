@@ -1,7 +1,6 @@
-const Utils = require('root/app/helper/Global.js');
-
 module.exports = {
-    uri: Utils.getURL({ key: 'user', subKey: 'changePassword' }),
+
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/changePassword',
 
     successMessage: 'Şifreniz değiştirildi. Teşekkür ederiz.',
 

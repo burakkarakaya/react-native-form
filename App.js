@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import {
+  ScrollView
+} from 'react-native';
+//import { Form } from './app/form';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+class Root extends Component {
+  constructor(props) {
+    super(props);
+    this.data = {
+      changePassword: require('./data/changePassword.js'),
+      createAddress: require('./data/createAddress.js'),
+      createUser: require('./data/createUser.js'),
+      creditCart: require('./data/creditCart.js'),
+      deleteCoupon: require('./data/deleteCoupon.js'),
+      login: require('./data/login.js'),
+      recoverPassword: require('./data/recoverPassword.js'),
+      review_submission: require('./data/review_submission.js'),
+      setAddress: require('./data/setAddress.js'),
+    };
+  }
+  render() {
+    return (
+      <ScrollView style={{ flex: 1 }}>
+
+      </ScrollView>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return <Root style={{ flex: 1 }} />;
+}

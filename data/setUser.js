@@ -1,15 +1,12 @@
-const Utils = require('root/app/helper/Global.js');
-const Translation = require('root/app/helper/Translation.js');
-
 module.exports = {
 
     /*  form default data config */
     defValue: {
-        uri: Utils.getURL({ key: 'user', subKey: 'getUser' }),
+        uri: 'https://www.flormar.com.tr/webapi/v3/User/getUser',
     },
 
     /* uri: istek yapılacak url */
-    uri: Utils.getURL({ key: 'user', subKey: 'setUser' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/setUser',
 
     /* allErrMessage: true durumunda tüm hata mesajları sayfanın en üstünde, false durumunda ilgili elementin altında gösterilir */
     allErrMessage: false,
@@ -87,10 +84,10 @@ module.exports = {
                     title: 'Şifremi değiştir',
                     type: 'button',
                     value: 'button',
-                    fontStyle:{
+                    fontStyle: {
                         textDecorationLine: 'underline',
                     },
-                    wrapperStyle:{
+                    wrapperStyle: {
                         paddingLeft: 10,
                         paddingRight: 10,
                         justifyContent: 'center',
@@ -116,7 +113,12 @@ module.exports = {
                     value: '',
                     mask: '0999 9999999',
                     customFormat: (k) => {
-                        return Utils.customPhoneFormat(k);
+                        k = k || '';
+                        /* phone formatlama, "mobilePhone": "0(999) 9999999 => 9999999999" */
+                        if (k[0] == 0)
+                            k = k.substr(1, k.length);
+
+                        return k.replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '');
                     },
                     validation: [{ key: 'isEmpty' }, { key: 'isPhone' },],
                     keyboardType: 'numeric',
@@ -140,7 +142,16 @@ module.exports = {
                     placeholder: '',
                     value: '',
                     customFormat: (k) => {
-                        return Utils.customDateFormat(k);
+                        k = k || '';
+                        var _t = this;
+                        /* date formatlama, "birtday": "22.1.1990 00:00:00 => 22011990" */
+                        k = k.split(' ')[0];
+                        k = k.split('.');
+
+                        k[0] = _t.setDateFormat(k[0]);
+                        k[1] = _t.setDateFormat(k[1]);
+
+                        return (k[0] + '' + k[1] + '' + k[2]);
                     },
                     maxDate: -14,
                     validation: [{ key: 'isEmpty' }, { key: 'isDate' },],
@@ -159,7 +170,7 @@ module.exports = {
                     id: 'gender',
                     title: 'Cinsiyet',
                     type: 'select',
-                    values: [{ key: Translation['dropdown']['choose'] || 'Seçiniz', value: -1, disabled: true }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
+                    values: [{ key: 'Seçiniz', value: -1, disabled: true }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
                     value: -1,
                     multiple: false,
                     validation: [{ key: 'isSelection' }],

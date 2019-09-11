@@ -2,12 +2,14 @@ const Utils = require('root/app/helper/Global.js');
 
 module.exports = {
 
-    uri: Utils.getURL({ key: 'cart', subKey: 'useCoupon' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/Cart/useCoupon',
 
     successMessage: 'Kupon Kodunuz Aktif Edilmiştir.',
 
     showButton: false,
+    
     buttonText: 'Kullan',
+    
     buttonStyle: {
         width: 60
     },

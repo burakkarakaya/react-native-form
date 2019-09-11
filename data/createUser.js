@@ -1,16 +1,12 @@
-const Utils = require('root/app/helper/Global.js');
-const Translation = require('root/app/helper/Translation.js');
-
 module.exports = {
 
-    /* uri: istek yapılacak url */
-    uri: Utils.getURL({ key: 'user', subKey: 'createUser' }), 
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/createUser',
 
     /* allErrMessage: true durumunda tüm hata mesajları sayfanın en üstünde, false durumunda ilgili elementin altında gösterilir */
-    allErrMessage: false, 
+    allErrMessage: false,
 
     /* işlem başarıyla gerçekleşmişse ve özel bir mesaj göstermek isteniliyorsa mesaj bu kısma yazılır */
-    successMessage: '', 
+    successMessage: '',
 
     /* post için oluşturulan nesneye sabit bir alan eklenecekse bu kısma */
     addFields: [
@@ -62,7 +58,11 @@ module.exports = {
                     value: '',
                     mask: '0999 999 99 99',
                     customFormat: (k) => {
-                        return Utils.customPhoneFormat( k );
+                        k = k || '';
+                        if (k[0] == 0)
+                            k = k.substr(1, k.length);
+
+                        return k.replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '');
                     },
                     validation: [{ key: 'isEmpty' }, { key: 'isPhone' },],
                     keyboardType: 'numeric',
@@ -87,7 +87,7 @@ module.exports = {
                     type: 'dataTimePicker',
                     placeholder: '',
                     value: '',
-                    customFormat: (k) => { return k.replace(/\./g, ''); },
+                    customFormat: (k) => { k = k || ''; return k.replace(/\./g, ''); },
                     maxDate: -14,
                     validation: [{ key: 'isEmpty' }, { key: 'isDate' },],
                 },
@@ -99,7 +99,7 @@ module.exports = {
                     id: 'gender',
                     title: 'Cinsiyet',
                     type: 'select',
-                    values: [{ key: Translation['dropdown']['choose'] || 'Seçiniz', value: -1 }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
+                    values: [{ key: 'Seçiniz', value: -1 }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
                     value: -1,
                     multiple: false,
                     validation: [{ key: 'isSelection' }],
@@ -108,7 +108,7 @@ module.exports = {
                     id: 'genders',
                     title: 'Cinsiyet',
                     type: 'radio',
-                    values: [{ key: Translation['dropdown']['choose'] || 'Seçiniz', value: -1 }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
+                    values: [{ key: 'Seçiniz', value: -1 }, { key: 'Erkek', value: 'E' }, { key: 'Kadın', value: 'K' }],
                     value: -1,
                     validation: [{ key: 'isSelection' }],
                 },

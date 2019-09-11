@@ -4,8 +4,8 @@ import {
     validateCardCVC
 } from 'root/app/helper/CreditCard';
 
-const Utils = require('root/app/helper/Global.js');
-const Translation = require('root/app/helper/Translation.js');
+const Utils = require('./Global.js');
+const Translation = require('./Translation.js');
 module.exports = {
     isEmpty: ({ value = '', title = '' }) => {
         return Utils.detect(Utils.cleanText(value)) ? { state: true } : { state: false, msg: Translation.getErrorMsg({ key: 'isEmpty', title: title }) };

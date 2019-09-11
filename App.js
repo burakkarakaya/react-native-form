@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import {
   ScrollView
 } from 'react-native';
-//import { Form } from './app/form';
+import { Form } from './app/form';
 
 class Root extends Component {
   constructor(props) {
     super(props);
-    this.data = {
+
+    this.config = {
       changePassword: require('./data/changePassword.js'),
       createAddress: require('./data/createAddress.js'),
       createUser: require('./data/createUser.js'),
@@ -17,7 +18,10 @@ class Root extends Component {
       recoverPassword: require('./data/recoverPassword.js'),
       review_submission: require('./data/review_submission.js'),
       setAddress: require('./data/setAddress.js'),
+      setUser: require('./data/setUser.js'),
+      useCoupon: require('./data/useCoupon.js'),
     };
+
   }
   render() {
     return (

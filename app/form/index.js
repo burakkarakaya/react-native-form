@@ -6,7 +6,6 @@ import {
     Alert,
     Platform,
     Image,
-    Keyboard,
     TouchableOpacity,
     Text
 } from 'react-native';
@@ -20,27 +19,25 @@ import {
     CountryPicker,
     HiddenObject,
     StarSelect,
-    FormInfo
-} from './';
-import { 
-    CustomKeyboard 
-} from 'root/app/helper';
+    FormInfo,
+    CustomKeyboard
+} from './components';
 import { 
     DefaultButton 
-} from 'root/app/UI';
+} from './UI';
 import {
     ICONS,
     SHOW_PRELOADING,
     SHOW_CUSTOM_POPUP,
-    SET_FORM
-} from 'root/app/helper/Constant';
+} from './helper/Constant';
 import { 
     store 
-} from 'root/app/store';
+} from '../store';
 
-const Validation = require('root/app/helper/Validation.js');
-const Utils = require('root/app/helper/Global.js');
-const Globals = require('root/app/globals.js');
+const Validation = require('./helper/Validation.js');
+const Utils = require('./helper/Global.js');
+const Globals = require('./globals.js');
+
 const preload = () => {
     return (
         <View style={{ flex: 1, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center' }}>
@@ -309,7 +306,7 @@ class Form extends Component {
     }
 
     _preload = (b) => {
-        store.dispatch({ type: SHOW_PRELOADING, value: b });
+        //store.dispatch({ type: SHOW_PRELOADING, value: b });
     }
 
     _alert = (message) => {
@@ -454,7 +451,7 @@ class Form extends Component {
     }
 
     _modalButtonClick = (obj) => {
-        store.dispatch({ type: SHOW_CUSTOM_POPUP, value: { visibility: true, ...obj['modal'] } });
+        //store.dispatch({ type: SHOW_CUSTOM_POPUP, value: { visibility: true, ...obj['modal'] } });
     }
 
     /* 
@@ -615,6 +612,8 @@ class Form extends Component {
             { scrollEnabled = true } = _self.props,
             button = _self._getButton(),
             cancelButton = _self._getCancelButton();
+
+        return null;
 
         if (!show)
             return preload();

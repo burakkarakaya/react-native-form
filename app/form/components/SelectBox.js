@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {
-    View,
     StyleSheet,
     Image,
     TouchableOpacity,
 } from 'react-native';
-import { Container, Minus99MultipleSelect } from './';
+import { 
+    Container, 
+    Minus99MultipleSelect 
+} from './';
 import {
     ICONS,
-} from 'root/app/helper/Constant';
+} from '../helper/Constant';
 
 class SelectBox extends Component {
     constructor(props) {

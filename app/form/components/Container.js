@@ -7,7 +7,10 @@ import {
     Easing,
     Image
 } from 'react-native';
-import { FORMSTYLE, ICONS } from 'root/app/helper/Constant';
+import { 
+    FORMSTYLE, 
+    ICONS 
+} from '../helper/Constant';
 
 class Container extends Component {
     constructor(props) {

@@ -5,9 +5,14 @@ import {
     Text,
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import { Container } from './';
+import { 
+    Container 
+} from './';
+import {
+    ICONS,
+} from '../helper/Constant';
 
-const Utils = require('root/app/helper/Global.js');
+const Utils = require('../helper/Global.js');
 
 class DateTimePicker extends Component {
     constructor(props) {
@@ -78,7 +83,7 @@ class DateTimePicker extends Component {
                     cancelBtnText="İptal"
                     placeholder=""
                     onDateChange={(date) => { this.setState({ value: date }) }}
-                    iconSource={require("../../assets/icons/calendar.png")}
+                    iconSource={ICONS['calendar']}
                     customStyles={{
                         dateIcon: {
                             marginRight: 0,

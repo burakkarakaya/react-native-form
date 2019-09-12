@@ -4,9 +4,35 @@ import {
   Image,
   View,
   TouchableOpacity,
-  Text,
 } from 'react-native';
-import { Container } from './';
+import { 
+  Container 
+} from './';
+import {
+  ICONS,
+} from '../helper/Constant';
+
+class Star extends React.Component {
+
+  _onPress = () => {
+    this.props.callback(this.props.index);
+  }
+
+  render() {
+
+    let { style } = this.props;
+
+    _icon = style === "full" ? ICONS['startFull'] : ICONS['starEmpty'];
+
+    return (
+      <View style={{ flex: 1, alignContent: "center", alignItems: "center" }}>
+        <TouchableOpacity activeOpacity={0.7} onPress={this._onPress}>
+          <Image source={_icon} style={{ width: 30, height: 30 }} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 class StarSelect extends React.Component {
 
@@ -62,25 +88,3 @@ class StarSelect extends React.Component {
 }
 
 export { StarSelect }
-
-class Star extends React.Component {
-
-  _onPress = () => {
-    this.props.callback(this.props.index);
-  }
-
-  render() {
-
-    let { style } = this.props;
-
-    _icon = style === "full" ? require('root/assets/icons/star-full.png') : require('root/assets/icons/star-empty.png');
-
-    return (
-      <View style={{ flex: 1, alignContent: "center", alignItems: "center" }}>
-        <TouchableOpacity activeOpacity={0.7} onPress={this._onPress}>
-          <Image source={_icon} style={{ width: 30, height: 30 }} />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}

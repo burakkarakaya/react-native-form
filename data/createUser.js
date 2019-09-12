@@ -8,13 +8,17 @@ module.exports = {
     /* işlem başarıyla gerçekleşmişse ve özel bir mesaj göstermek isteniliyorsa mesaj bu kısma yazılır */
     successMessage: '',
 
-    /* post için oluşturulan nesneye sabit bir alan eklenecekse bu kısma */
-    addFields: [
-        /*{
-            id: 'isGuest',
-            value: true
-        },*/
-    ],
+    /* 
+        post için oluşturulan nesneye sabit bir alan eklenecekse bu kısma 
+        addFields: [
+            {
+                id: 'isGuest',
+                value: true
+            },
+        ]
+
+    */
+    addFields: [],
 
     fields: [
         {

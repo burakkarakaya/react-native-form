@@ -13,12 +13,9 @@ import {
     SHOW_CUSTOM_POPUP,
     SET_VIEWER,
     ICONS,
-} from 'root/app/helper/Constant';
-import { store } from 'root/app/store';
-import {
-    ParserHTML
-} from 'root/app/helper/'
-
+} from '../helper/Constant';
+import { store } from '../../store';
+import { ParserHTML } from './';
 
 class CheckBox extends Component {
     constructor(props) {
@@ -63,10 +60,10 @@ class CheckBox extends Component {
     onChange = () => {
         Animated.timing(
             this.state.anim, {
-                toValue: this.state.value ? 1 : 0,
-                duration: 150,
-                easing: Easing.out(Easing.cubic),
-            }
+            toValue: this.state.value ? 1 : 0,
+            duration: 150,
+            easing: Easing.out(Easing.cubic),
+        }
         ).start();
     }
 
@@ -121,6 +118,8 @@ class CheckBox extends Component {
 
         if (control)
             _self._callback();
+
+
 
         let view = null;
 

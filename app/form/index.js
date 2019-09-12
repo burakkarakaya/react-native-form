@@ -22,21 +22,21 @@ import {
     FormInfo,
     CustomKeyboard
 } from './components';
-import { 
-    DefaultButton 
+import {
+    DefaultButton
 } from './UI';
 import {
     ICONS,
     SHOW_PRELOADING,
     SHOW_CUSTOM_POPUP,
 } from './helper/Constant';
-import { 
-    store 
+import {
+    store
 } from '../store';
 
 const Validation = require('./helper/Validation.js');
 const Utils = require('./helper/Global.js');
-const Globals = require('./globals.js');
+const Globals = require('../globals.js');
 
 const preload = () => {
     return (
@@ -306,7 +306,7 @@ class Form extends Component {
     }
 
     _preload = (b) => {
-        //store.dispatch({ type: SHOW_PRELOADING, value: b });
+        store.dispatch({ type: SHOW_PRELOADING, value: b });
     }
 
     _alert = (message) => {
@@ -451,7 +451,7 @@ class Form extends Component {
     }
 
     _modalButtonClick = (obj) => {
-        //store.dispatch({ type: SHOW_CUSTOM_POPUP, value: { visibility: true, ...obj['modal'] } });
+        store.dispatch({ type: SHOW_CUSTOM_POPUP, value: { visibility: true, ...obj['modal'] } });
     }
 
     /* 
@@ -613,8 +613,6 @@ class Form extends Component {
             button = _self._getButton(),
             cancelButton = _self._getCancelButton();
 
-        return null;
-
         if (!show)
             return preload();
         else
@@ -657,5 +655,6 @@ const styles = StyleSheet.create({
 
     }
 });
+
 
 export { Form };

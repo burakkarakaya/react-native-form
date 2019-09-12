@@ -2,7 +2,7 @@ import {
     cardType,
     validateCardNumber,
     validateCardCVC
-} from 'root/app/helper/CreditCard';
+} from '../helper/CreditCard';
 
 const Utils = require('./Global.js');
 const Translation = require('./Translation.js');

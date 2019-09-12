@@ -8,11 +8,11 @@ import {
 import { Container, Minus99MultipleSelect } from './';
 import {
     ICONS,
-} from 'root/app/helper/Constant';
+} from '../helper/Constant';
 
-const Translation = require('root/app/helper/Translation.js');
-const Utils = require('root/app/helper/Global.js');
-const Globals = require('root/app/globals.js');
+const Translation = require('../helper/Translation.js');
+const Utils = require('../helper/Global.js');
+const Globals = require('../../globals.js');
 
 class CountryPicker extends Component {
     constructor(props) {

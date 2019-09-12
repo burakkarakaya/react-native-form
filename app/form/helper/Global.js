@@ -151,6 +151,7 @@ module.exports = {
       return value;
   },
   detect: (k) => {
+    k = k || [];
     return k.length == 0 ? false : true;
   },
   trimText: (k) => {

@@ -6,11 +6,17 @@ import {
     TextInput,
     TouchableOpacity,
 } from 'react-native';
-import { Container } from './';
-import { TextInputMask } from 'react-native-masked-text';
-import { FORMSTYLE } from 'root/app/helper/Constant';
+import { 
+    Container 
+} from './';
+import { 
+    TextInputMask 
+} from 'react-native-masked-text';
+import { 
+    FORMSTYLE 
+} from '../helper/Constant';
 
-const Utils = require('root/app/helper/Global.js');
+const Utils = require('../helper/Global.js');
 
 class FormInput extends Component {
     constructor(props) {

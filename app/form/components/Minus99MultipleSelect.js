@@ -2,24 +2,26 @@ import React from 'react';
 import {
     View,
     Text,
-    TouchableHighlight,
     TouchableOpacity,
     Modal,
     TextInput,
-    SectionList,
     FlatList,
     Animated,
     Easing,
     Image,
+    SafeAreaView,
 } from 'react-native';
-
-import IconButton from 'root/app/UI/IconButton';
-import BoxButton from 'root/app/UI/Buttons/ButtonBox';
+import {
+    IconButton,
+    BoxButton
+} from '../UI';
 import get from 'lodash/get';
-import { MinimalHeader } from 'root/app/components';
+import {
+    ICONS,
+} from '../helper/Constant';
 
-const Utils = require('root/app/helper/Global.js');
-const styles = require('root/app/styles.js');
+const Utils = require('../helper/Global.js');
+const styles = require('../styles.js');
 const MIN_ITEMS_NUM = 5;
 
 /* regex türlçe karekter problemine çözüm */
@@ -322,8 +324,8 @@ class SelectionBox extends React.Component {
                 transparent={false}
                 visible={this.props.visible}
             >
-
-                <View style={{ flex: 1, }}>
+ 
+                <SafeAreaView style={{ flex: 1, }}>
                     <MinimalHeader onPress={this._onClose} title={name} right={<View></View>} />
                     {header}
                     <View style={{ position: 'relative' }}>
@@ -331,7 +333,7 @@ class SelectionBox extends React.Component {
                             {selection}
                         </View>
                         <Animated.View style={{ position: "absolute", right: this.state.anim, top: 0 }}>
-                            <IconButton icon={<Image source={require("root/assets/icons/trash.png")} style={styles.iconNormalSize} />} callback={this._clearAll} />
+                            <IconButton icon={<Image source={ICONS['trash']} style={styles.iconNormalSize} />} callback={this._clearAll} />
                         </Animated.View>
                     </View>
                     <FlatList style={{ backgroundColor: "#FFFFFF" }}
@@ -342,7 +344,7 @@ class SelectionBox extends React.Component {
                     <View style={{ padding: 20 }}>
                         <BoxButton boxColor="#000000" name="TAMAM" callback={this._onClose} />
                     </View>
-                </View>
+                </SafeAreaView>
 
             </Modal>
         )
@@ -353,14 +355,14 @@ class ListItem extends React.Component {
     _onPress = () => {
         const { order, disabled = false } = this.props.item;
 
-        if( disabled ) return false;
+        if (disabled) return false;
 
         this.props.onPressItem(order || this.props.index);
     }
     render() {
 
         const { item = {}, selected } = this.props,
-        { disabled = false } = item;
+            { disabled = false } = item;
 
         return (
             <TouchableOpacity
@@ -370,7 +372,7 @@ class ListItem extends React.Component {
                     <View style={{ flex: 1 }}>
                         <Text numberOfLines={1} style={[styles.normal, styles.bold, { color: disabled ? '#c1c1c1' : '#000000' }]}>{item.name}</Text>
                     </View>
-                    {selected ? <Image source={require("root/assets/icons/check.png")} style={[{ width: 40, height: 40, marginRight: 5, left: 10, }]} /> : null}
+                    {selected ? <Image source={ICONS['check']} style={[{ width: 40, height: 40, marginRight: 5, left: 10, }]} /> : null}
                 </View>
             </TouchableOpacity>
         );
@@ -396,7 +398,23 @@ class TagButton extends React.Component {
             <TouchableOpacity activeOpacity={0.9} onPress={this._onPress}>
                 <View style={{ flexDirection: "row", backgroundColor: "#eeeeee", height: 30, margin: 3, borderRadius: 5, alignItems: "center", paddingRight: 10, paddingLeft: 10 }}>
                     <Text numberOfLines={1} style={[{ maxWidth: 100, color: '#4a4a4a' }, styles.bold, styles.tiny]}>{this.props.name}</Text>
-                    <Image source={require("root/assets/icons/close.png")} style={[styles.iconTinySize, { marginLeft: 5 }]} />
+                    <Image source={ICONS['close']} style={[styles.iconTinySize, { marginLeft: 5 }]} />
+                </View>
+            </TouchableOpacity>
+        );
+    }
+}
+
+class MinimalHeader extends React.Component {
+    _onPress = () => {
+        this.props.onPress(this.props.index);
+    }
+    render() {
+        return (
+            <TouchableOpacity activeOpacity={0.9} onPress={this._onPress}>
+                <View style={{ flexDirection: "row", backgroundColor: "#eeeeee", height: 30, margin: 3, borderRadius: 5, alignItems: "center", paddingRight: 10, paddingLeft: 10 }}>
+                    <Text numberOfLines={1} style={[{ maxWidth: 100, color: '#4a4a4a' }, styles.bold, styles.tiny]}>{this.props.name}</Text>
+                    <Image source={ICONS['close']} style={[styles.iconTinySize, { marginLeft: 5 }]} />
                 </View>
             </TouchableOpacity>
         );

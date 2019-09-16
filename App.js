@@ -6,7 +6,7 @@ import {
 import { Form } from './app/form';
 
 // global variable
-global.API_KEY = '1b9b737f-5582-c8d7-f535-b9750bdeeb90';
+global.Utils = require('./app/globals.js');
 
 class Root extends Component {
   constructor(props) {

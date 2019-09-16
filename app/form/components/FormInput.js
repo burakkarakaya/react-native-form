@@ -16,8 +16,6 @@ import {
     FORMSTYLE 
 } from '../helper/Constant';
 
-const Utils = require('../helper/Global.js');
-
 class FormInput extends Component {
     constructor(props) {
         super(props);

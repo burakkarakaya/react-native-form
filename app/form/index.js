@@ -35,8 +35,6 @@ import {
 } from '../store';
 
 const Validation = require('./helper/Validation.js');
-const Utils = require('./helper/Global.js');
-const Globals = require('../globals.js');
 
 const preload = () => {
     return (
@@ -167,7 +165,7 @@ class Form extends Component {
     ajx = ({ uri, data = {} }, callback) => {
         const _self = this;
         _self.setState({ loading: true });
-        Globals.fetch(uri, JSON.stringify(data), (answer) => {
+        Utils.fetch(uri, JSON.stringify(data), (answer) => {
             if (_self._isMounted) {
                 if (answer === 'error') {
                     if (typeof callback !== 'undefined')

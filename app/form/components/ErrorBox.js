@@ -5,8 +5,6 @@ import {
     Text,
 } from 'react-native';
 
-const Utils = require('../helper/Global.js');
-
 class ErrorBox extends Component {
     constructor(props) {
         super(props);

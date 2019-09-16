@@ -11,8 +11,6 @@ import {
 } from '../helper/Constant';
 
 const Translation = require('../helper/Translation.js');
-const Utils = require('../helper/Global.js');
-const Globals = require('../../globals.js');
 
 class CountryPicker extends Component {
     constructor(props) {
@@ -23,6 +21,22 @@ class CountryPicker extends Component {
             district: [],
             loading: false,
         }
+    }
+
+    componentDidMount() {
+        const _self = this,
+            countryId = _self.config['country']['value'],
+            cityId = _self.config['city']['value'];
+
+        _self._isMounted = true;
+        _self.setAjx({ key: 'country', data: _self._addServices({ type: 'country', obj: { countryId: 0 } }) });
+        _self.setAjx({ key: 'city', data: _self._addServices({ type: 'city', obj: { countryId: countryId } }) });
+        _self.setAjx({ key: 'district', data: _self._addServices({ type: 'district', obj: { countryId: countryId, cityId: cityId } }) });
+    }
+
+    /* https://medium.com/@TaylorBriggs/your-react-component-can-t-promise-to-stay-mounted-e5d6eb10cbb */
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     _addServices = ({ type, obj }) => {
@@ -90,22 +104,6 @@ class CountryPicker extends Component {
         return false;
     }
 
-    componentDidMount() {
-        const _self = this,
-            countryId = _self.config['country']['value'],
-            cityId = _self.config['city']['value'];
-
-        _self._isMounted = true;
-        _self.setAjx({ key: 'country', data: _self._addServices({ type: 'country', obj: { countryId: 0 } }) });
-        _self.setAjx({ key: 'city', data: _self._addServices({ type: 'city', obj: { countryId: countryId } }) });
-        _self.setAjx({ key: 'district', data: _self._addServices({ type: 'district', obj: { countryId: countryId, cityId: cityId } }) });
-    }
-
-    /* https://medium.com/@TaylorBriggs/your-react-component-can-t-promise-to-stay-mounted-e5d6eb10cbb */
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
-
     _unshift = ({ key, data = [] }) => {
         /* dönen arrayın ilk elemanına seçiniz eklemek için */
         const _self = this,
@@ -123,16 +121,18 @@ class CountryPicker extends Component {
         const _self = this,
             { uri, rel, keys } = _self.config[key] || {};
 
-        Globals.AJX({ _self: _self, uri: uri, data: data }, function (d) {
-            let obj = {},
-                arr = d['data'][keys['arr']];
+        Utils.fetch(uri, JSON.stringify(data), function (d) {
+            if (_self._isMounted) {
+                let obj = {},
+                    arr = d['data'][keys['arr']];
 
-            obj[key] = _self._unshift({ key: key, data: arr });
+                obj[key] = _self._unshift({ key: key, data: arr });
 
-            _self.setState(obj);
+                _self.setState(obj);
 
-            if (typeof callback !== 'undefined')
-                callback();
+                if (typeof callback !== 'undefined')
+                    callback();
+            }
         });
     }
 
@@ -328,9 +328,5 @@ class CountryPicker extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export { CountryPicker };

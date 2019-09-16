@@ -20,7 +20,6 @@ import {
     ICONS,
 } from '../helper/Constant';
 
-const Utils = require('../helper/Global.js');
 const styles = require('../styles.js');
 const MIN_ITEMS_NUM = 5;
 

@@ -4,7 +4,6 @@ import {
     validateCardCVC
 } from '../helper/CreditCard';
 
-const Utils = require('./Global.js');
 const Translation = require('./Translation.js');
 module.exports = {
     isEmpty: ({ value = '', title = '' }) => {

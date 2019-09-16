@@ -12,8 +12,6 @@ import {
     ICONS,
 } from '../helper/Constant';
 
-const Utils = require('../helper/Global.js');
-
 class DateTimePicker extends Component {
     constructor(props) {
         super(props);

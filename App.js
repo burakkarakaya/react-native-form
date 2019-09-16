@@ -1,62 +1,120 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
+  Text
 } from 'react-native';
 import { Form } from './app/form';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
 
 // global variable
 global.Utils = require('./app/globals.js');
 
-class Root extends Component {
+// tanımlı formlar
+const Config = {
+  changePassword: require('./data/changePassword.js'),
+  createAddress: require('./data/createAddress.js'),
+  createUser: require('./data/createUser.js'),
+  creditCart: require('./data/creditCart.js'),
+  deleteCoupon: require('./data/deleteCoupon.js'),
+  login: require('./data/login.js'),
+  recoverPassword: require('./data/recoverPassword.js'),
+  review_submission: require('./data/review_submission.js'),
+  setAddress: require('./data/setAddress.js'),
+  setUser: require('./data/setUser.js'),
+  useCoupon: require('./data/useCoupon.js'),
+};
+
+class Root extends PureComponent {
   constructor(props) {
     super(props);
-    this.config = {
-      changePassword: require('./data/changePassword.js'),
-      createAddress: require('./data/createAddress.js'),
-      createUser: require('./data/createUser.js'),
-      creditCart: require('./data/creditCart.js'),
-      deleteCoupon: require('./data/deleteCoupon.js'),
-      login: require('./data/login.js'),
-      recoverPassword: require('./data/recoverPassword.js'),
-      review_submission: require('./data/review_submission.js'),
-      setAddress: require('./data/setAddress.js'),
-      setUser: require('./data/setUser.js'),
-      useCoupon: require('./data/useCoupon.js'),
-    };
   }
 
   _callback = (obj) => {
     console.log(obj);
   }
 
+  /* 
+    button
+  */
+
+  _onButtonClick = (key) => {
+    this.props.navigation.navigate('Detail', { active: key });
+  }
+
+  _button = (key) => {
+    const _self = this;
+
+    return (
+      <TouchableOpacity onPress={this._onButtonClick.bind(this, key)}>
+        <Text>{key}</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  _buttonRender = () => {
+    const _self = this,
+      arr = [];
+    Object
+      .entries(Config)
+      .forEach(([key, value]) => {
+        arr.push(_self._button(key));
+      });
+
+    return arr;
+  }
+
   render() {
     const _self = this;
 
     return (
-
       <ScrollView
         keyboardShouldPersistTaps='handled'
         style={{ flex: 1 }}
       >
         <SafeAreaView style={{ flex: 1 }}>
-          <Form data={_self.config['changePassword']} callback={_self._callback} />
-          <Form data={_self.config['createAddress']} callback={_self._callback} />
-          <Form data={_self.config['createUser']} callback={_self._callback} />
-          <Form data={_self.config['creditCart']} callback={_self._callback} />
-          <Form data={_self.config['deleteCoupon']} callback={_self._callback} />
-          <Form data={_self.config['login']} callback={_self._callback} />
-          <Form data={_self.config['recoverPassword']} callback={_self._callback} />
-          <Form data={_self.config['review_submission']} callback={_self._callback} />
-          <Form data={_self.config['setAddress']} callback={_self._callback} />
-          <Form data={_self.config['setUser']} callback={_self._callback} />
-          <Form data={_self.config['useCoupon']} callback={_self._callback} />
+          {_self._buttonRender()}
         </SafeAreaView>
       </ScrollView>
     );
   }
 }
 
-export default function App() {
-  return <Root style={{ flex: 1 }} />;
+class Detail extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const _self = this,
+      { active = '' } = _self.props.navigation.state.params || {};
+    return (
+      <ScrollView
+        keyboardShouldPersistTaps='handled'
+        style={{ flex: 1 }}
+      >
+        <SafeAreaView style={{ flex: 1 }}>
+          <Form data={Config[active]} callback={_self._callback} />
+        </SafeAreaView>
+      </ScrollView>
+
+    );
+  }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Root,
+  },
+  Detail: {
+    screen: Detail,
+  }
+},
+  {
+    headerMode: 'none'
+  });
+
+
+export default createAppContainer(AppNavigator);

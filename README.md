@@ -1,5 +1,3 @@
 # Kurulması gerekli olan paketler
 
-1. https://yarnpkg.com/en/package/react-native-masked-text (yarn add react-native-masked-text)
-2. https://yarnpkg.com/en/package/react-native-datepicker ( yarn add react-native-datepicker )
-3. https://yarnpkg.com/en/package/react-navigation ( yarn add react-native-reanimated react-native-gesture-handler react-native-screens )
+yarn add react-native-masked-text react-native-datepicker react-native-reanimated react-native-gesture-handler react-native-screens react-navigation-stack

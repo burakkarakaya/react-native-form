@@ -1,3 +1,5 @@
-export const store = (obj) => {
-    console.log(obj);
+export const store = {
+    dispatch: (obj) => {
+        console.log(obj);
+    }
 }

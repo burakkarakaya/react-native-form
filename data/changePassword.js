@@ -1,6 +1,5 @@
 module.exports = {
-
-    uri: 'https://www.flormar.com.tr/webapi/v3/User/changePassword',
+    uri: Utils.getURL({ key: 'user', subKey: 'changePassword' }),
 
     successMessage: 'Şifreniz değiştirildi. Teşekkür ederiz.',
 

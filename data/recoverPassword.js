@@ -1,5 +1,5 @@
 module.exports = {
-    uri: 'https://www.flormar.com.tr/webapi/v3/User/recoverPassword',
+    uri: Utils.getURL({ key: 'user', subKey: 'recoverPassword' }),
 
     successMessage: '',
 

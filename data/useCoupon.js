@@ -1,13 +1,11 @@
 module.exports = {
 
-    uri: 'https://www.flormar.com.tr/webapi/v3/Cart/useCoupon',
+    uri: Utils.getURL({ key: 'cart', subKey: 'useCoupon' }),
 
     successMessage: 'Kupon Kodunuz Aktif Edilmiştir.',
 
     showButton: false,
-    
     buttonText: 'Kullan',
-    
     buttonStyle: {
         width: 60
     },

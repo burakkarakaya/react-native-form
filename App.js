@@ -14,7 +14,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 global.Utils = require('./app/globals.js');
 
 // tanımlı formlar
-const Config = {
+const FormConfig = {
   changePassword: require('./data/changePassword.js'),
   createAddress: require('./data/createAddress.js'),
   createUser: require('./data/createUser.js'),
@@ -59,7 +59,7 @@ class Root extends PureComponent {
     const _self = this,
       arr = [];
     Object
-      .entries(Config)
+      .entries(FormConfig)
       .forEach(([key, value]) => {
         arr.push(_self._button(key));
       });
@@ -96,7 +96,7 @@ class Detail extends PureComponent {
         style={{ flex: 1 }}
       >
         <SafeAreaView style={{ flex: 1 }}>
-          <Form data={Config[active]} callback={_self._callback} />
+          <Form data={FormConfig[active]} callback={_self._callback} />
         </SafeAreaView>
       </ScrollView>
 

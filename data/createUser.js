@@ -1,24 +1,21 @@
 module.exports = {
 
-    uri: 'https://www.flormar.com.tr/webapi/v3/User/createUser',
+    /* uri: istek yapılacak url */
+    uri: Utils.getURL({ key: 'user', subKey: 'createUser' }), 
 
     /* allErrMessage: true durumunda tüm hata mesajları sayfanın en üstünde, false durumunda ilgili elementin altında gösterilir */
-    allErrMessage: false,
+    allErrMessage: false, 
 
     /* işlem başarıyla gerçekleşmişse ve özel bir mesaj göstermek isteniliyorsa mesaj bu kısma yazılır */
-    successMessage: '',
+    successMessage: '', 
 
-    /* 
-        post için oluşturulan nesneye sabit bir alan eklenecekse bu kısma 
-        addFields: [
-            {
-                id: 'isGuest',
-                value: true
-            },
-        ]
-
-    */
-    addFields: [],
+    /* post için oluşturulan nesneye sabit bir alan eklenecekse bu kısma */
+    addFields: [
+        /*{
+            id: 'isGuest',
+            value: true
+        },*/
+    ],
 
     fields: [
         {
@@ -62,11 +59,7 @@ module.exports = {
                     value: '',
                     mask: '0999 999 99 99',
                     customFormat: (k) => {
-                        k = k || '';
-                        if (k[0] == 0)
-                            k = k.substr(1, k.length);
-
-                        return k.replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '');
+                        return Utils.customPhoneFormat( k );
                     },
                     validation: [{ key: 'isEmpty' }, { key: 'isPhone' },],
                     keyboardType: 'numeric',
@@ -91,7 +84,7 @@ module.exports = {
                     type: 'dataTimePicker',
                     placeholder: '',
                     value: '',
-                    customFormat: (k) => { k = k || ''; return k.replace(/\./g, ''); },
+                    customFormat: (k) => { return k.replace(/\./g, ''); },
                     maxDate: -14,
                     validation: [{ key: 'isEmpty' }, { key: 'isDate' },],
                 },

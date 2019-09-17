@@ -2,7 +2,7 @@ module.exports = {
 
     //theme: 'LIGHT',
 
-    uri: 'https://www.flormar.com.tr/webapi/v3/User/login',
+    uri: Utils.getURL({ key: 'user', subKey: 'login' }),
 
     successMessage: '',
 

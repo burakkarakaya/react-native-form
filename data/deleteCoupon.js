@@ -1,13 +1,11 @@
 module.exports = {
 
-    uri: 'https://www.flormar.com.tr/webapi/v3/Cart/deleteCoupon',
+    uri: Utils.getURL({ key: 'cart', subKey: 'deleteCoupon' }),
 
     successMessage: 'Kodunuz İptal Edilmiştir.',
 
     showButton: false,
-
     buttonText: 'İptal',
-    
     buttonStyle: {
         width: 60
     },

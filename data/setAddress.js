@@ -2,7 +2,7 @@ module.exports = {
 
     /*  form default data config */
     defValue: {
-        uri: 'https://www.flormar.com.tr/webapi/v3/Address/getAddress',
+        uri: Utils.getURL({ key: 'address', subKey: 'getAddress' }),
         keys: {
             arr: 'addresses',
         },
@@ -20,7 +20,8 @@ module.exports = {
 
     buttonText: 'KAYDET',
 
-    uri: 'https://www.flormar.com.tr/webapi/v3/Address/setAddress',
+    /* uri: istek yapılacak url */
+    uri: Utils.getURL({ key: 'address', subKey: 'setAddress' }),
 
     /* allErrMessage: true durumunda tüm hata mesajları sayfanın en üstünde, false durumunda ilgili elementin altında gösterilir */
     allErrMessage: false,
@@ -149,12 +150,7 @@ module.exports = {
                     value: '',
                     mask: '0599 9999999',
                     customFormat: (k) => {
-                        k = k || '';
-                        /* phone formatlama, "mobilePhone": "0(999) 9999999 => 9999999999" */
-                        if (k[0] == 0)
-                            k = k.substr(1, k.length);
-
-                        return k.replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '');
+                        return Utils.customPhoneFormat(k);
                     },
                     validation: [{ key: 'isEmpty' }, { key: 'isPhone' },],
                     keyboardType: 'numeric',

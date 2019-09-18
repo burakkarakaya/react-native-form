@@ -5,13 +5,12 @@ import {
   View,
   Image,
 } from "react-native";
-import { Asset } from "expo";
 import {
   ICONS,
   ORDER_LIST_CLICKED,
   SHOW_CUSTOM_POPUP,
-} from "root/app/helper/Constant";
-import { store } from "root/app/store";
+} from "../helper/Constant";
+import { store } from "../../store";
 
 class OrderListItem extends Component {
   /*

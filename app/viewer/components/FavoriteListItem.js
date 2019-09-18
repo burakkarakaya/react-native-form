@@ -8,16 +8,14 @@ import {
 import {
   ADD_CART_ITEM,
   OPEN_PRODUCT_DETAILS,
-} from "root/app/helper/Constant";
+} from "../helper/Constant";
 import {
   IconButton,
   DefaultButton
-} from "root/app/UI";
-import { store } from "root/app/store";
+} from "../UI";
+import { store } from "../../store";
 
-const Translation = require("root/app/helper/Translation.js");
-const Utils = require("root/app/helper/Global.js");
-const Globals = require("root/app/globals.js");
+const Translation = require("../helper/Translation.js");
 
 class FavoriteListItem extends Component {
   /*
@@ -67,22 +65,16 @@ class FavoriteListItem extends Component {
       ({ type }) => {
         if (type == "ok") {
           const { productId } = data;
-          Globals.AJX(
-            {
-              _self: _self,
-              uri: Utils.getURL({
-                key: "user",
-                subKey: "deleteFavoriteProduct"
-              }),
-              data: { productId: productId }
-            },
-            res => {
+
+          Utils.fetch(Utils.getURL({ key: "user", subKey: "deleteFavoriteProduct" }), JSON.stringify({ productId: productId }), (res) => {
+            if (_self._isMounted) {
               const { status, message } = res;
               if (onRemove && status == 200)
                 setTimeout(() => {
                   onRemove({ key: "productId", value: productId });
                 }, 100);
             }
+          }
           );
         }
       }

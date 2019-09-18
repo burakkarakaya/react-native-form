@@ -6,9 +6,13 @@ import {
   Text
 } from 'react-native';
 import { Form } from './app/form';
+import { Viewer } from './app/viewer';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+//redux
+import { Provider } from "react-redux";
+import { store } from "./app/store.js";
 
 // global variable
 global.Utils = require('./app/globals.js');

@@ -8,13 +8,11 @@ import {
     SET_FORM,
     SET_CART_ADDRESS,
     SET_ADDRESS_ITEM_CLICK,
-} from 'root/app/helper/Constant';
+} from '../helper/Constant';
 import { connect } from 'react-redux';
-import { BoxButton } from 'root/app/UI';
+import { BoxButton } from '../UI';
 
-const Translation = require('root/app/helper/Translation.js');
-const Utils = require('root/app/helper/Global.js');
-const Globals = require('root/app/globals.js');
+const Translation = require('../helper/Translation.js');
 
 class AddressList extends Component {
     /*
@@ -79,15 +77,16 @@ class AddressList extends Component {
         Utils.confirm({ message: Translation['confirm']['removeMessage'] }, ({ type }) => {
             if (type == 'ok') {
                 const { addressId } = data;
-                Globals.AJX({ _self: _self, uri: Utils.getURL({ key: 'address', subKey: 'deleteAddress' }), data: { addressId: addressId } }, (res) => {
-                    const { status, message } = res;
-                    if (onRemove && status == 200)
-                        setTimeout(() => {
-                            onRemove({ key: 'addressId', value: addressId });
-                        }, 100);
 
+                Utils.fetch(Utils.getURL({ key: 'address', subKey: 'deleteAddress' }), JSON.stringify({ addressId: addressId }), (res) => {
+                    if (_self._isMounted) {
+                        const { status, message } = res;
+                        if (onRemove && status == 200)
+                            setTimeout(() => {
+                                onRemove({ key: 'addressId', value: addressId });
+                            }, 100);
+                    }
                 })
-
             }
         });
     }

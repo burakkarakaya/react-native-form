@@ -6,12 +6,10 @@ import {
 } from 'react-native';
 import {
     SET_BANK_TRANSFER,
-} from 'root/app/helper/Constant';
-import { connect } from 'react-redux';
-import { BoxButton } from 'root/app/UI';
+} from '../helper/Constant';
+//import { connect } from 'react-redux';
+import { BoxButton } from '../UI';
 import HTML from 'react-native-render-html';
-
-const Utils = require('root/app/helper/Global.js');
 
 class BankTransferList extends Component {
     /* 
@@ -94,7 +92,9 @@ class BankTransferList extends Component {
     }
 }
 
-
+/*
 function mapStateToProps(state) { return state }
 const BankTransferListItem = connect(mapStateToProps)(BankTransferList);
 export { BankTransferListItem };
+*/
+export {BankTransferList};

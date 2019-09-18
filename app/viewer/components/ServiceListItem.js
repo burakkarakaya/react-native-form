@@ -5,12 +5,11 @@ import {
   View,
   Image,
 } from "react-native";
-
 import {
   ICONS,
   SERVICE_LIST_CLICKED,
-} from "root/app/helper/Constant";
-import { store } from "root/app/store";
+} from "../helper/Constant";
+import { store } from "../../store";
 
 class ServiceListItem extends Component {
     /*

@@ -9,63 +9,40 @@ import {
   WebView,
   View,
   Image,
-  Animated,
-  Easing,
   Platform
 } from "react-native";
 import { Asset } from "expo";
 import {
   ICONS,
-  FEEDSTYPE,
   VIEWERTYPE,
   ITEMTYPE,
   DATA_LOADED,
-  SERVICE_LIST_CLICKED,
-  ORDER_LIST_CLICKED,
-  DOUBLE_CLICK,
   SET_FORM,
-  UPDATE_CART,
-  REMOVE_CART,
-  SET_SEGMENTIFY_INSTANCEID,
-  ADD_CART_ITEM,
-  OPEN_PRODUCT_DETAILS,
-  SET_VIDEO_PLAYER,
   SHOW_CUSTOM_POPUP,
   NAVIGATE,
-  SET_VIEWER,
-  SET_CATEGORIES,
-  SET_SELECTED_CATEGORY,
-  SET_INSTAGRAM,
-  FEEDS_IMAGE_RATE,
-  SET_WEBVIEW,
   GET_FAVORITE_PRODUCT
-} from "root/app/helper/Constant";
+} from "./helper/Constant";
 import {
-  HorizontalProducts,
-  ElevatedView,
-  ReadMoreText,
-  ShareButton
-} from "root/app/components";
-import {
-  RatingButton,
-  DoubleClickButton,
-  IconButton,
   BoxButton,
-  DefaultButton
-} from "root/app/UI";
-import { CountryPicker, SelectBox } from "root/app/form";
-import { connect } from "react-redux";
-import { AddressListItem, BankTransferListItem } from "./";
-import { store } from "root/app/store";
-import YoutubePlayer from "root/app/sub-views/YoutubePlayer";
-import { ParserHTML } from "root/app/helper/";
+  ElevatedView,
+} from "./UI";
+import {
+  AddressListItem,
+  BankTransferListItem,
+  CartListItem,
+  CouponListItem,
+  FavoriteListItem,
+  FollowListItem,
+  OrderListItem,
+  ServiceListItem
+} from "./components";
+import { CountryPicker } from "../form/components";
+import { store } from "../store";
+//import { connect } from "react-redux";
 import Placeholder from "rn-placeholder";
 import HTML from "react-native-render-html";
 
-const Translation = require("root/app/helper/Translation.js");
-const Utils = require("root/app/helper/Global.js");
-const Globals = require("root/app/globals.js");
-const Analytics = require("root/app/analytics");
+const Translation = require("./helper/Translation.js");
 const injectScript = `
   (function () {
     window.onclick = function(e) {
@@ -289,9 +266,7 @@ class Viewers extends Component {
 
     if (navigation && focusedRefresh == 'false') _self._Listener.remove();
 
-    if (type == VIEWERTYPE["SEG"])
-      Globals.seg({ data: config.data }, _self._setSeg);
-    else _self.setAjx({ uri: _self.getUri(), data: _self._getData() });
+    _self.setAjx({ uri: _self.getUri(), data: _self._getData() });
   };
 
   componentDidMount() {
@@ -339,7 +314,7 @@ class Viewers extends Component {
   };
 
   _addStyle = () => {
-    const regular = Asset.fromModule(
+    /*const regular = Asset.fromModule(
       require("root/assets/fonts/proximanova-regular.otf")
     ).uri,
       bold = Asset.fromModule(
@@ -351,7 +326,8 @@ class Viewers extends Component {
         ') format("truetype");} @font-face {font-family: Bold; src: url(' +
         bold +
         ') format("truetype");}</style>';
-    return css;
+    return css;*/
+    return '';
   };
 
   _addHtmlWrapper = ({ customClass, data }) => {
@@ -428,94 +404,6 @@ class Viewers extends Component {
     return data;
   };
 
-  /* 
-    her bir node için impression All tetiklenecek
-  */
-
-  _getSegImpressionAll = (instanceId) => {
-    const obj = {
-      name: "INTERACTION",
-      type: "impression",
-      instanceId: instanceId,
-      interactionId: instanceId
-    };
-
-    Globals.seg({ data: obj });
-  }
-
-  /*
-
-  */
-  _getSegData = (data, instanceId) => {
-    //return data['video|THIS_WEEK|NONE'];
-    let arr = [];
-    Object.keys(data).map(key => {
-      const k = data[key] || [];
-      if (k.length > 0) {
-        Object.keys(k).map(m => {
-          const obj = k[m];
-          obj['instanceId'] = instanceId;
-          arr.push(obj);
-        });
-      }
-    });
-    return arr;
-  };
-
-  /* 
-   tüm nodelardaki datayı dönüp alacak
-  */
-  _getSegAllData = (responses) => {
-    let _self = this,
-      k = responses.length,
-      data = [];
-    for (var i = 0; i < k; ++i) {
-      const { params = {} } = responses[i],
-        { instanceId = '' } = params,
-        n = _self._getSegData(params["recommendedProducts"] || [], instanceId);
-
-      _self._getSegImpressionAll(instanceId);
-
-      data = data.concat(n);
-    }
-    return data;
-  }
-
-  /* segmentify özel */
-  _setSeg = res => {
-    const _self = this;
-    if (_self._isMounted) {
-      if (res["type"] == "success") {
-        let { responses = [] } = res.data,
-          data = _self._getSegAllData(responses[0] || []);
-
-        _self.applySegData(data);
-      } else {
-        _self.setState({ data: [], total: 0, loaded: true, noResult: true });
-
-        if (_self.props.noResult) _self.props.noResult();
-      }
-    }
-  };
-
-  applySegData = (data) => {
-    const _self = this;
-    if (data.length == 0)
-      _self.setState({ data: [], total: 0, loaded: true, noResult: true });
-    else
-      _self.setState({
-        data: data,
-        total: Object.keys(data).length || 0,
-        loaded: true
-      });
-
-    if (_self._callback) _self._callback({ type: DATA_LOADED, data: data });
-
-    /* sepet için gerekti */
-    if (_self.props.response)
-      _self.props.response({ type: DATA_LOADED, data: res.data });
-  }
-
   /* */
   _setRdx = (data) => {
     const _self = this,
@@ -549,60 +437,65 @@ class Viewers extends Component {
     const _self = this,
       { type = VIEWERTYPE["LIST"] } = _self.props.config;
 
-    Globals.AJX({ _self: _self, uri: uri, data: data }, function (res) {
-      const { keys, customClass = "", customFunc = "" } = _self.props.config,
-        keyArr = keys["arr"] || "",
-        keyTotal = keys["total"] || "",
-        k = res.data || {};
+    Utils.fetch(uri, JSON.stringify(data), (res) => {
+      if (_self._isMounted) {
 
-      let data = k[keyArr] || [];
+        const { keys, customClass = "", customFunc = "" } = _self.props.config,
+          keyArr = keys["arr"] || "",
+          keyTotal = keys["total"] || "",
+          k = res.data || {};
 
-      if (customFunc != "") data = _self._customFunc(data);
+        let data = k[keyArr] || [];
 
-      if (type == VIEWERTYPE["HTMLTOJSON"] && data.length > 0) {
-        data = data.replace(/(\r\n|\n|\r)/gm, " "); // htmlden gelen fazla boşlukları siliyoruz. Yoksa JSON.parse hata veriyor
-        data = JSON.parse(data)[keys["obj"]][keys["objArr"]] || [];
+        if (customFunc != "") data = _self._customFunc(data);
+
+        if (type == VIEWERTYPE["HTMLTOJSON"] && data.length > 0) {
+          data = data.replace(/(\r\n|\n|\r)/gm, " "); // htmlden gelen fazla boşlukları siliyoruz. Yoksa JSON.parse hata veriyor
+          data = JSON.parse(data)[keys["obj"]][keys["objArr"]] || [];
+        }
+
+        if (data.length == 0) {
+          _self.setState({ data: [], total: 0, loaded: true, noResult: true });
+
+          if (_self.props.noResult) _self.props.noResult();
+        } else if (
+          type == VIEWERTYPE["LIST"] ||
+          type == VIEWERTYPE["HTMLTOJSON"] ||
+          type == VIEWERTYPE["SCROLLVIEW"]
+        )
+          _self.setState({
+            data: data,
+            total: res.data[keyTotal] || data.length || 0,
+            loaded: true,
+            noResult: false
+          });
+        else if (type == VIEWERTYPE["WEBVIEW"])
+          _self.setState({
+            html: _self._addHtmlWrapper({ customClass: customClass, data: data }),
+            loaded: true,
+            noResult: false
+          });
+        else
+          _self.setState({
+            html: _self._clearTag(data),
+            loaded: true,
+            noResult: false
+          });
+
+        _self._callback({ type: DATA_LOADED, data: data });
+
+        /* sepet için gerekti */
+        if (_self.props.response)
+          _self.props.response({ type: DATA_LOADED, data: res.data });
+
+        /* callback */
+        if (typeof callback !== "undefined") callback();
+
+        /* */
+        _self._setRdx(data);
+
       }
 
-      if (data.length == 0) {
-        _self.setState({ data: [], total: 0, loaded: true, noResult: true });
-
-        if (_self.props.noResult) _self.props.noResult();
-      } else if (
-        type == VIEWERTYPE["LIST"] ||
-        type == VIEWERTYPE["HTMLTOJSON"] ||
-        type == VIEWERTYPE["SCROLLVIEW"]
-      )
-        _self.setState({
-          data: data,
-          total: res.data[keyTotal] || data.length || 0,
-          loaded: true,
-          noResult: false
-        });
-      else if (type == VIEWERTYPE["WEBVIEW"])
-        _self.setState({
-          html: _self._addHtmlWrapper({ customClass: customClass, data: data }),
-          loaded: true,
-          noResult: false
-        });
-      else
-        _self.setState({
-          html: _self._clearTag(data),
-          loaded: true,
-          noResult: false
-        });
-
-      _self._callback({ type: DATA_LOADED, data: data });
-
-      /* sepet için gerekti */
-      if (_self.props.response)
-        _self.props.response({ type: DATA_LOADED, data: res.data });
-
-      /* callback */
-      if (typeof callback !== "undefined") callback();
-
-      /* */
-      _self._setRdx(data);
     });
   };
 
@@ -984,25 +877,6 @@ class Viewers extends Component {
 
   _viewable = [];
 
-  _setSegView = item => {
-    const _self = this,
-      { productId = "" } = item,
-      { segmentify = {} } = _self.props,
-      data = {
-        name: "PRODUCT_VIEW",
-        productId: productId,
-        noUpdate: true
-      };
-    /*data = {
-            "name": "INTERACTION",
-            "type": "widget-view",
-            "instanceId": segmentify['instanceID'] || '',
-            "interactionId": productId
-        };*/
-
-    //Globals.seg({ data: data }, res => { });
-  };
-
   _onViewableItemChanged = ({ index, item }) => {
     const _self = this,
       { onViewableItemsChanged } = _self.props,
@@ -1011,9 +885,6 @@ class Viewers extends Component {
 
     if (!_self._viewable.includes(index) && loaded) {
       _self._viewable.push(index);
-
-      /* segmentify özel */
-      if (type == VIEWERTYPE["SEG"]) _self._setSegView(item);
 
       if (onViewableItemsChanged) onViewableItemsChanged(item);
     }
@@ -1025,22 +896,6 @@ class Viewers extends Component {
     viewableItems.map(item => {
       _self._onViewableItemChanged(item);
     });
-
-    /*
-            multiple item döndürür
-        const _self = this,
-            arr = [];
-        viewableItems.map((k) => {
-            const index = k['index'],
-                item = k['item']
-            if (!_self._viewable.includes(index)) {
-                _self._viewable.push(index);
-                arr.push(k);
-            }
-        });
-        if (arr.length > 0)
-            _self._setSegView(arr);
-        */
   };
 
   _getNoResultView = ({
@@ -1188,7 +1043,6 @@ class Viewers extends Component {
     let view = null;
     if (noResult) view = _self._noResultView();
     else if (
-      type == VIEWERTYPE["SEG"] ||
       type == VIEWERTYPE["LIST"] ||
       type == VIEWERTYPE["HTMLTOJSON"]
     )
@@ -1257,8 +1111,11 @@ class Viewers extends Component {
   }
 }
 
+/*
 function mapStateToProps(state) {
   return state;
 }
 const Viewer = connect(mapStateToProps)(Viewers);
 export { Viewer };
+*/
+export {Viewers};

@@ -5,12 +5,14 @@ yarn add react-native-masked-text react-native-datepicker react-native-reanimate
 ```
 # Kullanımı
 
+1. Öncelikle config dosyası hazırlanır.
+
 ```JS
+// login.js dosyası içeriği
+
 module.exports = {
 
-    //theme: 'LIGHT',
-
-    uri: Utils.getURL({ key: 'user', subKey: 'login' }),
+    uri: 'https://www.flormar.com.tr/webapi/v3/User/login',
 
     successMessage: '',
 
@@ -44,4 +46,11 @@ module.exports = {
 
 };
 
+```
+
+2. Hazırlanan config dosyası forma gönderilir.
+```JS
+render(){
+    return <Form data={require('./data/login.js')} />
+}
 ```

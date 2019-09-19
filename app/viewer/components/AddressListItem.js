@@ -241,6 +241,7 @@ class AddressList extends Component {
     }
 }
 
+
 function mapStateToProps(state) { return state }
 const AddressListItem = connect(mapStateToProps)(AddressList);
 export { AddressListItem };

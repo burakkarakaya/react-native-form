@@ -38,7 +38,7 @@ import {
 } from "./components";
 import { CountryPicker } from "../form/components";
 import { store } from "../store";
-//import { connect } from "react-redux";
+import { connect } from "react-redux";
 import Placeholder from "rn-placeholder";
 import HTML from "react-native-render-html";
 
@@ -77,7 +77,8 @@ class ContentPlaceHolder extends Component {
     const _self = this,
       { type } = _self.props;
 
-    let view = (
+    return null;
+      let view = (
       <View style={{ margin: 10, marginBottom: 20 }}>
         <Placeholder.ImageContent
           size={60}
@@ -1111,11 +1112,9 @@ class Viewers extends Component {
   }
 }
 
-/*
+
 function mapStateToProps(state) {
   return state;
 }
 const Viewer = connect(mapStateToProps)(Viewers);
 export { Viewer };
-*/
-export {Viewers};

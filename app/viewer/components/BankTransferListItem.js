@@ -7,7 +7,7 @@ import {
 import {
     SET_BANK_TRANSFER,
 } from '../helper/Constant';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { BoxButton } from '../UI';
 import HTML from 'react-native-render-html';
 
@@ -92,9 +92,6 @@ class BankTransferList extends Component {
     }
 }
 
-/*
 function mapStateToProps(state) { return state }
 const BankTransferListItem = connect(mapStateToProps)(BankTransferList);
 export { BankTransferListItem };
-*/
-export {BankTransferList};

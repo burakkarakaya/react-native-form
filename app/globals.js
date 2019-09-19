@@ -680,7 +680,7 @@ module.exports = {
       headers: HEADERS,
       body: data
     })
-      .then(response => {
+      .then(response => { 
         // login olduktan sonra kişinin session bilgisi headerdan dönüyor. Bu bilgiyi global session bilgisine yazdırmak
         const header = response.headers || {},
           map = header.map || {},

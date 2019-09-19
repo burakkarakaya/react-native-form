@@ -22,25 +22,6 @@ global.Utils = require('./app/globals.js');
 // import config
 const config = require('./app/config.js');
 
-/*
-const data = {
-  "title": "KİŞİSEL VERİLERİN KORUNMASI",
-  "type": "webViewer",
-  "uri": {
-      "key": "content",
-      "subKey": "getContent"
-  },
-  "keys": {
-      "arr": "html"
-  },
-  "data": {
-      "contentId": 22049
-  },
-  "siteURI": "/kvk/"
-};
-
-<Viewer flexible={false} wrapperStyle={{flex:1}} scrollEnabled={false} config={data} refreshing={false} />*/
-
 
 class Root extends PureComponent {
   constructor(props) {

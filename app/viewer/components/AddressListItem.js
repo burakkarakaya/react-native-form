@@ -118,7 +118,7 @@ class AddressList extends Component {
         const _self = this,
             { data = {} } = _self.props,
             { addressId } = data,
-            { optin = {} } = _self.props.cart,
+            { optin = {} } = _self.props.cart || {},
             { shipAddressId, differentAddress } = optin;
         let { selectShipAddress, selectedShipAddress, select, selected } = Translation['address'] || {};
 
@@ -161,7 +161,7 @@ class AddressList extends Component {
         const _self = this,
             { data = {} } = _self.props,
             { addressId } = data,
-            { optin = {} } = _self.props.cart,
+            { optin = {} } = _self.props.cart || {},
             { billAddressId, differentAddress } = optin,
             { selectBillAddress, selectedBillAddress } = Translation['address'] || {};
 

@@ -7,20 +7,27 @@ import {
     Platform,
     Linking,
 } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
-import { MinimalHeader } from 'root/app/components/';
-import { StoreList } from 'root/app/viewer/';
-import { DefaultButton, IconButton } from 'root/app/UI';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { 
+    MinimalHeader 
+} from '../components/';
+import { 
+    StoreList 
+} from './components';
+import { 
+    DefaultButton, 
+    IconButton 
+} from './UI';
 import {
     ICONS,
     SET_LOCATION,
     NAVIGATE,
-    ASSISTANT_SHOW
-} from 'root/app/helper/Constant';
-import { store } from 'root/app/store';
-import { MapView } from 'expo';
+} from './helper/Constant';
+import { store } from '../store';
+import MapView from 'react-native-maps';
+
 const { Marker } = MapView;
-const Utils = require('root/app/helper/Global.js');
 
 const ZOOM_LEVEL = Platform.OS == 'android' ? 16 : 12;
 
@@ -273,6 +280,7 @@ class Detail extends React.Component {
 
     render() {
         const _self = this;
+      
         return (
             <View style={{ position: 'relative', flex: 1 }}>
                 {_self._addressDetail()}
@@ -294,6 +302,7 @@ _getLocationAsync = async (success, error) => {
     let location = await Location.getCurrentPositionAsync({});
     success(location);
 };
+
 export default class StoreNavigator extends Component {
     constructor(props) {
         super(props);
@@ -312,11 +321,9 @@ export default class StoreNavigator extends Component {
     }
 
     componentDidMount() {
-        store.dispatch({ type: ASSISTANT_SHOW, value: false });
     }
 
     componentWillUnmount() {
-        store.dispatch({ type: ASSISTANT_SHOW, value: true });
     }
 
     _getHeader = ({ props, root = false, ref = '' }) => {
@@ -409,6 +416,9 @@ export default class StoreNavigator extends Component {
     )
 
     render() {
-        return <this._StoreNavigator />
+        const _self = this,
+            StoreNavigator = createAppContainer(_self._StoreNavigator);
+
+        return <StoreNavigator />;
     }
 }

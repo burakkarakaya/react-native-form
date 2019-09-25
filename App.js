@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Form } from './app/form';
 import { Viewer } from './app/viewer';
+import Stores from './app/stores';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -64,7 +65,8 @@ class Root extends PureComponent {
   render() {
     const _self = this,
       buttonForm = _self._buttonRender({ type: 'form' }),
-      buttonViewer = _self._buttonRender({ type: 'viewer' });
+      buttonViewer = _self._buttonRender({ type: 'viewer' }),
+      buttonMap = _self._button('stores', 'stores');
 
     return (
       <ScrollView
@@ -76,6 +78,8 @@ class Root extends PureComponent {
           {buttonForm}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>VIWER</Text>
           {buttonViewer}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>HARİTA</Text>
+          {buttonMap}
         </SafeAreaView>
       </ScrollView>
     );
@@ -98,6 +102,9 @@ class Detail extends PureComponent {
       case 'viewer':
         return <Viewer config={config['viewer'][active]} refreshing={false} />;
 
+      case 'stores':
+        return <Stores />;
+
       default:
         return null;
     }
@@ -111,6 +118,7 @@ class Detail extends PureComponent {
       <ScrollView
         keyboardShouldPersistTaps='handled'
         style={{ flex: 1 }}
+        contentContainerStyle={{flex: 1}}
       >
         <SafeAreaView style={{ flex: 1 }}>
           {view}

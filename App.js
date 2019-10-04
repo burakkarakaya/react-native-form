@@ -66,7 +66,8 @@ class Root extends PureComponent {
     const _self = this,
       buttonForm = _self._buttonRender({ type: 'form' }),
       buttonViewer = _self._buttonRender({ type: 'viewer' }),
-      buttonMap = _self._button('stores', 'stores');
+      buttonMap = _self._button('stores', 'stores'),
+      buttonContent = _self._buttonRender({ type: 'content' });
 
     return (
       <ScrollView
@@ -80,6 +81,8 @@ class Root extends PureComponent {
           {buttonViewer}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>HARİTA</Text>
           {buttonMap}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>İÇERİK</Text>
+          {buttonContent}
         </SafeAreaView>
       </ScrollView>
     );
@@ -102,6 +105,9 @@ class Detail extends PureComponent {
       case 'viewer':
         return <Viewer config={config['viewer'][active]} refreshing={false} />;
 
+      case 'content':
+        return <Viewer config={config['content'][active]} refreshing={false} />;
+
       case 'stores':
         return <Stores />;
 
@@ -118,7 +124,7 @@ class Detail extends PureComponent {
       <ScrollView
         keyboardShouldPersistTaps='handled'
         style={{ flex: 1 }}
-        contentContainerStyle={{flex: 1}}
+        contentContainerStyle={{ flex: 1 }}
       >
         <SafeAreaView style={{ flex: 1 }}>
           {view}

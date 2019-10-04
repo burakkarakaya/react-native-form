@@ -23,6 +23,7 @@ export const VIEWERTYPE = {
   HTML: "htmlViewer",
   HTMLTOJSON: "htmlToJSON",
   WEBVIEW: "webViewer",
+  WEBSITEVIEW: "websiteViewer", 
   FORM: "form"
 };
 

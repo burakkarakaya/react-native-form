@@ -78,7 +78,7 @@ class ContentPlaceHolder extends Component {
       { type } = _self.props;
 
     return null;
-      let view = (
+    let view = (
       <View style={{ margin: 10, marginBottom: 20 }}>
         <Placeholder.ImageContent
           size={60}
@@ -267,7 +267,10 @@ class Viewers extends Component {
 
     if (navigation && focusedRefresh == 'false') _self._Listener.remove();
 
-    _self.setAjx({ uri: _self.getUri(), data: _self._getData() });
+
+
+    if (type != VIEWERTYPE["WEBSITEVIEW"])
+      _self.setAjx({ uri: _self.getUri(), data: _self._getData() });
   };
 
   componentDidMount() {
@@ -439,6 +442,7 @@ class Viewers extends Component {
       { type = VIEWERTYPE["LIST"] } = _self.props.config;
 
     Utils.fetch(uri, JSON.stringify(data), (res) => {
+      console.log(res)
       if (_self._isMounted) {
 
         const { keys, customClass = "", customFunc = "" } = _self.props.config,
@@ -1037,7 +1041,8 @@ class Viewers extends Component {
       {
         type = VIEWERTYPE["LIST"],
         horizontal = false,
-        showsHorizontalScrollIndicator = true
+        showsHorizontalScrollIndicator = true,
+        siteURI = ''
       } = _self.props.config,
       { noResult = false, loaded = false } = _self.state;
 
@@ -1091,7 +1096,14 @@ class Viewers extends Component {
             {_self._getItem()}
           </ScrollView>
         );
-    }
+    } else if (type == VIEWERTYPE["WEBSITEVIEW"])
+      view = (
+        <WebView
+          scalesPageToFit={false}
+          automaticallyAdjustContentInsets={false}
+          source={{ uri: Utils.getWebsiteURL(siteURI) }}
+        />
+      );
 
     return view;
   };

@@ -5,10 +5,10 @@ import {
 
 module.exports = {
   exponentPushToken: '',
-  API_KEY: '1b9b737f-5582-c8d7-f535-b9750bdeeb90',
+  API_KEY: '4c845d16-b197-77ab-c123-79325d549176',
   mapApiKey: 'AIzaSyDktunNtvwuVvGEA6LSVfQoiRsptLStTgc',
-  prefix: 'https://www.flormar.com.tr',
-  imagePrefix: 'flormar.com.tr',
+  prefix: 'https://www.cosmetica.com.tr',
+  imagePrefix: 'cosmetica.com.tr',
   CLIENT: {
     Auth: {}
     // Here we store all session data.
@@ -124,6 +124,27 @@ module.exports = {
   getURL: function ({ key = '', subKey = '' }) {
     const _t = this;
     return _t.prefix + (_t.URLs[key][subKey] || '');
+  },
+  getWebsiteURL: function (k) {
+    k = k || '';
+    const _t = this;
+    /*  
+      canlı sitede url de mobiapp=true görünce css ile header, footer gizliyoruz. 
+      bunu webview içerisinde göstermek için gelen url mobiapp=true ekliyor.
+
+      ex url: /siparis/
+      result url: https://www.cosmetica.com.tr/siparis/?mobiapp=true
+    */
+    if (k.indexOf(_t.imagePrefix) == -1)
+      k = _t.prefix + k;
+
+    if (k.indexOf('mobiapp=true') == -1) {
+      if (k.indexOf('?') != -1)
+        k = k + '&mobiapp=true';
+      else
+        k = k + '?mobiapp=true';
+    }
+    return k;
   },
   regex: {
     typ1: /[^a-zA-ZıiIğüşöçİĞÜŞÖÇ\s]+/g, /* sadece harf */
@@ -680,7 +701,7 @@ module.exports = {
       headers: HEADERS,
       body: data
     })
-      .then(response => { 
+      .then(response => {
         // login olduktan sonra kişinin session bilgisi headerdan dönüyor. Bu bilgiyi global session bilgisine yazdırmak
         const header = response.headers || {},
           map = header.map || {},

@@ -169,5 +169,87 @@ module.exports = {
                 "services": true
             }
         }
+    },
+    content: {
+        hakkimizda: {
+            "title": "HAKKIMIZDA",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 26099
+            },
+            "siteURI": "/hakkimizda/"
+        },
+        siparisSozlesmesi: {
+            "title": "SİPARİŞ SÖZLEŞMESİ",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 26100
+            },
+            "siteURI": "/siparis-sozlesmesi/"
+        },
+        kolayIade: {
+            "title": "KOLAY İADE",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 26102
+            },
+            "siteURI": "/kolay-iade/"
+        },
+        sss: {
+            "title": "SIKÇA SORULAN SORULAR",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 26123
+            },
+            "siteURI": "/sss/"
+        },
+        siparisIptal: {
+            "title": "Siparişimi iptal etmek istiyorum, ne yapabilirim?",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 26130
+            },
+            "siteURI": "/siparis-iptal/"
+        },
+        siparisSorgula: {
+            "title": "Sipariş Sorgula",
+            "type": "websiteViewer",            
+            "siteURI": "/siparis/"
+        },
     }
 };

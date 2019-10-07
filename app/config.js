@@ -171,7 +171,7 @@ module.exports = {
         }
     },
     content: {
-        hakkimizda: {
+        'HAKKIMIZDA': {
             "title": "HAKKIMIZDA",
             "type": "webViewer",
             "uri": {
@@ -186,7 +186,7 @@ module.exports = {
             },
             "siteURI": "/hakkimizda/"
         },
-        siparisSozlesmesi: {
+        'SİPARİŞ SÖZLEŞMESİ': {
             "title": "SİPARİŞ SÖZLEŞMESİ",
             "type": "webViewer",
             "uri": {
@@ -201,7 +201,7 @@ module.exports = {
             },
             "siteURI": "/siparis-sozlesmesi/"
         },
-        kolayIade: {
+        'KOLAY İADE': {
             "title": "KOLAY İADE",
             "type": "webViewer",
             "uri": {
@@ -216,7 +216,7 @@ module.exports = {
             },
             "siteURI": "/kolay-iade/"
         },
-        sss: {
+        'SIKÇA SORULAN SORULAR': {
             "title": "SIKÇA SORULAN SORULAR",
             "type": "webViewer",
             "uri": {
@@ -231,7 +231,7 @@ module.exports = {
             },
             "siteURI": "/sss/"
         },
-        siparisIptal: {
+        'Sipariş İptal': {
             "title": "Siparişimi iptal etmek istiyorum, ne yapabilirim?",
             "type": "webViewer",
             "uri": {
@@ -246,10 +246,70 @@ module.exports = {
             },
             "siteURI": "/siparis-iptal/"
         },
-        siparisSorgula: {
+        'Sipariş Sorgulama': {
             "title": "Sipariş Sorgula",
             "type": "websiteViewer",            
             "siteURI": "/siparis/"
+        },
+        'Değişim': {
+            "title": "İptal / İade / Değişim",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 25839
+            },
+            "siteURI": "/iptal-iade-degisim/"
+        },
+        'Ödeme Seçenekleri': {
+            "title": "Ödeme Seçenekleri",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 25840
+            },
+            "siteURI": "/odeme-secenekleri/"
+        },
+        'Teslimat': {
+            "title": "Teslimat",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 25841
+            },
+            "siteURI": "/teslimat/"
+        },
+        'Kişisel Verileri Koruma Kanunu': {
+            "title": "Kişisel Verileri Koruma Kanunu",
+            "type": "webViewer",
+            "uri": {
+                "key": "content",
+                "subKey": "getContent"
+            },
+            "keys": {
+                "arr": "html"
+            },
+            "data": {
+                "contentId": 25844
+            },
+            "siteURI": "/kisisel-verilerin-korunmasi/"
         },
     }
 };

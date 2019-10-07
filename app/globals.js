@@ -20,91 +20,91 @@ module.exports = {
       main: '/upload/APP/styles/mobiApp.css'
     },
     banner: {
-      getBannerList: '/webapi/v3/Banner/getBannerList'
+      getBannerList: '/api/v3/Banner/getBannerList'
     },
     product: {
-      getCategoryList: '/webapi/v3/Product/getCategoryList',
-      getSearchSuggestionList: '/webapi/v3/Product/getSearchSuggestionList',
-      getProductList: '/webapi/v3/Product/getProductList',
-      getProductDetail: '/webapi/v3/Product/getProductDetail',
+      getCategoryList: '/api/v3/Product/getCategoryList',
+      getSearchSuggestionList: '/api/v3/Product/getSearchSuggestionList',
+      getProductList: '/api/v3/Product/getProductList',
+      getProductDetail: '/api/v3/Product/getProductDetail',
       getProductVideos: '/mobile-app-product-video-export.html',
-      getProductIdByBarcode: '/webapi/v3/Product/getProductIdByBarcode'
+      getProductIdByBarcode: '/api/v3/Product/getProductIdByBarcode'
     },
     user: {
-      addFavoriteProduct: '/webapi/v3/User/addFavoriteProduct',
-      deleteFavoriteProduct: '/webapi/v3/User/deleteFavoriteProduct',
-      getToken: '/webapi/v3/User/getToken',
-      getUser: '/webapi/v3/User/getUser',
-      setUser: '/webapi/v3/User/setUser',
-      createUser: '/webapi/v3/User/createUser',
-      login: '/webapi/v3/User/login',
-      logout: '/webapi/v3/User/logout',
-      recoverPassword: '/webapi/v3/User/recoverPassword',
-      changePassword: '/webapi/v3/User/changePassword',
-      getFavoriteProductList: '/webapi/v3/User/getFavoriteProductList',
-      deleteFavoriteProduct: '/webapi/v3/User/deleteFavoriteProduct',
-      getAgreement: '/webapi/v3/User/getAgreement',
-      getStockFollowUpList: '/webapi/v3/User/getStockFollowUpList', // takip listem - Stoğa Girenler
-      getPriceFollowUpList: '/webapi/v3/User/getPriceFollowUpList', // takip listem - fiyatı düşenler
-      checkGuestMail: '/webapi/v3/User/checkGuestMail',
-      CheckUserPhoneNumber: '/webapi/v3/User/CheckUserPhoneNumber',
-      deleteStockFollowUpProduct: '/webapi/v3/User/deleteStockFollowUpProduct',
-      deletePriceFollowUpProduct: '/webapi/v3/User/deletePriceFollowUpProduct',
-      addStockFollowUpProduct: '/webapi/v3/User/addStockFollowUpProduct',
-      addPriceFollowUpProduct: '/webapi/v3/User/addPriceFollowUpProduct'
+      addFavoriteProduct: '/api/v3/User/addFavoriteProduct',
+      deleteFavoriteProduct: '/api/v3/User/deleteFavoriteProduct',
+      getToken: '/api/v3/User/getToken',
+      getUser: '/api/v3/User/getUser',
+      setUser: '/api/v3/User/setUser',
+      createUser: '/api/v3/User/createUser',
+      login: '/api/v3/User/login',
+      logout: '/api/v3/User/logout',
+      recoverPassword: '/api/v3/User/recoverPassword',
+      changePassword: '/api/v3/User/changePassword',
+      getFavoriteProductList: '/api/v3/User/getFavoriteProductList',
+      deleteFavoriteProduct: '/api/v3/User/deleteFavoriteProduct',
+      getAgreement: '/api/v3/User/getAgreement',
+      getStockFollowUpList: '/api/v3/User/getStockFollowUpList', // takip listem - Stoğa Girenler
+      getPriceFollowUpList: '/api/v3/User/getPriceFollowUpList', // takip listem - fiyatı düşenler
+      checkGuestMail: '/api/v3/User/checkGuestMail',
+      CheckUserPhoneNumber: '/api/v3/User/CheckUserPhoneNumber',
+      deleteStockFollowUpProduct: '/api/v3/User/deleteStockFollowUpProduct',
+      deletePriceFollowUpProduct: '/api/v3/User/deletePriceFollowUpProduct',
+      addStockFollowUpProduct: '/api/v3/User/addStockFollowUpProduct',
+      addPriceFollowUpProduct: '/api/v3/User/addPriceFollowUpProduct'
     },
     address: {
-      country: '/webapi/v3/Address/getCountry',
-      city: '/webapi/v3/Address/getCity',
-      district: '/webapi/v3/Address/getDistrict',
-      createAddress: '/webapi/v3/Address/createAddress',
-      getAddress: '/webapi/v3/Address/getAddress',
-      setAddress: '/webapi/v3/Address/setAddress',
-      deleteAddress: '/webapi/v3/Address/deleteAddress',
+      country: '/api/v3/Address/getCountry',
+      city: '/api/v3/Address/getCity',
+      district: '/api/v3/Address/getDistrict',
+      createAddress: '/api/v3/Address/createAddress',
+      getAddress: '/api/v3/Address/getAddress',
+      setAddress: '/api/v3/Address/setAddress',
+      deleteAddress: '/api/v3/Address/deleteAddress',
     },
     order: {
-      getOrder: '/webapi/v3/Order/getOrder', // siparişlerim
-      getOrderDetail: '/webapi/v3/Order/getOrderDetail', // sipariş detay
-      repeatOrder: '/webapi/v3/Order/repeatOrder', // sipariş tekrarla
-      getCancelationReasonList: '/webapi/v3/Order/getCancelationReasonList',
-      cancelOrder: '/webapi/v3/Order/cancelOrder'
+      getOrder: '/api/v3/Order/getOrder', // siparişlerim
+      getOrderDetail: '/api/v3/Order/getOrderDetail', // sipariş detay
+      repeatOrder: '/api/v3/Order/repeatOrder', // sipariş tekrarla
+      getCancelationReasonList: '/api/v3/Order/getCancelationReasonList',
+      cancelOrder: '/api/v3/Order/cancelOrder'
     },
     integrator: {
       /*
           Implementation Notes
           StatusId : 1(New), 2(Approved), 3(Cancel), 4(Used) - Type : 1(Gift Cart), 2(Discount Coupon)
       */
-      getCouponDetail: '/webapi/v3/Integrator/getCouponDetail' // kuponlarım
+      getCouponDetail: '/api/v3/Integrator/getCouponDetail' // kuponlarım
     },
     service: {
-      getServiceList: '/webapi/v3/Service/getServiceList', // servis listesi
-      getServiceTypeList: '/webapi/v3/Service/getServiceTypeList',
+      getServiceList: '/api/v3/Service/getServiceList', // servis listesi
+      getServiceTypeList: '/api/v3/Service/getServiceTypeList',
     },
     export: {
-      getExport: '/webapi/v3/Export/getExport',
+      getExport: '/api/v3/Export/getExport',
     },
     content: {
-      getContent: '/webapi/v3/Content/getContent',
-      getDataByUrl: '/webapi/v3/Content/getDataByUrl',
+      getContent: '/api/v3/Content/getContent',
+      getDataByUrl: '/api/v3/Content/getDataByUrl',
     },
     cart: {
-      checkCreditCard: '/webapi/v3/Cart/checkCreditCard',
-      validateCart: '/webapi/v3/Cart/validateCart',
-      getCart: '/webapi/v3/Cart/getCart',
-      setCart: '/webapi/v3/Cart/setCart',
-      addCartLine: '/webapi/v3/Cart/addCartLine',
-      updateCartLine: '/webapi/v3/Cart/updateCartLine',
-      deleteCartLine: '/webapi/v3/Cart/deleteCartLine',
-      useCoupon: '/webapi/v3/Cart/useCoupon',
-      deleteCoupon: '/webapi/v3/Cart/deleteCoupon',
-      getCargo: '/webapi/v3/Cart/getCargo',
-      getPayment: '/webapi/v3/Cart/getPayment',
-      getAgreement: '/webapi/v3/Cart/getAgreement',
-      getInstallment: '/webapi/v3/Cart/getInstallment',
-      getBankTransfer: '/webapi/v3/Cart/getBankTransfer',
-      getPos3DParameter: '/webapi/v3/Cart/getPos3DParameter',
-      checkBankPoint: '/webapi/v3/Cart/checkBankPoint',
-      setCartOrder: '/webapi/v3/Cart/setCartOrder'
+      checkCreditCard: '/api/v3/Cart/checkCreditCard',
+      validateCart: '/api/v3/Cart/validateCart',
+      getCart: '/api/v3/Cart/getCart',
+      setCart: '/api/v3/Cart/setCart',
+      addCartLine: '/api/v3/Cart/addCartLine',
+      updateCartLine: '/api/v3/Cart/updateCartLine',
+      deleteCartLine: '/api/v3/Cart/deleteCartLine',
+      useCoupon: '/api/v3/Cart/useCoupon',
+      deleteCoupon: '/api/v3/Cart/deleteCoupon',
+      getCargo: '/api/v3/Cart/getCargo',
+      getPayment: '/api/v3/Cart/getPayment',
+      getAgreement: '/api/v3/Cart/getAgreement',
+      getInstallment: '/api/v3/Cart/getInstallment',
+      getBankTransfer: '/api/v3/Cart/getBankTransfer',
+      getPos3DParameter: '/api/v3/Cart/getPos3DParameter',
+      checkBankPoint: '/api/v3/Cart/checkBankPoint',
+      setCartOrder: '/api/v3/Cart/setCartOrder'
     },
   },
   customURLs: {

@@ -1075,7 +1075,9 @@ class Viewers extends Component {
       else if (type == VIEWERTYPE["HTML"])
         view = (
           <ScrollView style={{ ...flex }}>
-            <HTML {...HTML_DEFAULT_PROPS} html={_self.state.html} />
+            <View style={{ flex: 1 }}>
+              <HTML {...HTML_DEFAULT_PROPS} html={_self.state.html} />
+            </View>
           </ScrollView>
         );
       else if (type == VIEWERTYPE["WEBVIEW"])

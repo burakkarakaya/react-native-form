@@ -1,17 +1,17 @@
 module.exports = {
     // tanımlı formlar
     form: {
-        changePassword: require('../data/changePassword.js'),
-        createAddress: require('../data/createAddress.js'),
-        createUser: require('../data/createUser.js'),
-        creditCart: require('../data/creditCart.js'),
-        deleteCoupon: require('../data/deleteCoupon.js'),
-        login: require('../data/login.js'),
-        recoverPassword: require('../data/recoverPassword.js'),
-        review_submission: require('../data/review_submission.js'),
-        setAddress: require('../data/setAddress.js'),
-        setUser: require('../data/setUser.js'),
-        useCoupon: require('../data/useCoupon.js'),
+        changePassword: require('../data/form/changePassword.js'),
+        createAddress: require('../data/form/createAddress.js'),
+        createUser: require('../data/form/createUser.js'),
+        creditCart: require('../data/form/creditCart.js'),
+        deleteCoupon: require('../data/form/deleteCoupon.js'),
+        login: require('../data/form/login.js'),
+        recoverPassword: require('../data/form/recoverPassword.js'),
+        review_submission: require('../data/form/review_submission.js'),
+        setAddress: require('../data/form/setAddress.js'),
+        setUser: require('../data/form/setUser.js'),
+        useCoupon: require('../data/form/useCoupon.js'),
     },
     viewer: {
         favorite: {

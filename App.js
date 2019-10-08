@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Form } from './app/form';
 import { Viewer } from './app/viewer';
+import { MainMenu } from './app/views';
 import Stores from './app/stores';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -67,7 +68,8 @@ class Root extends PureComponent {
       buttonForm = _self._buttonRender({ type: 'form' }),
       buttonViewer = _self._buttonRender({ type: 'viewer' }),
       buttonMap = _self._button('stores', 'stores'),
-      buttonContent = _self._buttonRender({ type: 'content' });
+      buttonContent = _self._buttonRender({ type: 'content' }),
+      mainMenu = _self._button('menu', 'menu');
 
     return (
       <ScrollView
@@ -83,6 +85,8 @@ class Root extends PureComponent {
           {buttonMap}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>İÇERİK</Text>
           {buttonContent}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>ANA MENU</Text>
+          {mainMenu}
         </SafeAreaView>
       </ScrollView>
     );
@@ -94,13 +98,25 @@ class Detail extends PureComponent {
     super(props);
   }
 
+  _getContainer = (children) => {
+    return (
+      <ScrollView
+        keyboardShouldPersistTaps='handled'
+        style={{ flex: 1 }}
+        contentContainerStyle={{ flex: 1 }}
+      >
+        {children}
+      </ScrollView>
+    )
+  }
+
   _getView = () => {
     const _self = this,
       { active = '', type = '' } = _self.props.navigation.state.params || {};
 
     switch (type) {
       case 'form':
-        return <Form data={config['form'][active]} callback={_self._callback} />;
+        return _self._getContainer( <Form data={config['form'][active]} callback={_self._callback} /> );
 
       case 'viewer':
         return <Viewer config={config['viewer'][active]} refreshing={false} />;
@@ -110,6 +126,9 @@ class Detail extends PureComponent {
 
       case 'stores':
         return <Stores />;
+
+      case 'menu':
+        return <MainMenu />;
 
       default:
         return null;
@@ -121,16 +140,9 @@ class Detail extends PureComponent {
       view = _self._getView();
 
     return (
-      <ScrollView
-        keyboardShouldPersistTaps='handled'
-        style={{ flex: 1 }}
-        contentContainerStyle={{ flex: 1 }}
-      >
         <SafeAreaView style={{ flex: 1 }}>
           {view}
         </SafeAreaView>
-      </ScrollView>
-
     );
   }
 }

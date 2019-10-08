@@ -1,0 +1,1461 @@
+[
+    {
+        "catId": 21885,
+        "catName": "Aksesuar",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 21886,
+                "catName": "Saç Aksesuarı",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21887,
+                        "catName": "Saç Toka",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21888,
+                        "catName": "Taç",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21901,
+                "catName": "Çanta",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21903,
+                        "catName": "Cüzdan",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21902,
+                        "catName": "Sırt Çanta",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21904,
+                "catName": "Hediyelik",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21905,
+                        "catName": "Hediyelik",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21906,
+                "catName": "Kişisel Aksesuar",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21907,
+                        "catName": "Anahtarlık",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21908,
+                        "catName": "Yelpaze",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 21914,
+        "catName": "Makyaj",
+        "imageUrl": "/UPLOAD/APP/assets/menu/makyaj.png",
+        "childs": [
+            {
+                "catId": 21915,
+                "catName": "Göz",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21916,
+                        "catName": "Maskara",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21917,
+                        "catName": "Far",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21918,
+                        "catName": "Kapatıcı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21919,
+                        "catName": "Göz Kalemi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21920,
+                        "catName": "Göz Aydınlatıcılar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21921,
+                        "catName": "Eyeliner",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21922,
+                        "catName": "Dipliner",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21923,
+                        "catName": "Kaş Kalemi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21924,
+                        "catName": "Kaş Farı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21925,
+                        "catName": "Kaş Kiti",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21926,
+                        "catName": "Kaş Maskarası",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21927,
+                        "catName": "Kirpik Yapıştırıcı - Çıkartıcı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21928,
+                        "catName": "Takma Kirpikler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21929,
+                        "catName": "Kirpik Kıvırıcılar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21930,
+                "catName": "Yüz",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21931,
+                        "catName": "Allık",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21932,
+                        "catName": "Fondöten",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21933,
+                        "catName": "Pudra",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21934,
+                        "catName": "Bb Kremler - Cc Kremler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21935,
+                        "catName": "Highlighter",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21936,
+                        "catName": "Makyaj Bazı",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21937,
+                "catName": "Dudak",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21938,
+                        "catName": "Ruj",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21939,
+                        "catName": "Lip Gloss",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21940,
+                        "catName": "Dudak Kalemi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21941,
+                        "catName": "Dudak Koruyucular",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21942,
+                "catName": "Tırnak",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21943,
+                        "catName": "Oje",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21944,
+                        "catName": "Tırnak Bakım",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21946,
+                        "catName": "Aseton",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21947,
+                        "catName": "Tırnak Makasları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21948,
+                        "catName": "Makaslar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21949,
+                        "catName": "Et - Tırnak Pensleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21950,
+                        "catName": "Tırnak Törpüleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21951,
+                        "catName": "Manikür Set",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21953,
+                        "catName": "Takma Tırnaklar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21954,
+                        "catName": "Tırnak Yapıştırıcı - Çıkartıcı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21945,
+                        "catName": "Tırnak Kalemi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21952,
+                        "catName": "Tırnak Stickerları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21955,
+                "catName": "Makyaj Sonrası Ürünler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21956,
+                        "catName": "Makyaj Sabitleyiciler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21957,
+                "catName": "Makyaj Aksesuarlar",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21958,
+                        "catName": "Yüz Temizleme Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21959,
+                        "catName": "Fondöten Fırçası",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21960,
+                        "catName": "Concealer Fırçası",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21962,
+                        "catName": "Allık Fırçası",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21963,
+                        "catName": "Far Fırçası",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21964,
+                        "catName": "Pudra Ponponu",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21965,
+                        "catName": "Fondöten Süngerleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21966,
+                        "catName": "Yüz Temizleme Süngerleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21967,
+                        "catName": "Aynalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21968,
+                        "catName": "Makyaj Çantaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21969,
+                        "catName": "Cımbız",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21970,
+                        "catName": "Kalemtıraşlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22472,
+                        "catName": "Makyaj Organizer",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22509,
+                        "catName": "Makyaj Fırça Setleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21961,
+                        "catName": "Liner Fırça",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 21909,
+        "catName": "Diğer",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 21910,
+                "catName": "Kargo Bedeli",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21911,
+                        "catName": "Kargo Bedeli",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21912,
+                "catName": "Satışı Olmayan",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21913,
+                        "catName": "Satışı Olmayan",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 21971,
+        "catName": "Cilt",
+        "imageUrl": "/UPLOAD/APP/assets/menu/ciltBakim.png",
+        "childs": [
+            {
+                "catId": 21972,
+                "catName": "Temizleyiciler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21973,
+                        "catName": "Yüz Temizleyiciler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21974,
+                        "catName": "Makyaj Temizleyiciler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21975,
+                        "catName": "Temizleyici Burun Bantları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21976,
+                "catName": "Nemlendiriciler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21977,
+                        "catName": "Gündüz Nemlendiriciler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21978,
+                        "catName": "Gece Nemlendiriciler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21979,
+                        "catName": "Göz Çevresi Nemlendirciler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21980,
+                        "catName": "Bb Kremler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22460,
+                        "catName": "Nemlendirici Cilt Bakım Yağları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21981,
+                        "catName": "Cc Kremler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21982,
+                "catName": "Yaşlanma Karşıtı Ürünler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21983,
+                        "catName": "Yaşlanma Karşıtı Gündüz Kremler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21984,
+                        "catName": "Yaşlanma Karşıtı Gece Kremleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21985,
+                        "catName": "Yaşlanma Karşıtı Göz Kremleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21986,
+                        "catName": "Yaşlanma Karşıtı Serumlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21987,
+                        "catName": "Yaşlanma Karşıtı Bb Kremler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21988,
+                "catName": "Maskeler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21989,
+                        "catName": "Maske",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 21990,
+        "catName": "Saç Bakım",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 21991,
+                "catName": "Saç Şekillendirici",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21992,
+                        "catName": "Saç Sprey",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21993,
+                        "catName": "Saç Köpük",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21994,
+                        "catName": "Saç Jöle",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21995,
+                        "catName": "Saç Wax - Biryantin",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21996,
+                        "catName": "7/24 Şekillendiriciler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 21997,
+                "catName": "Saç Şampuanı",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 21998,
+                        "catName": "Normal Saç Şampuanı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 21999,
+                        "catName": "Özel Saç Şampuanı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22503,
+                        "catName": "Kuru Saç Şampuanı",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22000,
+                "catName": "Saç Boyaları",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22001,
+                        "catName": "Tüp Boyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22002,
+                        "catName": "Naturel Boyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22003,
+                        "catName": "Kit Boyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22004,
+                        "catName": "Köpük Boyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22005,
+                        "catName": "Peroksitler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22006,
+                        "catName": "Saç Renk Açıcılar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22007,
+                        "catName": "Beyaz Kapatıcı Spreyler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22008,
+                        "catName": "Geçici Saç Boyaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22010,
+                        "catName": "Beyaz Saç Kapatıcı Stick",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22011,
+                        "catName": "Erkek Saç Boyaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22012,
+                        "catName": "Beyaz Kapatıcı Saç Kremi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22009,
+                        "catName": "Beyaz Saç Kapatıcı Maskara",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22013,
+                        "catName": "Saç Dolgusu",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22014,
+                "catName": "Saç Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22015,
+                        "catName": "Saç Kremleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22016,
+                        "catName": "Sıvı Saç Kremleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22017,
+                        "catName": "Saç Maskeleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22018,
+                        "catName": "Saç Onarıcılar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22019,
+                        "catName": "Diğer Saç Bakım Ürünleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22154,
+                        "catName": "Saç Bakım Yağları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22020,
+                "catName": "Saç Araç Gereçleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22021,
+                        "catName": "Eldivenler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22022,
+                        "catName": "Saç Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22023,
+                        "catName": "Saç Tarakları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22024,
+                        "catName": "Bigudiler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22025,
+                        "catName": "Saç Boyama Malzemeleri",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22026,
+        "catName": "Kişisel Bakım",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22027,
+                "catName": "El Ve Vücut Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22028,
+                        "catName": "Tüp Krem",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22029,
+                        "catName": "Kavanoz Krem",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22030,
+                        "catName": "Losyon",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22031,
+                        "catName": "Sıkılaştırıcılar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22032,
+                "catName": "Epilasyon Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22033,
+                        "catName": "Ağda Bantları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22034,
+                        "catName": "Tüy Dökücüler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22035,
+                        "catName": "Tüy Sarartıcılar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22036,
+                        "catName": "Kavanoz Ağdalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22037,
+                        "catName": "Roll On Ağdalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22038,
+                        "catName": "Diğer Ağda Malzemeleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22039,
+                        "catName": "Bayan Tıraş Bıçakları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22470,
+                        "catName": "Erkek Tüy Dökücüler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22502,
+                        "catName": "Boncuk Ağdalar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22040,
+                "catName": "Sağlık Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22041,
+                        "catName": "Pamuk",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22042,
+                        "catName": "Kulak Çubuğu",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22043,
+                        "catName": "Mendiller",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22045,
+                        "catName": "Horlama Bantları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22046,
+                        "catName": "Bitkisel Yağlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22048,
+                        "catName": "Gebelik Testleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22049,
+                        "catName": "Diğer Sağlık Ürünleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22044,
+                        "catName": "Yara Bantları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22047,
+                        "catName": "Bitkisel Çaylar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22050,
+                "catName": "Güneş Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22051,
+                        "catName": "Koruyucu Süt",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22052,
+                        "catName": "Koruyucu Sprey",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22053,
+                        "catName": "Bronzlaştırıcı Yağlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22054,
+                        "catName": "Bronzlaştırıcı Kremler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22055,
+                        "catName": "Güneş Sonrası Ürünler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22056,
+                        "catName": "Yüz Ürünleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22057,
+                        "catName": "Çocuk Ürünleri",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22058,
+                "catName": "Kadın Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22059,
+                        "catName": "Günlük Pedler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22060,
+                        "catName": "Hijyenik Pedler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22061,
+                        "catName": "Tampon",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22062,
+                        "catName": "Genital Bölge Temizlik Ve Bakım Ürünleri",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22063,
+                "catName": "Cinsel Sağlık Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22064,
+                        "catName": "Kondom",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22065,
+                        "catName": "Kayganlaştırıcılar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22476,
+                        "catName": "Fantazi Ürünler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22066,
+                "catName": "Ayak Bakımı",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22067,
+                        "catName": "Ayak Bakım Kremleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22068,
+                        "catName": "Topuk Törpüsü",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22069,
+                        "catName": "Ponza Taşları - Tırnak Fırçaları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22070,
+                "catName": "Banyo",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22071,
+                        "catName": "Vücut Şampuanı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22072,
+                        "catName": "Banyo Aksesuarları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22073,
+                        "catName": "Sıvı Sabun",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22074,
+                        "catName": "Kalıp Sabun",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22075,
+        "catName": "Ağız Bakım",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22076,
+                "catName": "Diş Macunları",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22077,
+                        "catName": "Yetişkin Diş Macunları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22078,
+                        "catName": "Çocuk Diş Macunları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22079,
+                "catName": "Diş Fırçaları",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22080,
+                        "catName": "Manuel Diş Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22081,
+                        "catName": "Şarjlı Diş Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22082,
+                        "catName": "Pilli Diş Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22083,
+                        "catName": "Çocuk Diş Fırçaları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22084,
+                        "catName": "Yedek Fırça Başlıkları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22499,
+                        "catName": "Dil Fırçaları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22085,
+                "catName": "Diş Parlatıcılar",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22086,
+                        "catName": "Diş Parlatıcı",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22087,
+                "catName": "Ağız Suları",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22088,
+                        "catName": "Ağız Çalkalama Suları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22089,
+                "catName": "Diş İpleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22090,
+                        "catName": "Diş Temizleme İpleri",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22091,
+        "catName": "Parfüm",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22092,
+                "catName": "Selective Parfüm",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22093,
+                        "catName": "Erkek Selective Parfümler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22094,
+                        "catName": "Kadın Selective Parfümler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22095,
+                "catName": "Parfüm-Edt",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22096,
+                        "catName": "Erkek Parfümler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22097,
+                        "catName": "Kadın Parfümler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22098,
+                        "catName": "Çocuk Parfümler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22099,
+                "catName": "Kolonya",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22100,
+                        "catName": "Limon Kolonyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22101,
+                        "catName": "Parfümlü Kolonyalar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22102,
+                        "catName": "Alkolsüz Kolonyalar",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22103,
+        "catName": "Deodorant",
+        "imageUrl": "/UPLOAD/APP/assets/menu/deodorant.png",
+        "childs": [
+            {
+                "catId": 22104,
+                "catName": "Deodorant",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22105,
+                        "catName": "Erkek Deodorantlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22106,
+                        "catName": "Kadın Deodorantlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22107,
+                        "catName": "Unisex Deodorantlar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22109,
+                "catName": "Roll-On",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22110,
+                        "catName": "Erkek Roll-Onlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22111,
+                        "catName": "Kadın Roll-Onlar",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22112,
+                        "catName": "Unisex Roll-Onlar",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22113,
+                "catName": "Stick",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22114,
+                        "catName": "Erkek Stickler",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22115,
+                        "catName": "Bayan Stickler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22116,
+                "catName": "Vücut Spreyi",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22117,
+                        "catName": "Kadın Vücut Spreyleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22119,
+                        "catName": "Erkek Vücut Spreyleri",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22120,
+        "catName": "Erkek",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22121,
+                "catName": "Tıraş Öncesi Ürünler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22122,
+                        "catName": "Tıraş Jeli",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22123,
+                        "catName": "Tıraş Köpüğü",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22124,
+                        "catName": "Tıraş Kremi",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22125,
+                "catName": "Tıraş Sonrası Ürünler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22126,
+                        "catName": "After Shave Balsam",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22127,
+                        "catName": "Tıraş Kolonya",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22128,
+                "catName": "Tıraş Bıçakları",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22129,
+                        "catName": "Tıraş Makinesi",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22130,
+                        "catName": "Tıraş Bıçağı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22131,
+                        "catName": "Poşetli Makine",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22150,
+                "catName": "Erkek Cilt Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22151,
+                        "catName": "Erkek Cilt Temizleme Ürünleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22522,
+                        "catName": "Erkek Cilt Nemlendiriciler",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22152,
+                "catName": "Sakal Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22153,
+                        "catName": "Sakal Bakım Kremleri",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22132,
+        "catName": "Bebek",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22133,
+                "catName": "Bebek Bakım Ürünleri",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22134,
+                        "catName": "Bebek Saç Şampuanları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22135,
+                        "catName": "Bebek Vücut Şampuanları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22136,
+                        "catName": "Bebek Islak Mendiller",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22137,
+                        "catName": "Bebek Bakım Ürünleri",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22138,
+                        "catName": "Bebek Yağları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22139,
+                        "catName": "Bebek Sabunları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22140,
+                        "catName": "Bebek Bezleri",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "catId": 22141,
+        "catName": "Ev",
+        "imageUrl": "/UPLOAD/APP/assets/menu/parfum.png",
+        "childs": [
+            {
+                "catId": 22142,
+                "catName": "Deterjanlar",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22143,
+                        "catName": "Çamaşır Deterjanı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22144,
+                        "catName": "Bulaşık Deterjanı",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22423,
+                        "catName": "Çamaşır Suyu",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22424,
+                        "catName": "Çamaşır Suyu",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22145,
+                "catName": "Koku Gidericiler",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22146,
+                        "catName": "Araba Kokuları",
+                        "imageUrl": ""
+                    },
+                    {
+                        "catId": 22147,
+                        "catName": "Ev Kokuları",
+                        "imageUrl": ""
+                    }
+                ]
+            },
+            {
+                "catId": 22426,
+                "catName": "Yüzey Temizleyici",
+                "imageUrl": "",
+                "childs": [
+                    {
+                        "catId": 22427,
+                        "catName": "Yüzey Temizleyici",
+                        "imageUrl": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

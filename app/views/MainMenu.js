@@ -8,13 +8,15 @@ import {
     StyleSheet,
     Dimensions,
 } from "react-native";
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 /* 
     global variable
 */
 const ScreenWidth = Math.round(Dimensions.get('window').width),
     SideBarWidth = 100,
-    padding = 64, // border + margin
+    padding = 60, // border + margin
     contentImageButtonSizeWidth = Math.round((ScreenWidth - SideBarWidth - padding) * .5);
 
 /* 
@@ -69,6 +71,54 @@ const _getArrImgPath = (data) => {
     return arr;
 }
 
+
+/* 
+    Routes
+*/
+
+class Routes extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    _getRoutes = () => {
+        const _self = this,
+            { data } = _self.props,
+            _routes = {};
+
+
+        Object
+            .keys(data)
+            .map(key => {
+                const item = data[key] || {},
+                    { catName = '' } = item;
+
+                _routes[catName] = {
+                    screen: props => <Content data={item} {...props} />,
+                    navigationOptions: {
+                        title: catName,
+                    }
+                };
+            });
+            
+        return _routes;
+    }
+
+    CategoriesNavigator = createBottomTabNavigator(
+        this._getRoutes(),
+        {
+            //tabBarComponent: null,
+            lazy: true,
+            //tabBarPosition: 'top',
+            //initialRouteName: store.getState().general.selectedCategory,
+        }
+    );
+
+    render() {
+        return createAppContainer(this.CategoriesNavigator);
+    }
+}
+
 /* 
     Aktif içerik
 */
@@ -83,13 +133,13 @@ class ContentButton extends PureComponent {
             { catName = '' } = _self.props.data || {};
 
         return (
-            <View style={styles.contentImageButtonContainer}>
+            <TouchableOpacity activeOpacity={.8} style={styles.contentImageButtonContainer}>
                 <Image
                     style={[styles.contentImageButtonImage]}
                     source={{ uri: Utils.getImage('/UPLOAD/APP/assets/menu/imgs/ciltbakim.png') }}
                 />
                 <Text style={styles.contentImageButtonText}>{catName}</Text>
-            </View>
+            </TouchableOpacity>
 
         );
     }
@@ -196,6 +246,74 @@ class SideBarButton extends Component {
     }
 }
 
+class SideBar extends Component {
+    constructor(props) {
+        super(props);
+        const _self = this;
+        this.state = {
+            temp: 0, // bir önceki aktif buton indexi tutulur
+            data: _self.props.data || [], // tüm kategori datası
+        };
+    }
+
+    _onPress = (obj) => {
+        const _self = this,
+            { callback } = _self.props,
+            { data, temp = 0 } = _self.state,
+            { sequence = 0 } = obj;
+
+        data[temp]['active'] = false;
+        data[sequence]['active'] = true;
+
+        _self.setState({ data: data, temp: sequence });
+
+        if (callback)
+            callback({ data: data[sequence]['childs'] || [] });
+    }
+
+    _getView = () => {
+        let _self = this,
+            { data = [] } = _self.state || {},
+            view = null;
+
+        if (Utils.detect(data)) {
+            const btn = Object
+                .keys(data)
+                .map(key => {
+                    const item = data[key] || {};
+
+                    return (
+                        <SideBarButton
+                            sequence={key}
+                            key={key}
+                            data={item}
+                            onPress={_self._onPress}
+                        />
+                    )
+                });
+
+            view = (
+                <ScrollView
+                    keyboardShouldPersistTaps='handled'
+                    showsVerticalScrollIndicator={false}
+                    style={styles.sideBarScrollerWrapper}
+                >
+                    {btn}
+                </ScrollView>
+            );
+        }
+
+        return view;
+    }
+
+    render() {
+        const _self = this,
+            view = _self._getView();
+
+        return view;
+    }
+}
+
 /* 
     Menu
 */
@@ -203,7 +321,7 @@ class SideBarButton extends Component {
 class MainMenu extends Component {
     constructor(props) {
         super(props);
-        state = {
+        this.state = {
             temp: 0, // bir önceki aktif buton indexi tutulut
             data: [], // tüm kategori datası
             active: [] // 2. seviyede active olan kategorinin datası
@@ -226,7 +344,21 @@ class MainMenu extends Component {
 
     componentWillUnmount() {
         const _self = this;
+        _self._resetData();
         _self._isMounted = false;
+    }
+
+    _resetData = () => {
+        let _self = this,
+            { data = [] } = _self.state || {};
+
+        if (Utils.detect(data))
+            Object
+                .keys(data)
+                .map(key => {
+                    const item = data[key] || {};
+                    item['active'] = false;
+                });
     }
 
     _setAjx = ({ uri = '', data = {} }, callback) => {
@@ -247,56 +379,6 @@ class MainMenu extends Component {
     }
 
     /* 
-        sidebar 
-    */
-
-    _onSideBarButtonPress = (obj) => {
-        const _self = this,
-            { data, temp = 0 } = _self.state,
-            { sequence = 0 } = obj;
-
-        data[temp]['active'] = false;
-        data[sequence]['active'] = true;
-
-        _self.setState({ data: data, temp: sequence, active: data[sequence]['childs'] || [] });
-    }
-
-    _getSideBar = () => {
-        let _self = this,
-            { data = [] } = _self.state || {},
-            view = null;
-
-        if (Utils.detect(data)) {
-            const btn = Object
-                .keys(data)
-                .map(key => {
-                    const item = data[key] || {};
-
-                    return (
-                        <SideBarButton
-                            sequence={key}
-                            key={key}
-                            data={item}
-                            onPress={_self._onSideBarButtonPress}
-                        />
-                    )
-                });
-
-            view = (
-                <ScrollView
-                    keyboardShouldPersistTaps='handled'
-                    showsVerticalScrollIndicator={false}
-                    style={styles.sideBarScrollerWrapper}
-                >
-                    {btn}
-                </ScrollView>
-            );
-        }
-
-        return view;
-    }
-
-    /* 
         aktif olan content
     */
     _getContent = () => {
@@ -311,6 +393,35 @@ class MainMenu extends Component {
         return view;
     }
 
+    /* 
+        sidebar
+    */
+
+    _getSideBar = () => {
+        let _self = this,
+            { data = [] } = _self.state,
+            view = null,
+            callback = (obj) => {
+                _self.setState({ active: obj['data'] || [] });
+            };
+
+        if (Utils.detect(data))
+            view = <SideBar callback={callback} data={data} />;
+
+        return view;
+    }
+
+    _getRoutes = () => {
+        let _self = this,
+            { data = [] } = _self.state || {},
+            view = null;
+
+        if (Utils.detect(data))
+            view = <Routes data={data} />;
+
+
+        return view;
+    }
 
     render() {
         const _self = this,
@@ -332,6 +443,10 @@ class MainMenu extends Component {
 }
 
 export { MainMenu };
+
+/* 
+    Styles
+*/
 
 const styles = StyleSheet.create({
     wrapper: {

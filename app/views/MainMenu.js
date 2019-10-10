@@ -6,7 +6,16 @@ import {
     Image,
     TouchableOpacity,
     StyleSheet,
+    Dimensions,
 } from "react-native";
+
+/* 
+    global variable
+*/
+const ScreenWidth = Math.round(Dimensions.get('window').width),
+    SideBarWidth = 100,
+    padding = 64, // border + margin
+    contentImageButtonSizeWidth = Math.round((ScreenWidth - SideBarWidth - padding) * .5);
 
 /* 
     getCategoryList ile dönen json manipule etmek için kullanıyoruz. 
@@ -30,9 +39,61 @@ const _getArr = (data) => {
     return arr;
 }
 
+
+/* 
+    _getArrImgPath: .json dosyasında tanımlı olan resimleri array olarak
+*/
+
+const _getArrImgPath = (data) => {
+    let arr = [];
+
+    if (data.length > 0)
+        Object
+            .entries(data)
+            .forEach(([key, item]) => {
+                const { catName = '', imageUrl = '', childs = [] } = item;
+
+                if (imageUrl != '') {
+                    let o = {};
+                    o[catName] = imageUrl.replace('/UPLOAD/APP/assets/menu/imgs/', '');
+                    arr.push(o);
+                }
+
+                if (childs) {
+                    const k = _getArrImgPath(childs);
+                    arr = arr.concat(k);
+                }
+
+            });
+
+    return arr;
+}
+
 /* 
     Aktif içerik
 */
+
+class ContentButton extends PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const _self = this,
+            { catName = '' } = _self.props.data || {};
+
+        return (
+            <View style={styles.contentImageButtonContainer}>
+                <Image
+                    style={[styles.contentImageButtonImage]}
+                    source={{ uri: Utils.getImage('/UPLOAD/APP/assets/menu/imgs/ciltbakim.png') }}
+                />
+                <Text style={styles.contentImageButtonText}>{catName}</Text>
+            </View>
+
+        );
+    }
+}
 
 class Content extends Component {
     constructor(props) {
@@ -45,17 +106,14 @@ class Content extends Component {
             { data = [] } = _self.props || {},
             view = null;
 
-        console.log(data);
-
         if (Utils.detect(data)) {
             const btn = Object
                 .keys(data)
                 .map(key => {
-                    const item = data[key] || {},
-                        { catName = '' } = item;
+                    const item = data[key] || {};
 
                     return (
-                        <Text key={key}>{catName}</Text>
+                        <ContentButton key={key} data={item} />
                     )
                 });
 
@@ -64,8 +122,12 @@ class Content extends Component {
                     keyboardShouldPersistTaps='handled'
                     showsVerticalScrollIndicator={false}
                     style={{ flex: 1 }}
+                    contentContainerStyle={{ flex: 1, padding: 20 }}
                 >
-                    {btn}
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                        {btn}
+                    </View>
+
                 </ScrollView>
             );
         }
@@ -153,12 +215,13 @@ class MainMenu extends Component {
         _self._isMounted = true;
 
         /* 
-            tüm kategori listesi çekilir
+            tüm kategori listesi çekilir 
         
-            _self._setAjx({ uri: Utils.getURL({ key: 'product', subKey: 'getCategoryList' }) });
-        */
+            _self._setAjx({ uri: Utils.getURL({ key: 'product', subKey: 'getCategoryList' }) });*/
 
-        _self.setState({ data: require('../../data/menu.json') });
+        const data = require('../../data/menu.json');
+        //console.log(JSON.stringify(_getArrImgPath(data)));
+        _self.setState({ data: data });
     }
 
     componentWillUnmount() {
@@ -176,7 +239,7 @@ class MainMenu extends Component {
                 const data = res['data']['categories'] || [];
 
                 //console.log( JSON.stringify(data) );
-                //console.log(JSON.stringify(_getArr(data)));
+                console.log(JSON.stringify(_getArr(data)));
 
                 _self.setState({ data: data });
             }
@@ -280,10 +343,11 @@ const styles = StyleSheet.create({
         sidebar
     */
     sideBarWrapper: {
-        width: 100,
+        width: SideBarWidth,
         borderRightWidth: 1,
         borderRightStyle: 'solid',
-        borderRightColor: '#ebedf6'
+        borderRightColor: '#ebedf6',
+        zIndex: 2
     },
     sideBarScrollerWrapper: {
         flex: 1,
@@ -333,7 +397,27 @@ const styles = StyleSheet.create({
     */
 
     contentWrapper: {
-        flex: 1
-    }
-
-});
+        flex: 1,
+        zIndex: 1
+    },
+    contentImageButtonContainer: {
+        alignItems: 'center',
+        width: contentImageButtonSizeWidth,
+        marginBottom: 20
+    },
+    contentImageButtonImage: {
+        borderColor: '#ebedf6',
+        borderWidth: 1,
+        borderRadius: 4,
+        borderStyle: 'solid',
+        overflow: 'hidden',
+        width: contentImageButtonSizeWidth,
+        height: Math.floor(contentImageButtonSizeWidth / (107 / 108)),
+        marginBottom: 11
+    },
+    contentImageButtonText: {
+        color: '#535d7e',
+        fontSize: 12,
+        textAlign: 'center'
+    },
+}); 

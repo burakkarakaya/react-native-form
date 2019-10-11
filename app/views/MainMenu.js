@@ -76,47 +76,34 @@ const _getArrImgPath = (data) => {
     Routes
 */
 
-class Routes extends Component {
-    constructor(props) {
-        super(props);
-    }
+const _ROUTES = (data) => {
+    const _routes = {};
+    
+    Object
+        .keys(data)
+        .map(key => {
+            const item = data[key] || {},
+                { catName = '' } = item;
 
-    _getRoutes = () => {
-        const _self = this,
-            { data } = _self.props,
-            _routes = {};
+            _routes[catName] = {
+                screen: props => <Content data={item['childs']} {...props} />,
+                navigationOptions: {
+                    title: catName,
+                }
+            };
+        });
 
-
-        Object
-            .keys(data)
-            .map(key => {
-                const item = data[key] || {},
-                    { catName = '' } = item;
-
-                _routes[catName] = {
-                    screen: props => <Content data={item} {...props} />,
-                    navigationOptions: {
-                        title: catName,
-                    }
-                };
-            });
-            
-        return _routes;
-    }
-
-    CategoriesNavigator = createBottomTabNavigator(
-        this._getRoutes(),
+    const Navigator = createBottomTabNavigator(
+        _routes,
         {
-            //tabBarComponent: null,
+            tabBarComponent: ()=>{ return null; },
             lazy: true,
-            //tabBarPosition: 'top',
+            tabBarPosition: 'top',
             //initialRouteName: store.getState().general.selectedCategory,
         }
     );
 
-    render() {
-        return createAppContainer(this.CategoriesNavigator);
-    }
+    return createAppContainer(Navigator);
 }
 
 /* 
@@ -155,6 +142,9 @@ class Content extends Component {
         let _self = this,
             { data = [] } = _self.props || {},
             view = null;
+
+
+            console.log(data);
 
         if (Utils.detect(data)) {
             const btn = Object
@@ -416,8 +406,12 @@ class MainMenu extends Component {
             { data = [] } = _self.state || {},
             view = null;
 
-        if (Utils.detect(data))
-            view = <Routes data={data} />;
+        if (Utils.detect(data)){
+            const ASD = _ROUTES(data);
+            view = <ASD />;
+
+        }
+            
 
 
         return view;
@@ -426,7 +420,7 @@ class MainMenu extends Component {
     render() {
         const _self = this,
             sideBar = _self._getSideBar(),
-            content = _self._getContent();
+            routes = _self._getRoutes();
 
         return (
             <View style={styles.wrapper}>
@@ -434,9 +428,8 @@ class MainMenu extends Component {
                     {sideBar}
                 </View>
                 <View style={styles.contentWrapper}>
-                    {content}
+                    {routes}
                 </View>
-
             </View>
         );
     }

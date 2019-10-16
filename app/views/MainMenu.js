@@ -73,46 +73,19 @@ const _getArrImgPath = (data) => {
 
 
 /* 
-    Routes
+    Contents
 */
-
-const _ROUTES = (data) => {
-    const _routes = {};
-    
-    Object
-        .keys(data)
-        .map(key => {
-            const item = data[key] || {},
-                { catName = '' } = item;
-
-            _routes[catName] = {
-                screen: props => <Content data={item['childs']} {...props} />,
-                navigationOptions: {
-                    title: catName,
-                }
-            };
-        });
-
-    const Navigator = createBottomTabNavigator(
-        _routes,
-        {
-            tabBarComponent: ()=>{ return null; },
-            lazy: true,
-            tabBarPosition: 'top',
-            //initialRouteName: store.getState().general.selectedCategory,
-        }
-    );
-
-    return createAppContainer(Navigator);
-}
-
-/* 
-    Aktif içerik
-*/
-
 class ContentButton extends PureComponent {
     constructor(props) {
         super(props);
+    }
+
+    onPress = () => {
+        const _self = this,
+            { onPress, data } = _self.props;
+
+        if (onPress)
+            onPress(data);
     }
 
     render() {
@@ -120,7 +93,7 @@ class ContentButton extends PureComponent {
             { catName = '' } = _self.props.data || {};
 
         return (
-            <TouchableOpacity activeOpacity={.8} style={styles.contentImageButtonContainer}>
+            <TouchableOpacity onPress={_self.onPress} activeOpacity={.8} style={styles.contentImageButtonContainer}>
                 <Image
                     style={[styles.contentImageButtonImage]}
                     source={{ uri: Utils.getImage('/UPLOAD/APP/assets/menu/imgs/ciltbakim.png') }}
@@ -132,7 +105,7 @@ class ContentButton extends PureComponent {
     }
 }
 
-class Content extends Component {
+class Content extends PureComponent {
     constructor(props) {
         super(props);
     }
@@ -141,10 +114,10 @@ class Content extends Component {
 
         let _self = this,
             { data = [] } = _self.props || {},
-            view = null;
-
-
-            console.log(data);
+            view = null,
+            onPress = (obj) => {
+                console.log(obj);
+            };
 
         if (Utils.detect(data)) {
             const btn = Object
@@ -153,7 +126,7 @@ class Content extends Component {
                     const item = data[key] || {};
 
                     return (
-                        <ContentButton key={key} data={item} />
+                        <ContentButton onPress={onPress} key={key} data={item} />
                     )
                 });
 
@@ -182,11 +155,78 @@ class Content extends Component {
     }
 }
 
+/* 
+    Routes
+*/
+class Routes extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.Ref = null;
+    }
+
+    componentDidMount() {
+        const _self = this,
+            { onRef } = _self.props;
+        if (onRef) onRef(this);
+    }
+
+    componentWillUnmount() {
+        const _self = this,
+            { onRef } = _self.props;
+        if (onRef) onRef(null);
+    }
+
+    _get = () => {
+        const _self = this,
+            { data = [] } = _self.props,
+            _routes = {};
+
+
+        Object
+            .keys(data)
+            .map(key => {
+                const item = data[key] || {},
+                    { catName = '' } = item;
+
+                _routes[catName] = {
+                    screen: props => <Content data={item['childs']} {...props} />,
+                    navigationOptions: {
+                        title: catName,
+                    }
+                };
+            });
+
+        return _routes;
+    }
+
+    _Navigator = createBottomTabNavigator(
+        this._get(),
+        {
+            tabBarComponent: () => { return null; },
+            lazy: true,
+            tabBarPosition: 'top',
+        }
+    );
+
+    /* 
+        public func.
+    */
+    _focused = ({ routesName }) => {
+        const _self = this;
+        if (_self.Ref)
+            _self.Ref._navigation.navigate({ routeName: routesName });
+    }
+
+    render() {
+        const _self = this,
+            Navigator = createAppContainer(_self._Navigator);
+        return <Navigator ref={ref => _self.Ref = ref} />
+    }
+}
 
 /* 
     SideBar
 */
-
 class SideBarButton extends Component {
     constructor(props) {
         super(props);
@@ -258,7 +298,7 @@ class SideBar extends Component {
         _self.setState({ data: data, temp: sequence });
 
         if (callback)
-            callback({ data: data[sequence]['childs'] || [] });
+            callback({ data: data[sequence]['childs'] || [], routesName: data[sequence]['catName'] || '', sequence: sequence });
     }
 
     _getView = () => {
@@ -311,10 +351,11 @@ class SideBar extends Component {
 class MainMenu extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            temp: 0, // bir önceki aktif buton indexi tutulut
-            data: [], // tüm kategori datası
-            active: [] // 2. seviyede active olan kategorinin datası
+        const _self = this;
+        _self.Navigator = null;
+
+        _self.state = {
+            data: [], // tüm kategorinin datası
         };
     }
 
@@ -323,10 +364,14 @@ class MainMenu extends Component {
         _self._isMounted = true;
 
         /* 
+            ajax metod
             tüm kategori listesi çekilir 
-        
-            _self._setAjx({ uri: Utils.getURL({ key: 'product', subKey: 'getCategoryList' }) });*/
+            _self._setAjx({ uri: Utils.getURL({ key: 'product', subKey: 'getCategoryList' }) });
+        */
 
+        /* 
+            manuel metod
+        */
         const data = require('../../data/menu.json');
         //console.log(JSON.stringify(_getArrImgPath(data)));
         _self.setState({ data: data });
@@ -369,30 +414,15 @@ class MainMenu extends Component {
     }
 
     /* 
-        aktif olan content
+        Sidebar
     */
-    _getContent = () => {
-        let _self = this,
-            { active = [] } = _self.state || {},
-            view = null;
-
-        if (Utils.detect(active))
-            view = <Content data={active} />;
-
-
-        return view;
-    }
-
-    /* 
-        sidebar
-    */
-
     _getSideBar = () => {
         let _self = this,
             { data = [] } = _self.state,
             view = null,
             callback = (obj) => {
-                _self.setState({ active: obj['data'] || [] });
+                if (_self.Navigator)
+                    _self.Navigator._focused(obj);
             };
 
         if (Utils.detect(data))
@@ -401,18 +431,16 @@ class MainMenu extends Component {
         return view;
     }
 
+    /* 
+        Routes
+    */
     _getRoutes = () => {
         let _self = this,
             { data = [] } = _self.state || {},
             view = null;
 
-        if (Utils.detect(data)){
-            const ASD = _ROUTES(data);
-            view = <ASD />;
-
-        }
-            
-
+        if (Utils.detect(data))
+            view = <Routes onRef={ref => _self.Navigator = ref} data={data} />;
 
         return view;
     }

@@ -11,6 +11,8 @@ import {
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
+import { CampaingSlider } from './';
+
 /* 
     global variable
 */
@@ -110,7 +112,7 @@ class Content extends PureComponent {
         super(props);
     }
 
-    _getButton = () => {
+    _getView = () => {
 
         let _self = this,
             { data = [] } = _self.props || {},
@@ -121,14 +123,15 @@ class Content extends PureComponent {
 
         if (Utils.detect(data)) {
             const btn = Object
-                .keys(data)
+                .keys(data['childs'] || [])
                 .map(key => {
-                    const item = data[key] || {};
+                    const item = data['childs'][key] || {};
 
                     return (
                         <ContentButton onPress={onPress} key={key} data={item} />
                     )
-                });
+                }),
+                campaing = <CampaingSlider size={ScreenWidth - SideBarWidth - 40} type={'type-1'} firstNElemenet={3} data={data} />;
 
             view = (
                 <ScrollView
@@ -137,6 +140,7 @@ class Content extends PureComponent {
                     style={{ flex: 1 }}
                     contentContainerStyle={{ flex: 1, padding: 20 }}
                 >
+                    {campaing}
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                         {btn}
                     </View>
@@ -149,9 +153,9 @@ class Content extends PureComponent {
 
     render() {
         const _self = this,
-            button = _self._getButton();
+            view = _self._getView();
 
-        return button;
+        return view;
     }
 }
 
@@ -189,7 +193,7 @@ class Routes extends PureComponent {
                     { catName = '' } = item;
 
                 _routes[catName] = {
-                    screen: props => <Content data={item['childs']} {...props} />,
+                    screen: props => <Content data={item} {...props} />,
                     navigationOptions: {
                         title: catName,
                     }

@@ -131,17 +131,17 @@ class Content extends PureComponent {
                         <ContentButton onPress={onPress} key={key} data={item} />
                     )
                 }),
-                campaing = <CampaingSlider size={ScreenWidth - SideBarWidth - 40} type={'type-1'} firstNElemenet={3} data={data} />;
+                campaing = <CampaingSlider size={ScreenWidth - SideBarWidth - 40} type={'type-2'} firstNElemenet={3} data={data} />;
 
             view = (
                 <ScrollView
                     keyboardShouldPersistTaps='handled'
                     showsVerticalScrollIndicator={false}
                     style={{ flex: 1 }}
-                    contentContainerStyle={{ flex: 1, padding: 20 }}
+                    contentContainerStyle={{ padding: 20 }}
                 >
                     {campaing}
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', marginTop: 10 }}>
                         {btn}
                     </View>
 
@@ -377,8 +377,11 @@ class MainMenu extends Component {
             manuel metod
         */
         const data = require('../../data/menu.json');
+        data[0]['active'] = true; //-> sidebar da ilk butonu seçili hale getiririz.
         //console.log(JSON.stringify(_getArrImgPath(data)));
-        _self.setState({ data: data });
+        setTimeout(() => {
+            _self.setState({ data: data });
+        }, 1);
     }
 
     componentWillUnmount() {

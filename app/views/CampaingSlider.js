@@ -7,6 +7,7 @@ import {
     StyleSheet,
     Dimensions,
 } from "react-native";
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 const ScreenWidth = Math.round(Dimensions.get('window').width),
     Ratio = 235 / 120; // tasarımdaki image en boy oranı
@@ -20,10 +21,10 @@ class CampaingSliderItem extends PureComponent {
 
     onPress = () => {
         const _self = this,
-            { onPress } = _self.props;
+            { onPress, data = {} } = _self.props;
 
         if (onPress)
-            onPress();
+            onPress(data);
     }
 
     _getView = () => {
@@ -81,29 +82,108 @@ class CampaingSlider extends PureComponent {
         - size => Slider genişliği buraya yazılır ve tasarımdaki en, boy oranına göre yüksekliği hesaplanır.
 
         - rate => bazen slider kesik gozukmesi istenebilir örneğin ürün liste sayfasındaki gibi o zaman 0-1 arası değer vermek gerekir. Varsayılan 1 
+
+        - campaingType => kampanya tipi belirlenir. Varsayılan olarak allCampaign seçili gelir. Bu değer jsondaki değerden gelir
+
+        - showPagination => false gonderilirse pagination gozukmeyecek. Varsayılan değeri true
     */
 
     constructor(props) {
         super(props);
+        this.state = {
+            entries: [],
+            activeSlide: 0
+        }
+    }
+
+    componentDidMount() {
+        const _self = this,
+            { firstNElemenet = -1, campaingType = 'allCampaign' } = _self.props,
+            { catId = '' } = _self.props.data || {},
+            data = (AllCampaing[campaingType] || [])[0][catId] || {},
+            children = data['children'] || [];
+
+        if (Utils.detect(children))
+            _self.setState({ entries: children.slice(0, firstNElemenet) });
+    }
+
+    _getDimensions = () => {
+        let _self = this,
+            { rate = 1, size = ScreenWidth } = _self.props;
+
+        size = Math.floor(size * rate);
+
+        return { width: size, height: Math.floor(size / Ratio) };
+    }
+
+    _renderItem = ({ item, key }) => {
+        const _self = this,
+            dimensions = _self._getDimensions(),
+            { type = 'type-1' } = _self.props;
+
+        return <CampaingSliderItem size={dimensions} type={type} key={key} data={item} />;
+    }
+
+    _getPagination = () => {
+        const _self = this,
+            { showPagination = true } = _self.props,
+            { entries, activeSlide } = _self.state;
+
+
+        if (!showPagination) return null;
+
+        return (
+            <Pagination
+                dotsLength={entries.length}
+                activeDotIndex={activeSlide}
+                containerStyle={{
+                    marginTop: 10,
+                    paddingVertical: 3
+                }}
+                dotStyle={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: 5,
+                    marginHorizontal: 0,
+                    backgroundColor: '#fc2f6f'
+                }}
+                inactiveDotStyle={{
+                    backgroundColor: '#8590b1'
+                }}
+                inactiveDotOpacity={0.4}
+                inactiveDotScale={0.6}
+            />
+        );
     }
 
     _getView = () => {
-        const _self = this,
-            { catId = '' } = _self.props.data || {},
-            data = (AllCampaing['allCampaign'] || [])[0][catId] || {},
-            view = [],
-            children = data['children'] || [];
+        let _self = this,
+            view = null,
+            { entries = [] } = _self.state;
 
-        if (Utils.detect(children)) {
-            let { firstNElemenet = -1, rate = 1, type = 'type-1', size = ScreenWidth } = _self.props;
+        if (Utils.detect(entries)) {
+            const dimensions = _self._getDimensions(),
+                pagination = _self._getPagination();
 
-            size = Math.floor(size * rate);
+            view = (
+                <View>
+                    <Carousel
+                        ref={(c) => { _self._carousel = c; }}
+                        data={_self.state.entries}
+                        renderItem={_self._renderItem}
+                        sliderWidth={dimensions['width']}
+                        itemWidth={dimensions['width']}
+                        onSnapToItem={(index) => _self.setState({ activeSlide: index })}
+                        inactiveSlideScale={1}
+                        activeSlideAlignment='center'
+                        hasParallaxImages={true}
+                        layoutCardOffset={0}
+                        enableSnap={true}
+                    />
+                    {pagination}
+                </View>
+            );
 
-            Object
-                .entries(children.slice(0, firstNElemenet))
-                .forEach(([key, item]) => {
-                    view.push(<CampaingSliderItem size={{ width: size, height: Math.floor(size / Ratio) }} type={type} key={key} data={item} />);
-                });
         }
 
         return view;
@@ -126,7 +206,7 @@ export { CampaingSlider };
 const styles = StyleSheet.create({
     img: {
         marginBottom: 16
-    },  
+    },
     title: {
         fontSize: 14,
         fontWeight: 'bold',

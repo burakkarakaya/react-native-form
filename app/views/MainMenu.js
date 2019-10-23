@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { CampaingSlider } from './';
 
@@ -118,7 +119,9 @@ class Content extends PureComponent {
             { data = [] } = _self.props || {},
             view = null,
             onPress = (obj) => {
-                console.log(obj);
+                const { callback } = _self.props;
+                if (callback)
+                    callback(obj);
             };
 
         if (Utils.detect(data)) {
@@ -180,6 +183,13 @@ class Routes extends PureComponent {
         if (onRef) onRef(null);
     }
 
+    _contentCallback = (obj) => {
+        const _self = this,
+            { callback } = _self.props;
+        if (callback)
+            callback(obj);
+    }
+
     _get = () => {
         const _self = this,
             { data = [] } = _self.props,
@@ -193,7 +203,7 @@ class Routes extends PureComponent {
                     { catName = '' } = item;
 
                 _routes[catName] = {
-                    screen: props => <Content data={item} {...props} />,
+                    screen: props => <Content callback={_self._contentCallback} data={item} {...props} />,
                     navigationOptions: {
                         title: catName,
                     }
@@ -349,10 +359,10 @@ class SideBar extends Component {
 }
 
 /* 
-    Menu
+    Main
 */
 
-class MainMenu extends Component {
+class Main extends Component {
     constructor(props) {
         super(props);
         const _self = this;
@@ -441,13 +451,19 @@ class MainMenu extends Component {
     /* 
         Routes
     */
+
+    _routesCallback = (obj) => {
+        const _self = this;
+        _self.props.navigation.navigate('Detail', obj);
+    }
+
     _getRoutes = () => {
         let _self = this,
             { data = [] } = _self.state || {},
             view = null;
 
         if (Utils.detect(data))
-            view = <Routes onRef={ref => _self.Navigator = ref} data={data} />;
+            view = <Routes callback={_self._routesCallback} onRef={ref => _self.Navigator = ref} data={data} />;
 
         return view;
     }
@@ -470,6 +486,99 @@ class MainMenu extends Component {
     }
 }
 
+/* 
+    Detail
+*/
+
+class Detail extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+
+    componentDidMount() {
+        let _self = this,
+            { state = {} } = _self.props.navigation,
+            { params = {} } = state || {},
+            childs = params['childs'] || [],
+            data = [...childs];
+
+        data.unshift({ catId: params.catId, catName: 'Tümü' })
+
+        _self.setState({ data: data });
+    }
+
+    _onPress = (obj) => {
+        console.log(obj);
+    }
+
+    _getButton = (obj) => {
+        const _self = this;
+
+        return (
+            <TouchableOpacity onPress={_self._onPress.bind(this, obj)} activeOpacity={.8}>
+                <Text style={styles.detailButtonText}>{obj.catName}</Text>
+            </TouchableOpacity>
+        );
+    }
+
+    _getView = () => {
+        let _self = this,
+            { data = [] } = _self.state || {},
+            view = null;
+
+        if (Utils.detect(data)) {
+            const btn = Object
+                .keys(data)
+                .map(key => {
+                    const item = data[key] || {};
+
+                    return _self._getButton(item);
+                });
+
+            view = (
+                <ScrollView
+                    keyboardShouldPersistTaps='handled'
+                    showsVerticalScrollIndicator={false}
+                    style={styles.sideBarScrollerWrapper}
+                    contentContainerStyle={{ paddingHorizontal: 40, paddingVertical: 30 }}
+                >
+                    {btn}
+                </ScrollView>
+            );
+        }
+
+        return view;
+    }
+
+    render() {
+        const _self = this;
+        return _self._getView();
+    }
+}
+
+
+/* 
+    Navigator
+*/
+
+const MainMenu = createAppContainer(createStackNavigator(
+    {
+        Main: {
+            screen: props => <Main {...props} />,
+            navigationOptions: () => ({
+                header: null
+              }),
+        },
+
+        Detail: {
+            screen: props => <Detail {...props} />,
+        },
+    }
+));
+
 export { MainMenu };
 
 /* 
@@ -477,6 +586,9 @@ export { MainMenu };
 */
 
 const styles = StyleSheet.create({
+    /* 
+        general
+    */
     wrapper: {
         flex: 1,
         flexDirection: 'row'
@@ -563,4 +675,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         textAlign: 'center'
     },
+
+    /* 
+        detail
+    */
+    detailButtonText: {
+        color: '#535d7e',
+        fontSize: 15,
+        marginTop: 30
+    }
 }); 

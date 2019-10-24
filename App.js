@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Form } from './app/form';
 import { Viewer } from './app/viewer';
-import { MainMenu } from './app/views';
+import { MainMenu, Brands } from './app/views';
 import Stores from './app/stores';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -69,7 +69,8 @@ class Root extends PureComponent {
       buttonViewer = _self._buttonRender({ type: 'viewer' }),
       buttonMap = _self._button('stores', 'stores'),
       buttonContent = _self._buttonRender({ type: 'content' }),
-      mainMenu = _self._button('menu', 'menu');
+      mainMenu = _self._button('menu', 'menu'),
+      brands = _self._button('brands', 'brands');
 
     return (
       <ScrollView
@@ -87,6 +88,8 @@ class Root extends PureComponent {
           {buttonContent}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>ANA MENU</Text>
           {mainMenu}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>MARKALAR</Text>
+          {brands}
         </SafeAreaView>
       </ScrollView>
     );
@@ -129,6 +132,9 @@ class Detail extends PureComponent {
 
       case 'menu':
         return <MainMenu />;
+      
+      case 'brands':
+        return <Brands />;
 
       default:
         return null;

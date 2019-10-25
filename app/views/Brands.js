@@ -1,5 +1,6 @@
 import React, { Component, PureComponent } from "react";
 import {
+    ScrollView,
     View,
     Text,
     Image,
@@ -7,6 +8,9 @@ import {
     StyleSheet,
     Dimensions,
 } from "react-native";
+import {
+    SelectBox,
+} from "../form/components/";
 
 const Brand = require('../../data/brands.js');
 
@@ -14,7 +18,7 @@ class Brands extends PureComponent {
     /* 
         data => tüm markaların bulunduğı data
         temp => Datanın içerisinde filtrelenen dataları tutar 
-        catNameData => gelen datanın içinden oluşturulur. Tekilleştirilmiş kategorileri tutar
+        categoryData => gelen datanın içinden oluşturulur. Tekilleştirilmiş kategorileri tutar
         brandNameData => gelen datanın içinden oluşturulur. Tekilleştirilmiş marka isimlerinin baş harflerini tutar
         activeCatID => seçili kategori idsini tutar. Varsayılan -1 yani hepsini gösterir
         activeBrandID => seçili marka isminin boş harfini tutar. Varsayılan -1 yani hepsini gösterir
@@ -25,9 +29,9 @@ class Brands extends PureComponent {
         this.state = {
             data: [],
             temp: [],
-            catNameData: [],
+            categoryData: [],
             brandNameData: [],
-            activeCatID: 21885, // aksesuar kategorisi
+            activeCatID: -1,
             activeBrandID: -1
         };
     }
@@ -88,9 +92,42 @@ class Brands extends PureComponent {
                 }
             });
 
-        arr.unshift({ key: 'Tümü', value: -1 });
+        arr.unshift({ key: '#', value: -1 });
 
         _self.setState({ brandNameData: arr });
+    }
+
+    _getBrandName = () => {
+        let _self = this,
+            { brandNameData = [] } = _self.state,
+            view = null,
+            onPress = (k) => {
+                _self.setState({ activeBrandID: k }, () => {
+                    _self._setFilterData();
+                });
+            };
+
+        if (Utils.detect(brandNameData)) {
+            const btn = [];
+            Object
+                .entries(brandNameData)
+                .forEach(([ind, item]) => {
+                    const { key, value } = item;
+                    btn.push(
+                        <TouchableOpacity onPress={onPress.bind(this, value)} activeOpacity={.8}>
+                            <Text>{key}</Text>
+                        </TouchableOpacity>
+                    );
+                });
+
+            view = (
+                <View style={{ flex: 1 }}>
+                    {btn}
+                </View>
+            );
+        }
+
+        return view;
     }
 
     /* 
@@ -119,11 +156,90 @@ class Brands extends PureComponent {
 
         arr.unshift({ key: 'Tümü', value: -1 });
 
-        _self.setState({ catNameData: arr });
+        _self.setState({ categoryData: arr });
+    }
+
+    _onChangeCategory = ({ value = -1 }) => {
+        const _self = this;
+        _self.setState({ activeCatID: value, activeBrandID: -1 }, () => {
+            _self._setBrandData();
+            _self._setFilterData();
+        });
+    }
+
+    _getCategory = () => {
+        let _self = this,
+            { categoryData = [] } = _self.state,
+            view = null;
+
+        if (Utils.detect(categoryData))
+            view = (
+                <SelectBox
+                    showHeader={false}
+                    closed={true}
+                    callback={_self._onChangeCategory}
+                    data={{ values: categoryData, value: -1 }}
+                />
+            );
+
+        return view;
+    }
+
+    /* 
+        filtrelenen markalar
+    */
+
+    _getBrand = () => {
+        let _self = this,
+            { temp = [] } = _self.state,
+            view = null;
+
+        if (Utils.detect(temp)) {
+            const btn = [];
+            Object
+                .entries(temp)
+                .forEach(([ind, value]) => {
+                    let { id, img, title } = value;
+
+                    btn.push(
+                        <TouchableOpacity activeOpacity={.8}>
+                            <Image
+                                style={{ width: 100, height: 100 }}
+                                source={{ uri: Utils.getImage(img) }}
+                            />
+                            <Text>{title}</Text>
+                        </TouchableOpacity>
+                    );
+                });
+
+            view = (
+                <View style={{ flex: 1 }}>
+                    {btn}
+                </View>
+            );
+        }
+
+        return view;
     }
 
     render() {
-        return null;
+        const _self = this,
+            category = _self._getCategory(),
+            brandName = _self._getBrandName(),
+            brand = _self._getBrand();
+
+        return (
+            <ScrollView
+                keyboardShouldPersistTaps='handled'
+                style={{ flex: 1 }}
+                contentContainerStyle={{ padding: 20 }}
+            >
+                {category}
+                {brandName}
+                {brand}
+            </ScrollView>
+        );
+
     }
 }
 

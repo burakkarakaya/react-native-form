@@ -7,10 +7,15 @@ import {
     TouchableOpacity,
     StyleSheet,
     Dimensions,
+    FlatList,
 } from "react-native";
 import {
     SelectBox,
 } from "../form/components/";
+
+const ScreenWidth = Math.round(Dimensions.get('window').width),
+    padding = 90, // border + margin
+    brandButtonSizeWidth = Math.round((ScreenWidth - padding) * .5);
 
 const Brand = require('../../data/brands.js');
 
@@ -61,8 +66,6 @@ class Brands extends PureComponent {
                     arr.push(value);
             });
 
-        console.log(arr);
-
         _self.setState({ temp: arr });
     }
 
@@ -97,9 +100,9 @@ class Brands extends PureComponent {
         _self.setState({ brandNameData: arr });
     }
 
-    _getBrandName = () => {
+    _getBrandShortName = () => {
         let _self = this,
-            { brandNameData = [] } = _self.state,
+            { brandNameData = [], activeBrandID = -1 } = _self.state,
             view = null,
             onPress = (k) => {
                 _self.setState({ activeBrandID: k }, () => {
@@ -108,22 +111,33 @@ class Brands extends PureComponent {
             };
 
         if (Utils.detect(brandNameData)) {
-            const btn = [];
+            const btn = [],
+                lngth = brandNameData.length - 1;
+
             Object
                 .entries(brandNameData)
                 .forEach(([ind, item]) => {
-                    const { key, value } = item;
+                    const { key, value } = item,
+                        activeButtonWrapper = activeBrandID == value ? styles.brandShortNameActivebuttonWarpper : {},
+                        activeButtonText = activeBrandID == value ? styles.brandShortNameActivebuttonText : {},
+                        marginRight = ind == lngth ? { marginRight: 0 } : {};
+
                     btn.push(
-                        <TouchableOpacity onPress={onPress.bind(this, value)} activeOpacity={.8}>
-                            <Text>{key}</Text>
+                        <TouchableOpacity style={[styles.brandShortNamebuttonWarpper, activeButtonWrapper, marginRight]} onPress={onPress.bind(this, value)} activeOpacity={.8}>
+                            <Text style={[styles.brandShortNamebuttonText, activeButtonText]}>{key}</Text>
                         </TouchableOpacity>
                     );
                 });
 
             view = (
-                <View style={{ flex: 1 }}>
+                <ScrollView
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={{ flex: 1, marginBottom: 30 }}
+                    contentContainerStyle={{ paddingHorizontal: 40 }}
+                >
                     {btn}
-                </View>
+                </ScrollView>
             );
         }
 
@@ -175,6 +189,7 @@ class Brands extends PureComponent {
         if (Utils.detect(categoryData))
             view = (
                 <SelectBox
+                    containerStyle={{ paddingHorizontal: 40, }}
                     showHeader={false}
                     closed={true}
                     callback={_self._onChangeCategory}
@@ -195,27 +210,25 @@ class Brands extends PureComponent {
             view = null;
 
         if (Utils.detect(temp)) {
-            const btn = [];
-            Object
-                .entries(temp)
-                .forEach(([ind, value]) => {
-                    let { id, img, title } = value;
-
-                    btn.push(
-                        <TouchableOpacity activeOpacity={.8}>
-                            <Image
-                                style={{ width: 100, height: 100 }}
-                                source={{ uri: Utils.getImage(img) }}
-                            />
-                            <Text>{title}</Text>
-                        </TouchableOpacity>
-                    );
-                });
-
             view = (
-                <View style={{ flex: 1 }}>
-                    {btn}
-                </View>
+                <FlatList
+                    style={{ flex: 1, flexDirection: "column", paddingHorizontal: 40 }}
+                    numColumns={2}
+                    data={temp}
+                    renderItem={({ item }) => {
+                        const { id, img, title } = item;
+                        return (
+                            <TouchableOpacity style={styles.brandButtonWrapper} activeOpacity={.8}>
+                                <Image
+                                    style={styles.brandButtonImage}
+                                    source={{ uri: Utils.getImage(img) }}
+                                />
+                                <Text>{title}</Text>
+                            </TouchableOpacity>
+                        );
+                    }}
+                    keyExtractor={item => item.id}
+                />
             );
         }
 
@@ -225,14 +238,14 @@ class Brands extends PureComponent {
     render() {
         const _self = this,
             category = _self._getCategory(),
-            brandName = _self._getBrandName(),
+            brandName = _self._getBrandShortName(),
             brand = _self._getBrand();
 
         return (
             <ScrollView
                 keyboardShouldPersistTaps='handled'
                 style={{ flex: 1 }}
-                contentContainerStyle={{ padding: 20 }}
+                contentContainerStyle={{ paddingHorizontal: 0, paddingVertical: 20 }}
             >
                 {category}
                 {brandName}
@@ -250,5 +263,43 @@ export { Brands };
 */
 
 const styles = StyleSheet.create({
+    brandShortNamebuttonWarpper: {
+        borderRadius: 18,
+        width: 36,
+        height: 36,
+        backgroundColor: '#FFFFFF',
+        borderColor: '#ebedf6',
+        borderWidth: 1,
+        marginRight: 12,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    brandShortNamebuttonText: {
+        color: '#535d7e',
+        fontSize: 14
+    },
+    brandShortNameActivebuttonWarpper: {
+        backgroundColor: '#fc2f6b',
+        borderColor: '#fc2f6b',
+    },
+    brandShortNameActivebuttonText: {
+        color: '#FFFFFF'
+    },
 
+    brandButtonWrapper: {
+        width: brandButtonSizeWidth,
+        height: Math.floor(brandButtonSizeWidth / (142 / 86)),
+        borderColor: '#ebedf6',
+        borderWidth: 1,
+        borderRadius: 4,
+        borderStyle: 'solid',
+        overflow: 'hidden',
+        marginBottom: 11,
+        marginRight: 11
+    },
+    brandButtonImage: {
+        width: brandButtonSizeWidth,
+        height: Math.floor(brandButtonSizeWidth / (142 / 86)),
+        resizeMode: 'contain'
+    }
 });

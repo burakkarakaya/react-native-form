@@ -93,13 +93,13 @@ class ContentButton extends PureComponent {
 
     render() {
         const _self = this,
-            { catName = '' } = _self.props.data || {};
+            { catName = '', imageUrl = '' } = _self.props.data || {};
 
         return (
             <TouchableOpacity onPress={_self.onPress} activeOpacity={.8} style={styles.contentImageButtonContainer}>
                 <Image
                     style={[styles.contentImageButtonImage]}
-                    source={{ uri: Utils.getImage('/UPLOAD/APP/assets/menu/imgs/ciltbakim.png') }}
+                    source={{ uri: Utils.getImage(imageUrl) }}
                 />
                 <Text style={styles.contentImageButtonText}>{catName}</Text>
             </TouchableOpacity>

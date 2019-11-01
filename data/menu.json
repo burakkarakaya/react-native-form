@@ -8,7 +8,7 @@
             {
                 "catId": 21915,
                 "catName": "Göz",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-goz.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-goz.jpg",
                 "childs": [
                     {
                         "catId": 21916,
@@ -85,7 +85,7 @@
             {
                 "catId": 21930,
                 "catName": "Yüz",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-yuz.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-yuz.jpg",
                 "childs": [
                     {
                         "catId": 21931,
@@ -122,7 +122,7 @@
             {
                 "catId": 21937,
                 "catName": "Dudak",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-dudak.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-dudak.jpg",
                 "childs": [
                     {
                         "catId": 21938,
@@ -149,7 +149,7 @@
             {
                 "catId": 21942,
                 "catName": "Tırnak",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-tirnak.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-tirnak.jpg",
                 "childs": [
                     {
                         "catId": 21943,
@@ -216,7 +216,7 @@
             {
                 "catId": 21955,
                 "catName": "Makyaj Sonrası Ürünler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-sonrasi-urunler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-sonrasi-urunler.jpg",
                 "childs": [
                     {
                         "catId": 21956,
@@ -228,7 +228,7 @@
             {
                 "catId": 21957,
                 "catName": "Makyaj Aksesuarlar",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-aksesuar.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/makyaj-aksesuar.jpg",
                 "childs": [
                     {
                         "catId": 21958,
@@ -324,7 +324,7 @@
             {
                 "catId": 21972,
                 "catName": "Temizleyiciler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-temizleyiciler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-temizleyiciler.jpg",
                 "childs": [
                     {
                         "catId": 21973,
@@ -346,7 +346,7 @@
             {
                 "catId": 21976,
                 "catName": "Nemlendiriciler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-nemlendiriciler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-nemlendiriciler.jpg",
                 "childs": [
                     {
                         "catId": 21977,
@@ -383,7 +383,7 @@
             {
                 "catId": 21982,
                 "catName": "Yaşlanma Karşıtı Ürünler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-yaslanma-karsiti-urunler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-yaslanma-karsiti-urunler.jpg",
                 "childs": [
                     {
                         "catId": 21983,
@@ -415,7 +415,7 @@
             {
                 "catId": 21988,
                 "catName": "Maskeler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-maskeler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ciltBakim-maskeler.jpg",
                 "childs": [
                     {
                         "catId": 21989,
@@ -436,7 +436,7 @@
             {
                 "catId": 21991,
                 "catName": "Saç Şekillendirici",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-sekillendirici.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-sekillendirici.jpg",
                 "childs": [
                     {
                         "catId": 21992,
@@ -468,7 +468,7 @@
             {
                 "catId": 21997,
                 "catName": "Saç Şampuanı",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-sampuan.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-sampuan.jpg",
                 "childs": [
                     {
                         "catId": 21998,
@@ -490,7 +490,7 @@
             {
                 "catId": 22000,
                 "catName": "Saç Boyaları",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-boyalari.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-boyalari.jpg",
                 "childs": [
                     {
                         "catId": 22001,
@@ -562,7 +562,7 @@
             {
                 "catId": 22014,
                 "catName": "Saç Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim.jpg",
                 "childs": [
                     {
                         "catId": 22015,
@@ -599,7 +599,7 @@
             {
                 "catId": 22020,
                 "catName": "Saç Araç Gereçleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-arac-gerecleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/sacBakim-sac-arac-gerecleri.jpg",
                 "childs": [
                     {
                         "catId": 22021,
@@ -642,7 +642,7 @@
             {
                 "catId": 22092,
                 "catName": "Selective Parfüm",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-selective-parfum.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-selective-parfum.jpg",
                 "childs": [
                     {
                         "catId": 22093,
@@ -659,7 +659,7 @@
             {
                 "catId": 22095,
                 "catName": "Parfüm-Edt",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-edt.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-parfum-edt.jpg",
                 "childs": [
                     {
                         "catId": 22096,
@@ -681,7 +681,7 @@
             {
                 "catId": 22099,
                 "catName": "Kolonya",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-kolonya.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/parfum-kolonya.jpg",
                 "childs": [
                     {
                         "catId": 22100,
@@ -714,7 +714,7 @@
             {
                 "catId": 22104,
                 "catName": "Deodorant",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-deodorant.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-deodorant.jpg",
                 "childs": [
                     {
                         "catId": 22105,
@@ -736,7 +736,7 @@
             {
                 "catId": 22109,
                 "catName": "Roll-On",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-roll-On.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-roll-On.jpg",
                 "childs": [
                     {
                         "catId": 22110,
@@ -758,7 +758,7 @@
             {
                 "catId": 22113,
                 "catName": "Stick",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-stick.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-stick.jpg",
                 "childs": [
                     {
                         "catId": 22114,
@@ -775,7 +775,7 @@
             {
                 "catId": 22116,
                 "catName": "Vücut Spreyi",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-vucut-spreyi.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/deodorant-vucut-spreyi.jpg",
                 "childs": [
                     {
                         "catId": 22117,
@@ -804,7 +804,7 @@
             {
                 "catId": 22027,
                 "catName": "El Ve Vücut Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-el-ve-vucut-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-el-ve-vucu-bakim-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22028,
@@ -831,7 +831,7 @@
             {
                 "catId": 22032,
                 "catName": "Epilasyon Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-epilasyon-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-epilasyon-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22033,
@@ -883,7 +883,7 @@
             {
                 "catId": 22040,
                 "catName": "Sağlık Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-saglik-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-saglik-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22041,
@@ -935,7 +935,7 @@
             {
                 "catId": 22050,
                 "catName": "Güneş Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-gunes-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-gunes-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22051,
@@ -977,7 +977,7 @@
             {
                 "catId": 22058,
                 "catName": "Kadın Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-kadin-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-kadin-bakim-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22059,
@@ -1004,7 +1004,7 @@
             {
                 "catId": 22063,
                 "catName": "Cinsel Sağlık Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-cinsel-saglik-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-cinsel-saglik-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22064,
@@ -1026,7 +1026,7 @@
             {
                 "catId": 22066,
                 "catName": "Ayak Bakımı",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-ayak-bakim.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-ayak-bakimi.jpg",
                 "childs": [
                     {
                         "catId": 22067,
@@ -1048,7 +1048,7 @@
             {
                 "catId": 22070,
                 "catName": "Banyo",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-banyo.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/kisiselBakim-banyo.jpg",
                 "childs": [
                     {
                         "catId": 22071,
@@ -1086,7 +1086,7 @@
             {
                 "catId": 22133,
                 "catName": "Bebek Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/bebek-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/bebek-bakim-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22134,
@@ -1137,7 +1137,7 @@
             {
                 "catId": 22121,
                 "catName": "Tıraş Öncesi Ürünler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-oncesi-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-oncesi-urunler.jpg",
                 "childs": [
                     {
                         "catId": 22122,
@@ -1159,7 +1159,7 @@
             {
                 "catId": 22125,
                 "catName": "Tıraş Sonrası Ürünler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-sonrasi-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-sonrasi-urunler.jpg",
                 "childs": [
                     {
                         "catId": 22126,
@@ -1176,7 +1176,7 @@
             {
                 "catId": 22128,
                 "catName": "Tıraş Bıçakları",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-bicaklari.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-tiras-bicaklari.jpg",
                 "childs": [
                     {
                         "catId": 22129,
@@ -1198,7 +1198,7 @@
             {
                 "catId": 22150,
                 "catName": "Erkek Cilt Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-cilt-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-cilt-bakim-urunleri.jpg",
                 "childs": [
                     {
                         "catId": 22151,
@@ -1215,7 +1215,7 @@
             {
                 "catId": 22152,
                 "catName": "Sakal Bakım Ürünleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek-sakal-bakim-urunleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/erkek.jpg",
                 "childs": [
                     {
                         "catId": 22153,
@@ -1237,7 +1237,7 @@
             {
                 "catId": 22142,
                 "catName": "Deterjanlar",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-deterjanlar.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-deterjanlar.jpg",
                 "childs": [
                     {
                         "catId": 22143,
@@ -1264,7 +1264,7 @@
             {
                 "catId": 22145,
                 "catName": "Koku Gidericiler",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-koku-gidericiler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-koku-gidericiler.jpg",
                 "childs": [
                     {
                         "catId": 22146,
@@ -1281,7 +1281,7 @@
             {
                 "catId": 22426,
                 "catName": "Yüzey Temizleyici",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-yuzey-temizleyiciler.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/ev-yuzey-temizleyiciler.jpg",
                 "childs": [
                     {
                         "catId": 22427,
@@ -1305,7 +1305,7 @@
             {
                 "catId": 22076,
                 "catName": "Diş Macunları",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-macunlari.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-macunlari.jpg",
                 "childs": [
                     {
                         "catId": 22077,
@@ -1322,7 +1322,7 @@
             {
                 "catId": 22079,
                 "catName": "Diş Fırçaları",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-fircalari.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-fircalari.jpg",
                 "childs": [
                     {
                         "catId": 22080,
@@ -1359,7 +1359,7 @@
             {
                 "catId": 22085,
                 "catName": "Diş Parlatıcılar",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-parlaticilar.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-parlaticilar.jpg",
                 "childs": [
                     {
                         "catId": 22086,
@@ -1371,7 +1371,7 @@
             {
                 "catId": 22087,
                 "catName": "Ağız Suları",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-sulari.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-agiz-sulari.jpg",
                 "childs": [
                     {
                         "catId": 22088,
@@ -1383,7 +1383,7 @@
             {
                 "catId": 22089,
                 "catName": "Diş İpleri",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-ipleri.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/agiz-bakim-dis-ipleri.jpg",
                 "childs": [
                     {
                         "catId": 22090,
@@ -1405,7 +1405,7 @@
             {
                 "catId": 21886,
                 "catName": "Saç Aksesuarı",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-sac-aksesuar.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-sac-akesesuari.jpg",
                 "childs": [
                     {
                         "catId": 21887,
@@ -1422,7 +1422,7 @@
             {
                 "catId": 21901,
                 "catName": "Çanta",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-canta.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-canta.jpg",
                 "childs": [
                     {
                         "catId": 21903,
@@ -1439,7 +1439,7 @@
             {
                 "catId": 21904,
                 "catName": "Hediyelik",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-hediyelik.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar.jpg",
                 "childs": [
                     {
                         "catId": 21905,
@@ -1451,7 +1451,7 @@
             {
                 "catId": 21906,
                 "catName": "Kişisel Aksesuar",
-                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-kisisel-aksesuar.png",
+                "imageUrl": "/UPLOAD/APP/assets/menu/imgs/aksesuar-sac-akesesuari.jpg",
                 "childs": [
                     {
                         "catId": 21907,

@@ -116,12 +116,25 @@ class CampaingSlider extends PureComponent {
         return { width: size, height: Math.floor(size / Ratio) };
     }
 
+    _onCampaingItemClicked = (data) => {
+        const _self = this,
+            { onPress } = _self.props;
+
+        if (onPress)
+            onPress(data);
+
+        /* 
+        
+        */
+        Utils.getDataByUrl({ uri: data['uri'] || '' });
+    }
+
     _renderItem = ({ item, key }) => {
         const _self = this,
             dimensions = _self._getDimensions(),
             { type = 'type-1' } = _self.props;
 
-        return <CampaingSliderItem size={dimensions} type={type} key={key} data={item} />;
+        return <CampaingSliderItem onPress={_self._onCampaingItemClicked} size={dimensions} type={type} key={key} data={item} />;
     }
 
     _getPagination = () => {

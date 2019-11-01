@@ -792,5 +792,86 @@ module.exports = {
         console.log("error", error);
       });
       */
+  },
+
+  /* 
+    gelen url göre ilgili yere yönlendirme
+  */
+
+  getQueryStringParams: query => {
+    if (query.indexOf('?') != -1)
+      query = query.substr(query.indexOf('?'), query.length);
+    
+      return query
+      ? (/^[?#]/.test(query) ? query.slice(1) : query)
+        .split('&')
+        .reduce((params, param) => {
+          let [key, value] = param.split('=');
+          params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : '';
+          return params;
+        }, {}
+        )
+      : {}
+  },
+
+  getDataByUrl: function ({ uri = '' }) {
+    const _self = this,
+      _prefix = {
+        type: {
+          'list': 'product_list',
+          'detail': 'product_detail',
+          'content': 'content'
+        }
+      },
+      uriType = (url) => {
+        let type = '';
+        if (url.indexOf('urun_liste.aspx') != -1 || url.indexOf('hizliErisim.aspx') != -1)
+          type = _prefix.type.list;
+        else if (url.indexOf('urun_detay.aspx') != -1)
+          type = _prefix.type.detail;
+        else if (url.indexOf('icerik.aspx') != -1)
+          type = _prefix.type.content;
+
+        return type;
+      },
+      uriControl = (url) => {
+        /* 
+          gelen urlde .aspx geçiyorsa getDataByUrl bize bişey döndürmüyor bu yüzden bu tarz urlleri tespit etmek için kullanacağız
+        */
+        return url.indexOf('.aspx') != -1 ? true : false;
+      },
+      send = (url) => {
+        const obj = _self.mapping({
+          data: _self.getQueryStringParams(url),
+          keys: {
+            'kat': 'catId',
+            'utp': 'utpId',
+            'text': 'searchString',
+            'srt': 'sortType',
+            'urn': 'productId',
+            'ps': 'pageSize',
+            'page': 'page',
+            'opf': 'filter',
+            'lang': 'language'
+          }
+        }),
+          type = uriType(url);
+
+        if (type == _prefix.type.list);
+        else if (type == _prefix.type.detail);
+        else if (type == _prefix.type.content);
+
+        console.log(obj);
+      };
+
+
+    console.log('sadasd', uri);
+
+    if (uriControl(uri))
+      send(uri);
+    else
+      _self.fetch(_self.getURL({ key: 'content', subKey: 'getDataByUrl' }), JSON.stringify({ Url: uri }), (res) => {
+        console.log('gelen', res);
+      });
   }
 };

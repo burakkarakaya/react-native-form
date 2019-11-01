@@ -6,58 +6,34 @@ module.exports = {
 			"catID": "21914",
 			"icrID": "26088",
 			"children": [{
-				"title": "KAÇIRMADAN AL!",
-				"desc": "Max Factor 2000 Calorie Maskara Çeşitleri %70 indirimle Sadece 22,40 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/kalorimaskara.jpg",
-				"uri": "/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=calorie%202000",
+				"title": "GÖRÜLMEMİŞ FİYAT!",
+				"desc": "Tarko Makyaj Çantası Görülmemiş Fiyatıyla Sadece 5TL!",
+				"img": "/UPLOAD/Emir/makyaj1.jpg",
+				"uri": "/tarko-makyaj-cantasi-4376-lionesse.html",
 				"newIcon": "",
 				"discountIcon": "",
 				"lastDay": ""
 			}, {
-				"title": "SON GÜN 20 EKİM!",
-				"desc": "Rimmel Last Finish 25hr Powder Çeşitleri %70 indirimle Sadece 14,90TL",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/rimmellastfinis.jpg",
-				"uri": "/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=rimmel%20last%20finish&kat=21933",
+				"title": "SAKIN KAÇIRMA!",
+				"desc": "Golden Rose Dipliner Black Kaçırılmayacak Fiyatıyla Sadece 7.90TL!",
+				"img": "/UPLOAD/Emir/kasimgoldendipliner.jpg",
+				"uri": "/golden-rose-dipliner-siyah-.html",
 				"newIcon": "",
 				"discountIcon": "",
 				"lastDay": ""
 			}, {
-				"title": "BU İNDİRİMİ KAÇIRMA",
-				"desc": "Note Sculpt Master Mascara Çeşitleri %70 indirimle Sadece 17,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/notemaskara.jpg",
-				"uri": "/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=Note%20Sculpt",
+				"title": "MUHTEŞEM FİYAT!",
+				"desc": "Golden Rose Miracle Lash Mascara Kaçırılmayacak Fiyatıyla Sadece 8.90TL!",
+				"img": "/UPLOAD/Emir/kasimgoldenrose.jpg",
+				"uri": "/golden-rose-miracle-lash-mascara-siyah.html",
 				"newIcon": "",
 				"discountIcon": "",
 				"lastDay": ""
 			}, {
-				"title": "UZUN SÜRE KALICI!",
-				"desc": "Rimmel Stay Matte Powder Long Lasting Çeşitleri %70 indirimle Sadece 13,80 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/staylong.jpg",
-				"uri": "/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=stay%20matte&kat=21930&opf=m7440",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "FIRSATI YAKALA",
-				"desc": "Real Techniques Bold Metals Collection Allık Fırçaları %68 İndirimle",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/soktoberrt.jpg",
-				"uri": "/allik-fircasi/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "ACELE ET KAÇIRMA!",
-				"desc": "Tüm Mara Oje Çeşitleri %50 İndirimli",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/soktobermara.jpg",
-				"uri": "/mara/oje/",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "HAYDİ ALIŞVERİŞE!",
-				"desc": "Cecile Makyaj Ürünlerinde %50ye Varan İndirimler Seni Bekliyor",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/soktobercecile.jpg",
-				"uri": "/cecile/makyaj/",
+				"title": "MUCİZE FİYAT!",
+				"desc": "Real Techniques 6lı Mucize Makyaj Süngeri İnanılmaz İndirimle Sadece 75.90TL",
+				"img": "/UPLOAD/Emir/kasimrtsunger.jpg",
+				"uri": "/real-techniques-6-li-mucize-makyaj-sunger-seti-1570.html",
 				"newIcon": "",
 				"discountIcon": "",
 				"lastDay": ""
@@ -76,6 +52,14 @@ module.exports = {
 				"uri": "/lip-gloss/?srt=AI",
 				"newIcon": "",
 				"discountIcon": "%50",
+				"lastDay": ""
+			}, {
+				"title": "Dudak Bakım Ürünleri",
+				"desc": "Yüzlerce dudak bakım ürününde uygun fiyatlar için tıkla.",
+				"img": "/UPLOAD/BANNERS/campaigns/makyaj/dudak-bakim-haz.png",
+				"uri": "/dudak-makyaji/?srt=AI",
+				"newIcon": "",
+				"discountIcon": "%61",
 				"lastDay": ""
 			}, {
 				"title": "Cımbızlar",
@@ -99,7 +83,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/asetonlar-11.jpg",
 				"uri": "/aseton/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%24",
+				"discountIcon": "%21",
 				"lastDay": ""
 			}, {
 				"title": "Ojeler",
@@ -110,14 +94,6 @@ module.exports = {
 				"discountIcon": "%50",
 				"lastDay": ""
 			}, {
-				"title": "Göz Kalemleri",
-				"desc": "Göz kalemlerinde uygun fiyatlar Cosmeticada!",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/gozkalemleri-9.jpg",
-				"uri": "/goz-kalemi/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "%38",
-				"lastDay": ""
-			}, {
 				"title": "Dudak Kalemleri",
 				"desc": "Yüzlerce dudak kalemleri en uygun fiyatlarla Cosmetica da ",
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/dudakkalemi-17.jpg",
@@ -126,10 +102,26 @@ module.exports = {
 				"discountIcon": "%60",
 				"lastDay": ""
 			}, {
+				"title": "Göz Kalemleri",
+				"desc": "Göz kalemlerinde uygun fiyatlar Cosmeticada!",
+				"img": "/UPLOAD/BANNERS/campaigns/makyaj/gozkalemleri-9.jpg",
+				"uri": "/goz-kalemi/?srt=AI",
+				"newIcon": "",
+				"discountIcon": "%38",
+				"lastDay": ""
+			}, {
 				"title": "Dudak Koruyucular",
 				"desc": "Dudak koruyucularında %40 a varan indirimler.",
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/dudakkoruyucu-18.jpg",
 				"uri": "/dudak-koruyucular/?srt=AI",
+				"newIcon": "",
+				"discountIcon": "%61",
+				"lastDay": ""
+			}, {
+				"title": "Kapatıcılar",
+				"desc": "Kapatıcılar da uygun fiyatlar Cosmeticada!",
+				"img": "/UPLOAD/BANNERS/campaigns/makyaj/kapaticilar-10.jpg",
+				"uri": "/kapatici/?srt=AI",
 				"newIcon": "",
 				"discountIcon": "%70",
 				"lastDay": ""
@@ -139,15 +131,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/gozaydinlaticilar-12.jpg",
 				"uri": "/goz-aydinlaticilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%30",
-				"lastDay": ""
-			}, {
-				"title": "Kapatıcılar",
-				"desc": "Kapatıcılar da uygun fiyatlar Cosmeticada!",
-				"img": "/UPLOAD/BANNERS/campaigns/makyaj/kapaticilar-10.jpg",
-				"uri": "/kapatici/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%25",
 				"lastDay": ""
 			}, {
 				"title": "Eyelinerlar",
@@ -171,7 +155,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/bbcream-1.jpg",
 				"uri": "/bb-kremler-cc-kremler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%20",
 				"lastDay": ""
 			}, {
 				"title": "Göz Makyaj Ürünleri",
@@ -299,7 +283,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/pudra-36.jpg",
 				"uri": "/pudra/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%37",
 				"lastDay": ""
 			}, {
 				"title": "Takma Kirpikler",
@@ -357,52 +341,12 @@ module.exports = {
 			"catID": "21971",
 			"icrID": "26105",
 			"children": [{
-				"title": "BU FİYAT KAÇMAZ!",
-				"desc": "Diadermine Arındırıcı Temizleme Suyu %78 İndirimle Sadece 7,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/soktoberdiadermine.jpg",
-				"uri": "/diadermine-arindirici-temizleme-suyu-normal-karma-yagli.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "AKIL ALMAZ İNDİRİM!",
-				"desc": "Nivea Visage Aqua Sensation 50 Ml %70 İndirimle Sadece 17,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/niveaaquasoktober.jpg",
-				"uri": "/nivea-visage-aqua-sensation-50-ml-normal-karma-ciltler-icin.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "CİLDİNE İYİ BAK!",
-				"desc": "Procisn Cilt Bakım Ürünlerinde Net %40 İndirim",
-				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/soktoberprocsin.png",
-				"uri": "/procsin/",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "TANIŞMA FIRSATI!",
-				"desc": "YENİ Diadermine Gece Kremi Tanışma Fiyatıyla Sadece 14,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/soktoberdiadermine2.jpg",
-				"uri": "/diadermine-no110-gece-creme-de-beaute-50ml.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "CANLANDIRAN KAMPANYA!",
-				"desc": "Sağlıklı Bir Cilde Kavuşmak Sadece 9,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/soktobernivea.png",
-				"uri": "/nivea-vis-nem-canlandrc-tonik-200ml.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
 				"title": "Yüz Maskeleri",
 				"desc": "Taze ve pürüzsüz bir cilt için yüz maskeleri %50ye varan indirimlerle.",
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/2-yuzmaskeleri.jpg",
 				"uri": "/maskeler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%47",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, {
 				"title": "Yüz Temizleyiciler",
@@ -410,7 +354,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/15-yuztemizleyiciler.jpg",
 				"uri": "/yuz-temizleyiciler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%72",
+				"discountIcon": "%60",
 				"lastDay": ""
 			}, {
 				"title": "Yaşlanma Karşıtı Gece Kremleri",
@@ -418,7 +362,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/11-yaslanmakarsitigece.jpg",
 				"uri": "/yaslanma-karsiti-gece-kremleri/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%55",
 				"lastDay": ""
 			}, {
 				"title": "Yaşlanma Karşıtı Göz Kremleri",
@@ -426,7 +370,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/yaslanma-karsiti-gozkrem-yuzde70.jpg",
 				"uri": "/yaslanma-karsiti-goz-kremleri/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%36",
+				"discountIcon": "%67",
 				"lastDay": ""
 			}, {
 				"title": "BB ve CC Kremler",
@@ -434,7 +378,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/5-bbvecc.jpg",
 				"uri": "/bb-kremler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%21",
+				"discountIcon": "%25",
 				"lastDay": ""
 			}, {
 				"title": "Yaşlanma Karşıtı Gündüz Kremleri",
@@ -442,7 +386,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/13-yaslanmakarsitigunduz.jpg",
 				"uri": "/yaslanma-karsiti-gunduz-kremler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%67",
 				"lastDay": ""
 			}, {
 				"title": "Nemlendiriciler",
@@ -450,7 +394,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/1-nemlendiriciler.jpg",
 				"uri": "/nemlendiriciler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%60",
 				"lastDay": ""
 			}, {
 				"title": "Yaşlanma Karşıtı Serumlar",
@@ -458,7 +402,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/14-serumlar.jpg",
 				"uri": "/yaslanma-karsiti-serumlar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%67",
 				"lastDay": ""
 			}, {
 				"title": "Temizleyici Burun Bantları",
@@ -474,7 +418,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/cilt-bakimi/3-temizleyiciler.jpg",
 				"uri": "/temizleyiciler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%72",
+				"discountIcon": "%60",
 				"lastDay": ""
 			}, {
 				"title": "Gece Nemlendiriciler",
@@ -500,38 +444,6 @@ module.exports = {
 			"catID": "21990",
 			"icrID": "26116",
 			"children": [{
-				"title": "BÖYLESİ GÖRÜLMEDİ!",
-				"desc": "Özel Formüllü Dieci10 Kuru Şampuan %76 İndirimle Sadece 5,90TL",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/dieci10.jpg",
-				"uri": "/dieci10-dry-shampoo-invisible-75-ml.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "ÇILGIN FIRSAT!",
-				"desc": "Toni Guy ile Tarzına Saçından Başla, Toni Guy Markalı Ürünlerde %50ye Varan İndirim Fırsatı Sizleri Bekliyor",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/soktobertoniguy.jpg",
-				"uri": "/toni-guy/sac-bakim/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "AKIL ALMAZ İNDİRİM!",
-				"desc": "Taft 7 Days Curl Stiyling Balm %72 İndirimle Sadece 9,90TL",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/taftsoktober2.jpg",
-				"uri": "/taft-7-days-curl-styling-balm75-ml.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "2li FIRSAT!",
-				"desc": "Urban Care Macadamia Şampuan Shaken Repair Köpük 150 Ml %66 İndirimle Sadece 27,90TL",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/urbancaresoktobermacam.jpg",
-				"uri": "/urban-care-macadamia-sampuan-shaken-repair-kopuk-150-ml.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
 				"title": "Şampuanlar",
 				"desc": "En sevdiğin şampuanlar en iyi fiyatlarla Cosmeticada!",
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/7-sampuanlar.jpg",
@@ -545,7 +457,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/4-kitboyalar.jpg",
 				"uri": "/kit-boyalar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%40",
+				"discountIcon": "%33",
 				"lastDay": ""
 			}, {
 				"title": "Geçici Saç Boyaları",
@@ -569,7 +481,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/5-sacboyalari.jpg",
 				"uri": "/sac-boyalari/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%61",
 				"lastDay": ""
 			}, {
 				"title": "Saç Şekillendiriciler",
@@ -585,7 +497,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/7-24-sekillendirici-yuzde50.jpg",
 				"uri": "/7-24-sekillendiriciler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%30",
+				"discountIcon": "%24",
 				"lastDay": ""
 			}, {
 				"title": "Normal Şampuanlar",
@@ -593,7 +505,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/17-normalsampuan.jpg",
 				"uri": "/normal-sac-sampuani/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%50",
+				"discountIcon": "%49",
 				"lastDay": ""
 			}, {
 				"title": "Beyaz Kapatıcı Saç Kremleri",
@@ -609,7 +521,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/18-sacrenkacici.jpg",
 				"uri": "/sac-renk-acicilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%48",
 				"lastDay": ""
 			}, {
 				"title": "Saç Araç Gereçleri",
@@ -633,7 +545,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/12-beyazkapatici.jpg",
 				"uri": "/beyaz-kapatici-spreyler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%33",
+				"discountIcon": "%30",
 				"lastDay": ""
 			}, {
 				"title": "Bigudiler",
@@ -649,7 +561,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/sacbakim-kremmaskeonaricivs-genel-yuzde70.jpg",
 				"uri": "/sac-bakim-urunleri/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%71",
+				"discountIcon": "%70",
 				"lastDay": ""
 			}, {
 				"title": "Erkek Saç Boyaları",
@@ -681,7 +593,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/1-naturalboya.jpg",
 				"uri": "/naturel-boyalar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%32",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, {
 				"title": "Saç Onarıcılar",
@@ -689,7 +601,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/25-saconaricilar.jpg",
 				"uri": "/sac-onaricilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%30",
+				"discountIcon": "%25",
 				"lastDay": ""
 			}, {
 				"title": "Saç Spreyleri",
@@ -747,44 +659,12 @@ module.exports = {
 			"catID": "22026",
 			"icrID": "26218",
 			"children": [{
-				"title": "ŞOK FİYAT!",
-				"desc": "Her 10TL Alışverişinizde Carefree Günlük Ped Sadece 5,90 TL",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/carefree.jpg",
-				"uri": "/carefree-gunluk-ped-large-20-adet.html",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "VÜCUDUNA İYİ BAK!",
-				"desc": "Le Petit Marseileias Vücut Şampuanlarında %55 Net İndirime Ek Sepette %10 İndirim Seni Bekliyor!",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/LPM.jpg",
-				"uri": "/le-petit-marseillais/vucut-sampuani/",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "BAŞKA YERDE YOK!",
-				"desc": "Arko Nem serisi tüp kremler sepette SADECE 5TL bu fiyatı KAÇIRMA!",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/arkonem.jpg",
-				"uri": "/arko/tup-krem/?srt=YE&opf=p6065669",
-				"newIcon": "",
-				"discountIcon": "",
-				"lastDay": ""
-			}, {
-				"title": "SIKILAŞTIRAN KAMPANYA!",
-				"desc": "Nivea Body Q10 Sıkılaştırıcı Losyon 250 Ml %70 indirimle Sadece 11,90TL",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/Niveaq10.jpg",
-				"uri": "/nivea-body-q10-sikilastirici-losyon-250-ml.html",
-				"newIcon": "",
-				"discountIcon": "%70",
-				"lastDay": ""
-			}, {
 				"title": "Tüp Kremleri",
 				"desc": "Tüp kremleri %50 ye varan indirimlerle.",
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/tupkrem.jpg",
 				"uri": "/tup-krem/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%41",
+				"discountIcon": "%47",
 				"lastDay": ""
 			}, {
 				"title": "Kavanoz Kremler",
@@ -792,7 +672,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kavanozkrem.jpg",
 				"uri": "/kavanoz-krem/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%48",
 				"lastDay": ""
 			}, {
 				"title": "Losyonlar",
@@ -808,7 +688,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/sikilastiriciler.jpg",
 				"uri": "/sikilastiricilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%55",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, {
 				"title": "Ağda Bantları",
@@ -816,7 +696,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/agdabantlari.jpg",
 				"uri": "/agda-bantlari/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%33",
+				"discountIcon": "%29",
 				"lastDay": ""
 			}, {
 				"title": "Tüy Dökücüler",
@@ -832,7 +712,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kavanozagda.jpg",
 				"uri": "/kavanoz-agdalar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%33",
+				"discountIcon": "%30",
 				"lastDay": ""
 			}, {
 				"title": "Roll-On Ağdalar",
@@ -848,7 +728,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/agdamalzemeleri.jpg",
 				"uri": "/diger-agda-malzemeleri/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%42",
+				"discountIcon": "%31",
 				"lastDay": ""
 			}, {
 				"title": "Bayan Traş Bıçakları",
@@ -880,7 +760,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/mendil.jpg",
 				"uri": "/mendiller/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%34",
+				"discountIcon": "%30",
 				"lastDay": ""
 			}, {
 				"title": "Horlama Bantları",
@@ -888,7 +768,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/horlamabantlari.jpg",
 				"uri": "/horlama-bantlari/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%21",
+				"discountIcon": "%29",
 				"lastDay": ""
 			}, {
 				"title": "Bitkisel Yağlar",
@@ -928,7 +808,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kondom.jpg",
 				"uri": "/kondom/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%31",
+				"discountIcon": "%29",
 				"lastDay": ""
 			}, {
 				"title": "Kayganlaştırıcılar",
@@ -936,7 +816,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kayganlastirici.jpg",
 				"uri": "/kayganlastiricilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%30",
+				"discountIcon": "%29",
 				"lastDay": ""
 			}, {
 				"title": "Ayak Bakım",
@@ -944,7 +824,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/ayakbakim.jpg",
 				"uri": "/ayak-bakimi/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%51",
+				"discountIcon": "%25",
 				"lastDay": ""
 			}, {
 				"title": "Vücut Şampuanları",
@@ -952,7 +832,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/vucutsampuani.jpg",
 				"uri": "/vucut-sampuani/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%55",
 				"lastDay": ""
 			}, {
 				"title": "Banyo Aksesuarları",
@@ -968,7 +848,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/sııvısabun.jpg",
 				"uri": "/sivi-sabun/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%34",
+				"discountIcon": "%31",
 				"lastDay": ""
 			}, {
 				"title": "Kalıp Sabunlar",
@@ -976,7 +856,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kalipsabun.jpg",
 				"uri": "/kalip-sabun/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%30",
+				"discountIcon": "%38",
 				"lastDay": ""
 			}, {
 				"title": "Yara Bantları",
@@ -1000,7 +880,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/saglikurunleri.jpg",
 				"uri": "/diger-saglik-urunleri/",
 				"newIcon": "",
-				"discountIcon": "%41",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, {
 				"title": "Genital Bölge Temizlik ve Bakım Ürünleri",
@@ -1008,7 +888,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/genitalbolge.jpg",
 				"uri": "/genital-bolge-temizlik-ve-bakim-urunleri/",
 				"newIcon": "",
-				"discountIcon": "%32",
+				"discountIcon": "%29",
 				"lastDay": ""
 			}, {
 				"title": "Ayak Bakım Kremleri",
@@ -1032,7 +912,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/tuysararticilar.jpg",
 				"uri": "/tuy-sararticilar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%70",
+				"discountIcon": "%30",
 				"lastDay": ""
 			}, ]
 		},
@@ -1042,14 +922,6 @@ module.exports = {
 			"catID": "22091",
 			"icrID": "26220",
 			"children": [{
-				"title": "DAYANILMAZ KOKULARA SAHİP OL!",
-				"desc": "Antonio Banderas Erkek Parfüm 100 Ml Çeşitleri %52ye varan İndirimlerle",
-				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/antonioerkek.jpg",
-				"uri": "/antonio-banderas/erkek-parfumler/?srt=UP",
-				"newIcon": "",
-				"discountIcon": "%52",
-				"lastDay": ""
-			}, {
 				"title": "Erkek Selective Parfümler",
 				"desc": "Erkek selective parfümlerde uygun fiyatlar Cosmetica da ",
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/erkekselective.jpg",
@@ -1071,7 +943,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/erkekparfum.jpg",
 				"uri": "/erkek-parfumler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%46",
+				"discountIcon": "%35",
 				"lastDay": ""
 			}, {
 				"title": "Kadın Parfüm",
@@ -1079,7 +951,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/kadınparfum.jpg",
 				"uri": "/kadin-parfumler/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%46",
+				"discountIcon": "%35",
 				"lastDay": ""
 			}, {
 				"title": "Kolonyalar",
@@ -1103,7 +975,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/alkolsuz.jpg",
 				"uri": "/alkolsuz-kolonyalar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%71",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, ]
 		},
@@ -1126,7 +998,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/15.jpg",
 				"uri": "/erkek-deodorantlar/",
 				"newIcon": "",
-				"discountIcon": "%71",
+				"discountIcon": "%53",
 				"lastDay": ""
 			}, {
 				"title": "Unisex Deodorantlar",
@@ -1134,7 +1006,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/17.jpg",
 				"uri": "/unisex-deodorantlar/",
 				"newIcon": "",
-				"discountIcon": "%25",
+				"discountIcon": "%24",
 				"lastDay": ""
 			}, {
 				"title": "Kadın Roll-on lar",
@@ -1182,7 +1054,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/erkek_deo.jpg",
 				"uri": "/erkek-deodorantlar/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%39",
+				"discountIcon": "%24",
 				"lastDay": ""
 			}, {
 				"title": "Kadın Stick Deodorant",
@@ -1231,46 +1103,6 @@ module.exports = {
 				"newIcon": "",
 				"discountIcon": "",
 				"lastDay": ""
-			}, {
-				"title": "BU FİYAT KAÇMAZ!",
-				"desc": "Uni Baby Wipes Islak Havlu 90lı %60 İndirimle Sadece 5,90TL",
-				"img": "/UPLOAD/unibaby.jpg",
-				"uri": "/uni-wipes-islak-havlu-90-li.html",
-				"newIcon": "",
-				"discountIcon": "%60",
-				"lastDay": ""
-			}, {
-				"title": "HARİKA FİYAT!",
-				"desc": "Johnsons Baby Cotton Touch Islak Mendil 72 Li %50 İndirimle Sadece 5,90 TL",
-				"img": "/UPLOAD/jonshons-1.jpg",
-				"uri": "/johnsons-baby-cotton-touch-islak-mendil-72-li.html",
-				"newIcon": "",
-				"discountIcon": "%50",
-				"lastDay": ""
-			}, {
-				"title": "MUHTEŞEM FİYATLAR!",
-				"desc": "Johnsons Baby Islak Mendil Çeşitleri %50ye varan İndirimlerle",
-				"img": "/UPLOAD/jbmendiller.jpg",
-				"uri": "/johnsonsbaby/bebek-islak-mendiller/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "%50",
-				"lastDay": ""
-			}, {
-				"title": "YUMUŞACIK KAMPANYA!",
-				"desc": "Johnsons Baby Cotton Touch Saç Ve Vücut Şampuanı 300 Ml %50 İndirimle Sadece 16,80TL",
-				"img": "/UPLOAD/jbşampuan.jpg",
-				"uri": "/johnsons-baby-cotton-touch-sac-ve-vucut-sampuani-300-ml.html",
-				"newIcon": "",
-				"discountIcon": "%50",
-				"lastDay": ""
-			}, {
-				"title": "KÖPÜK GİBİ FİYATLAR!",
-				"desc": "Johnsons Baby Vücut Şampuanı Çeşitleri Net %50 İndirimli!",
-				"img": "/UPLOAD/jbvücutşampuan.jpg",
-				"uri": "/bebek-vucut-sampuanlari/?srt=AI",
-				"newIcon": "",
-				"discountIcon": "%50",
-				"lastDay": ""
 			}, ]
 		},
 		"22120": {
@@ -1316,7 +1148,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/traskolonya.jpg",
 				"uri": "/tiras-kolonya/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%25",
+				"discountIcon": "%50",
 				"lastDay": ""
 			}, {
 				"title": "Traş Makineleri",
@@ -1348,7 +1180,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/erkekcilt.jpg",
 				"uri": "/erkek-cilt-temizleme-urunleri/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%37",
+				"discountIcon": "%35",
 				"lastDay": ""
 			}, {
 				"title": "Sakal Bakım Ürünleri",
@@ -1387,7 +1219,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/sac-bakimi/arabakokulari.jpg",
 				"uri": "/araba-kokulari/",
 				"newIcon": "",
-				"discountIcon": "%40",
+				"discountIcon": "%50",
 				"lastDay": ""
 			}, {
 				"title": "Ev Kokuları",
@@ -1481,7 +1313,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/cocuk-dis-macunlari.jpg",
 				"uri": "/cocuk-dis-macunlari/?srt=AI/",
 				"newIcon": "",
-				"discountIcon": "%24",
+				"discountIcon": "%40",
 				"lastDay": ""
 			}, {
 				"title": "Manuel Diş Fırçaları",
@@ -1505,7 +1337,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/Pilli-Fircalar.jpg",
 				"uri": "/pilli-dis-fircalari/?srt=AI/",
 				"newIcon": "",
-				"discountIcon": "%40",
+				"discountIcon": "%50",
 				"lastDay": ""
 			}, {
 				"title": "Yedek Fırça Başlıkları",
@@ -1513,7 +1345,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/yedek-firca.jpg",
 				"uri": "/yedek-firca-basliklari/?srt=AI/",
 				"newIcon": "",
-				"discountIcon": "%22",
+				"discountIcon": "%14",
 				"lastDay": ""
 			}, {
 				"title": "Ağız Çalkalama Suları",
@@ -1521,7 +1353,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/agiz-sulari.jpg",
 				"uri": "/agiz-calkalama-sulari/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%40",
+				"discountIcon": "%20",
 				"lastDay": ""
 			}, {
 				"title": "Diş Temizleme İpleri",
@@ -1537,7 +1369,7 @@ module.exports = {
 				"img": "/UPLOAD/BANNERS/campaigns/makyaj/yetiskin-dis-macunlari.jpg",
 				"uri": "/yetiskin-dis-macunlari/?srt=AI",
 				"newIcon": "",
-				"discountIcon": "%50",
+				"discountIcon": "%42",
 				"lastDay": ""
 			}, {
 				"title": "Diş Parlatıcı",
@@ -1552,50 +1384,45 @@ module.exports = {
 	}],
 	"homePageSliderCampaign": [{
 		"type": "default-layout",
-		"img": "/UPLOAD/SOKTORBER-2y2.jpg",
+		"img": "/UPLOAD/Emir/BANNER-11.jpg",
 		"title": "",
 		"subTitle": "",
 		"buttonText": "",
-		"uri": "https://www.cosmetica.com.tr/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=stay%20matte&kat=21933",
+		"uri": "https://www.cosmetica.com.tr/note-real-look-maskara-siyah.html",
 		"imgApp": ""
 	}, {
 		"type": "default-layout",
-		"img": "/UPLOAD/Emir/SOKTORBER-5.jpg",
+		"img": "/UPLOAD/Emir/BANNER-2.jpg",
 		"title": "",
 		"subTitle": "",
 		"buttonText": "",
-		"uri": "https://www.cosmetica.com.tr/note-ultra-dipliner-siyah.html",
+		"uri": "https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html",
 		"imgApp": ""
 	}, {
 		"type": "default-layout",
-		"img": "/UPLOAD/sensodin.jpg",
+		"img": "/UPLOAD/Emir/BANNER-33.jpg",
 		"title": "",
 		"subTitle": "",
 		"buttonText": "",
-		"uri": "https://www.cosmetica.com.tr/sensodyne/",
-		"imgApp": ""
-	}, {
-		"type": "default-layout",
-		"img": "/UPLOAD/Lorealcolorista.jpg",
-		"title": "",
-		"subTitle": "",
-		"buttonText": "",
-		"uri": "https://www.cosmetica.com.tr/lorealexcellence/sac-boyalari/?srt=ES",
-		"imgApp": ""
-	}, {
-		"type": "default-layout",
-		"img": "/UPLOAD/SOKTORBER-4.jpg",
-		"title": "",
-		"subTitle": "",
-		"buttonText": "",
-		"uri": "https://www.cosmetica.com.tr/sesu-tuy-sarartici-krem-kucuk-35-18-gr.html",
+		"uri": "https://www.cosmetica.com.tr/loreal-color-riche-ruj-matte-473-obsidian.html",
 		"imgApp": ""
 	}, ],
 	"homePageCampaign": [{
 		"type": "type1",
-		"img": "/UPLOAD/soktoberuclu-1.jpg",
-		"imgMobile": "/UPLOAD/soktoberuclu-1.jpg",
-		"uri": "https://www.cosmetica.com.tr/diadermine/bb-kremler/",
+		"img": "/UPLOAD/Emir/KÜÇÜK-2.jpg",
+		"imgMobile": "/UPLOAD/Emir/KÜÇÜK-2.jpg",
+		"uri": "https://www.cosmetica.com.tr/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=Orkid%20Essential%20Protection%20Süper%20Eko%20Paket",
+		"brandLogo": "",
+		"title": "",
+		"subTitle": "",
+		"discountRate": "",
+		"buttonText": "",
+		"imgApp": ""
+	}, {
+		"type": "type1",
+		"img": "/UPLOAD/Emir/KÜÇÜK-11.jpg",
+		"imgMobile": "/UPLOAD/Emir/KÜÇÜK-11.jpg",
+		"uri": "https://www.cosmetica.com.tr/golden-rose-stick-concealer-yeni-no-01.html",
 		"brandLogo": "",
 		"title": "",
 		"subTitle": "",
@@ -1604,20 +1431,9 @@ module.exports = {
 		"imgApp": ""
 	}, {
 		"type": "type2",
-		"img": "/UPLOAD/SOKTOBERFEST-UZUN.jpg",
-		"imgMobile": "/UPLOAD/soktoberuclu-3.jpg",
-		"uri": "https://www.cosmetica.com.tr/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=AI&text=restorex",
-		"brandLogo": "",
-		"title": "",
-		"subTitle": "",
-		"discountRate": "",
-		"buttonText": "",
-		"imgApp": ""
-	}, {
-		"type": "type1",
-		"img": "/UPLOAD/soktoberuclu-2y.jpg",
-		"imgMobile": "/UPLOAD/soktoberuclu-2y.jpg",
-		"uri": "https://www.cosmetica.com.tr/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=signal%20white%20now%20cc",
+		"img": "/UPLOAD/Emir/ucluuzun1.jpg",
+		"imgMobile": "/UPLOAD/Emir/uzunmobil1.jpg",
+		"uri": "https://www.cosmetica.com.tr/arama/hizliErisim.aspx?tip=U&lang=tr-TR&srt=ES&text=dieci%20dry&opf=p6065668",
 		"brandLogo": "",
 		"title": "",
 		"subTitle": "",
@@ -1625,14 +1441,6 @@ module.exports = {
 		"buttonText": "",
 		"imgApp": ""
 	}, ],
-	"headerCampaign": [{
-		"uri": "https://www.cosmetica.com.tr/soktoberfest/",
-		"imgOpened": "/UPLOAD/SOKTOBERFEST-1440X315.jpg",
-		"imgClosed": "/UPLOAD/SOKTOBERFEST-1440X315-rev.jpg",
-		"imgMobileOpened": "/UPLOAD/SOKTOBERFEST-750X280.jpg",
-		"buttonText": "",
-		"imgApp1": "/UPLOAD/SOKTOBERFEST-1440X315-rev.jpg",
-		"imgApp2": "/UPLOAD/SOKTOBERFEST-1440X315.jpg"
-	}, ],
+	"headerCampaign": [],
 	"categoryCampaign": []
 };

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Form } from './app/form';
 import { Viewer } from './app/viewer';
-import { MainMenu, Brands } from './app/views';
+import { MainMenu, Brands, ProductSearch } from './app/views';
 import Stores from './app/stores';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -70,7 +70,8 @@ class Root extends PureComponent {
       buttonMap = _self._button('stores', 'stores'),
       buttonContent = _self._buttonRender({ type: 'content' }),
       mainMenu = _self._button('menu', 'menu'),
-      brands = _self._button('brands', 'brands');
+      brands = _self._button('brands', 'brands'),
+      search = _self._button('search', 'search');
 
     return (
       <ScrollView
@@ -90,6 +91,8 @@ class Root extends PureComponent {
           {mainMenu}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>MARKALAR</Text>
           {brands}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>ÜRÜN ARAMA</Text>
+          {search}
         </SafeAreaView>
       </ScrollView>
     );
@@ -119,7 +122,7 @@ class Detail extends PureComponent {
 
     switch (type) {
       case 'form':
-        return _self._getContainer( <Form data={config['form'][active]} callback={_self._callback} /> );
+        return _self._getContainer(<Form data={config['form'][active]} callback={_self._callback} />);
 
       case 'viewer':
         return <Viewer config={config['viewer'][active]} refreshing={false} />;
@@ -132,9 +135,12 @@ class Detail extends PureComponent {
 
       case 'menu':
         return <MainMenu />;
-      
+
       case 'brands':
         return <Brands />;
+
+      case 'search':
+        return <ProductSearch />;
 
       default:
         return null;
@@ -146,9 +152,9 @@ class Detail extends PureComponent {
       view = _self._getView();
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-          {view}
-        </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        {view}
+      </SafeAreaView>
     );
   }
 }

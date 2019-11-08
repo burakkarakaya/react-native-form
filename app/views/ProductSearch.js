@@ -10,7 +10,6 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import style from "react-native-datepicker/style";
 
 /* 
     bilgiler bannerdan gelmeli

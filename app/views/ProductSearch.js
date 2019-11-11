@@ -24,6 +24,44 @@ const RecommendationData = [
     { title: 'Saç', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' }
 ];
 
+class SuggestionListItem extends PureComponent {
+    /* 
+        {
+            "listPrice": 72.9,
+            "productGroupsCount": 6,
+            "productId": 799465,
+            "productName": "L'Oréal Paris Les Macarons Likit Mat Ruj 826 Mademoiselle Mango",
+            "productPageName": "/l-oreal-paris-les-macarons-likit-mat-ruj-826-mademoiselle-mango.html",
+            "salePrice": 36.4,
+            "shortCode": "",
+            "shortName": "",
+            "smallPicture": "/UPLOAD/URUNLER/thumb/220391_1_small.jpg",
+            "thumbPicture": "/UPLOAD/URUNLER/thumb/220391_1.jpg",
+        }
+    */
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const _self = this,
+            { wrapperStyle = {} } = _self.props,
+            { smallPicture = '', productName, salePrice } = _self.props.data;
+
+        return (
+            <TouchableOpacity style={[styles.suggestionListItemContainer, wrapperStyle]} activeOpacity={.8}>
+                <Image
+                    style={[styles.suggestionListItemImage]}
+                    source={{ uri: Utils.getImage(smallPicture) }}
+                />
+                <Text style={[styles.suggestionListItemName]} >{productName}</Text>
+                <Text style={[styles.suggestionListItemPrice]}>{Utils.getPriceFormat(salePrice)}</Text>
+            </TouchableOpacity>
+        );
+    }
+
+}
+
 
 class Button extends PureComponent {
     constructor(props) {
@@ -68,6 +106,8 @@ class ProductSearch extends PureComponent {
             maxChar: 3
         };
 
+        _self.input = null;
+
         _self.stm = null;
         _self.clearTm = () => {
             if (_self.stm != null)
@@ -78,7 +118,9 @@ class ProductSearch extends PureComponent {
     componentDidMount() {
         const _self = this;
         _self._isMounted = true;
-        _self.setState({ recommendationData: RecommendationData });
+        _self.setState({ recommendationData: RecommendationData }, () => {
+            _self._focusedInput();
+        });
     }
 
     componentWillUnmount() {
@@ -103,14 +145,53 @@ class ProductSearch extends PureComponent {
     }
 
     /* 
-        getSuggestionList   
+        getSuggestionList  
     */
-    _getSuggestionList = (value) => {
+
+    _getShowAllButton = () => {
+        const _self = this;
+        return (
+            <TouchableOpacity style={styles.showAllButtonContainer}>
+                <Text style={styles.showAllButtonText}>{'Tümünü Göster'}</Text>
+            </TouchableOpacity>
+        );
+    }
+
+    _getSuggestionListAjx = (value) => {
         const _self = this;
         _self._setAjx({ uri: Utils.getURL({ key: 'product', subKey: 'getSearchSuggestionList' }), data: { searchText: value } }, (res) => {
             if (res['type'] == 'success')
                 _self.setState({ suggestionsData: res.data.suggestions || [] });
         });
+    }
+
+    _getSuggestionList = () => {
+        let _self = this,
+            { suggestionsData = [] } = _self.state,
+            view = null;
+        if (Utils.detect(suggestionsData) && !_self._charControl()) {
+
+            let btn = [],
+                showAllBtn = _self._getShowAllButton(),
+                lngth = suggestionsData.length;
+
+            Object
+                .entries(suggestionsData)
+                .forEach(([ind, item]) => {
+                    marginBottom = ind == (lngth - 1) ? { marginBottom: 0 } : {};
+                    btn.push(<SuggestionListItem data={item} wrapperStyle={marginBottom} />);
+                });
+
+            view = (
+                <View style={styles.suggestionListWrapper}>
+                    <Text style={styles.suggestionListTitle}>{`En İyi Eşleşmeler (${lngth})`}</Text>
+                    {btn}
+                    {showAllBtn}
+                </View>
+            );
+
+        }
+        return view;
     }
 
     /* 
@@ -130,7 +211,7 @@ class ProductSearch extends PureComponent {
             if (!_self._charControl()) {
                 _self.clearTm();
                 _self.stm = setTimeout(() => {
-                    _self._getSuggestionList(value);
+                    _self._getSuggestionListAjx(value);
                 }, 333);
             }
         });
@@ -180,6 +261,12 @@ class ProductSearch extends PureComponent {
         return inputValue.length < maxChar ? true : false;
     }
 
+    _focusedInput = () => {
+        const _self = this;
+        if (_self.input && _self.input.focus)
+            _self.input.focus();
+    }
+
     /* 
         önerilen ürün ve markalar
     */
@@ -218,12 +305,21 @@ class ProductSearch extends PureComponent {
     render() {
         const _self = this,
             input = _self._getInput(),
-            recommendation = _self._getRecommendation();
+            recommendation = _self._getRecommendation(),
+            suggestionList = _self._getSuggestionList();
 
         return (
             <View style={styles.container}>
                 {input}
-                {recommendation}
+                <ScrollView
+                    keyboardShouldPersistTaps='handled'
+                    showsVerticalScrollIndicator={false}
+                    style={{ flex: 1 }}
+                    contentContainerStyle={{ paddingVertical: 15 }}
+                >
+                    {recommendation}
+                    {suggestionList}
+                </ScrollView>
             </View>
 
         );
@@ -238,7 +334,7 @@ export { ProductSearch };
 
 const styles = StyleSheet.create({
     container: {
-
+        flex: 1
     },
 
     recommendationWrapper: {
@@ -272,7 +368,7 @@ const styles = StyleSheet.create({
 
     inputWrapper: {
         flexDirection: 'row',
-        marginBottom: 20
+        marginBottom: 5
     },
     input: {
         backgroundColor: '#f1f4ff',
@@ -282,5 +378,63 @@ const styles = StyleSheet.create({
     },
     inputPlaceholder: {
         color: '#535d7e'
+    },
+
+    /* 
+        suggestionListItem
+    */
+    suggestionListTitle: {
+        fontSize: 13,
+        color: '#535d7e'
+    },
+    suggestionListWrapper: {
+        paddingHorizontal: 30
+    },
+    suggestionListItemContainer: {
+        marginTop: 10,
+        flexDirection: 'row',
+        borderColor: '#ebedf6',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderRadius: 4,
+        padding: 10,
+        justifyContent: 'spaceBetween',
+        alingItem: 'center'
+    },
+    suggestionListItemImage: {
+        width: 46,
+        height: 50,
+        marginRight: 5
+    },
+    suggestionListItemName: {
+        flex: 1.6,
+        color: '#1d262c',
+        fontSize: 12,
+        alignSelf: 'center',
+        marginRight: 5
+    },
+    suggestionListItemPrice: {
+        flex: .4,
+        color: '#1d262c',
+        fontSize: 12,
+        alignSelf: 'center',
+        textAlign: 'right'
+    },
+
+    showAllButtonContainer: {
+        borderColor: '#7863ff',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderRadius: 4,
+        width: '60%',
+        marginTop: 30,
+        alignSelf: 'center',
+    },
+    showAllButtonText: {
+        color: '#624dea',
+        fontSize: 14,
+        paddingVertical: 13,
+        paddingHorizontal: 13,
+        textAlign: 'center'
     }
 }); 

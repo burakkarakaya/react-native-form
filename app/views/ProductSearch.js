@@ -5,8 +5,6 @@ import {
     Text,
     Image,
     StyleSheet,
-    Dimensions,
-    FlatList,
     TextInput,
     TouchableOpacity,
 } from "react-native";
@@ -15,14 +13,24 @@ import {
     bilgiler bannerdan gelmeli
 */
 const RecommendationData = [
-    { title: 'Makyaj', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Eyeliner', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Parfüm', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Fırça', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Ruj', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Deodorant', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' },
-    { title: 'Saç', uri: 'https://www.cosmetica.com.tr/nivea-cellular-leke-karsiti-serum-30-ml.html' }
+    { title: 'Makyaj', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Eyeliner', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Parfüm', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Fırça', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Ruj', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Deodorant', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Saç', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' }
 ];
+
+const CategoryData = [
+    { title: 'Makyaj', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Eyeliner', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Parfüm', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Fırça', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Ruj', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Deodorant', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' },
+    { title: 'Saç', uri: '/nivea-cellular-leke-karsiti-serum-30-ml.html' }
+]
 
 class SuggestionListItem extends PureComponent {
     /* 
@@ -93,6 +101,7 @@ class ProductSearch extends PureComponent {
     /*
         suggestionsData: getSearchSuggestionList servisinden dönen data basılır 
         recommendationData: önerilen kategoriler emosdan export ile gelecek
+        categoryData: arama sonucundan dönen kategoriler, api tamamlanınca bağlanacak
         inputValue: input içerisindeki değer tutulur
         maxChar: input girilen karekter sayısı 3 altındaysa önerilen gözükecek, 3 ve üzeriyse servise istek yapacak
     */
@@ -100,6 +109,7 @@ class ProductSearch extends PureComponent {
         super(props);
         const _self = this;
         _self.state = {
+            categoryData: [],
             suggestionsData: [],
             recommendationData: [],
             inputValue: '',
@@ -118,7 +128,7 @@ class ProductSearch extends PureComponent {
     componentDidMount() {
         const _self = this;
         _self._isMounted = true;
-        _self.setState({ recommendationData: RecommendationData }, () => {
+        _self.setState({ recommendationData: RecommendationData, categoryData: CategoryData }, () => {
             _self._focusedInput();
         });
     }
@@ -268,6 +278,48 @@ class ProductSearch extends PureComponent {
     }
 
     /* 
+        arama sonucunda dönen kategoriler
+    */
+    _getCategories = () => {
+        let _self = this,
+            { categoryData = [] } = _self.state,
+            view = null,
+            onPress = () => {
+
+            };
+
+        if (Utils.detect(categoryData) && !_self._charControl()) {
+            const btn = [],
+                lngth = categoryData.length - 1;
+
+            Object
+                .entries(categoryData)
+                .forEach(([ind, item]) => {
+                    marginRight = ind == lngth ? { marginRight: 0 } : {};
+                    btn.push(<Button onPress={onPress} data={item} wrapperStyle={marginRight} />);
+                });
+
+            view = (
+                <View style={styles.categoryWrapper}>
+                    <Text style={styles.categoryTitle}>{'Kategoriler'}</Text>
+                    <ScrollView
+                        horizontal={true}
+                        keyboardShouldPersistTaps='handled'
+                        showsHorizontalScrollIndicator={false}
+                        style={styles.categoryContainer}
+                        contentContainerStyle={{ paddingHorizontal: 30 }}
+                    >
+                        {btn}
+                    </ScrollView>
+                </View>
+            );
+        }
+
+        return view;
+    }
+
+
+    /* 
         önerilen ürün ve markalar
     */
     _getRecommendation = () => {
@@ -305,6 +357,7 @@ class ProductSearch extends PureComponent {
     render() {
         const _self = this,
             input = _self._getInput(),
+            categories = _self._getCategories(),
             recommendation = _self._getRecommendation(),
             suggestionList = _self._getSuggestionList();
 
@@ -317,6 +370,7 @@ class ProductSearch extends PureComponent {
                     style={{ flex: 1 }}
                     contentContainerStyle={{ paddingVertical: 15 }}
                 >
+                    {categories}
                     {recommendation}
                     {suggestionList}
                 </ScrollView>
@@ -436,5 +490,17 @@ const styles = StyleSheet.create({
         paddingVertical: 13,
         paddingHorizontal: 13,
         textAlign: 'center'
+    },
+
+    categoryWrapper: {
+        marginBottom: 30
+    },
+    categoryTitle: {
+        marginLeft: 30,
+        color: '#1d262c',
+        fontSize: 15,
+    },
+    categoryContainer: {
+
     }
 }); 

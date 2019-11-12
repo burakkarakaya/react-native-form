@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Form } from './app/form';
 import { Viewer } from './app/viewer';
-import { MainMenu, Brands, ProductSearch } from './app/views';
+import { MainMenu, Brands, ProductSearch, CampaingPage } from './app/views';
 import Stores from './app/stores';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -71,7 +71,8 @@ class Root extends PureComponent {
       buttonContent = _self._buttonRender({ type: 'content' }),
       mainMenu = _self._button('menu', 'menu'),
       brands = _self._button('brands', 'brands'),
-      search = _self._button('search', 'search');
+      search = _self._button('search', 'search'),
+      campaingPage = _self._button('campaingPage', 'campaingPage');
 
     return (
       <ScrollView
@@ -93,6 +94,8 @@ class Root extends PureComponent {
           {brands}
           <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>ÜRÜN ARAMA</Text>
           {search}
+          <Text style={{ paddingTop: 35, paddingBottom: 15, fontSize: 20 }}>KAMPANYALAR SAYFASI</Text>
+          {campaingPage}
         </SafeAreaView>
       </ScrollView>
     );
@@ -141,6 +144,9 @@ class Detail extends PureComponent {
 
       case 'search':
         return <ProductSearch />;
+
+      case 'campaingPage':
+        return <CampaingPage />;
 
       default:
         return null;

@@ -310,7 +310,7 @@ class SideBar extends Component {
             h = 85, //  buton yüksekliği eşit olduğu için fix yazılır
             y = Math.round((sequence - 1) * h);
 
-        _self.ScrollView.scrollTo({ y: y });
+        _self.ScrollView.scrollTo({ X: y });
     }
 
     _onPress = (obj) => {
@@ -355,7 +355,8 @@ class SideBar extends Component {
                 <ScrollView
                     ref={ref => _self.ScrollView = ref}
                     keyboardShouldPersistTaps='handled'
-                    showsVerticalScrollIndicator={false}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                     style={styles.sideBarScrollerWrapper}
                 >
                     {btn}
@@ -491,11 +492,13 @@ class Main extends Component {
 
         return (
             <View style={styles.wrapper}>
+                {sideBar}
+                {routes}
                 <View style={styles.sideBarWrapper}>
-                    {sideBar}
+                    
                 </View>
                 <View style={styles.contentWrapper}>
-                    {routes}
+                    
                 </View>
             </View>
         );
@@ -580,7 +583,7 @@ class Detail extends PureComponent {
     Navigator
 */
 
-const MainMenu = createAppContainer(createStackNavigator(
+const CampaingPage = createAppContainer(createStackNavigator(
     {
         Main: {
             screen: props => <Main {...props} />,
@@ -595,7 +598,7 @@ const MainMenu = createAppContainer(createStackNavigator(
     }
 ));
 
-export { MainMenu };
+export { CampaingPage };
 
 /* 
     Styles

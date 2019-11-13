@@ -7,20 +7,20 @@ import {
     TouchableOpacity,
     StyleSheet,
     Dimensions,
+    FlatList
 } from "react-native";
 import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { CampaingSlider } from './';
+const AllCampaing = require('../../data/allCampaing.js');
 
 /* 
     global variable
 */
 const ScreenWidth = Math.round(Dimensions.get('window').width),
-    SideBarWidth = 100,
-    padding = 60, // border + margin
-    contentImageButtonSizeWidth = Math.round((ScreenWidth - SideBarWidth - padding) * .5);
+    padding = 40, // border + margin
+    contentImageButtonSizeWidth = Math.round(ScreenWidth - padding);
 
 /* 
     getCategoryList ile dönen json manipule etmek için kullanıyoruz. 
@@ -93,15 +93,15 @@ class ContentButton extends PureComponent {
 
     render() {
         const _self = this,
-            { catName = '', imageUrl = '' } = _self.props.data || {};
+            { title = '', img = '' } = _self.props.data || {};
 
         return (
             <TouchableOpacity onPress={_self.onPress} activeOpacity={.8} style={styles.contentImageButtonContainer}>
                 <Image
                     style={[styles.contentImageButtonImage]}
-                    source={{ uri: Utils.getImage(imageUrl) }}
+                    source={{ uri: Utils.getImage(img) }}
                 />
-                <Text style={styles.contentImageButtonText}>{catName}</Text>
+                <Text style={styles.contentImageButtonText}>{title}</Text>
             </TouchableOpacity>
 
         );
@@ -111,44 +111,39 @@ class ContentButton extends PureComponent {
 class Content extends PureComponent {
     constructor(props) {
         super(props);
+        this.state = {
+            data: []
+        };
+    }
+
+    componentDidMount() {
+        const _self = this,
+            { data = {} } = _self.props;
+        _self.setState({ data: AllCampaing['allCampaign'][0][data['catId']]['children'] || [] });
     }
 
     _getView = () => {
 
         let _self = this,
-            { data = [] } = _self.props || {},
+            { data = [] } = _self.state || {},
             view = null,
             onPress = (obj) => {
-                const { callback } = _self.props;
-                if (callback)
-                    callback(obj);
+                // getDataByUrl tetiklenecek
             };
 
         if (Utils.detect(data)) {
-            const btn = Object
-                .keys(data['childs'] || [])
-                .map(key => {
-                    const item = data['childs'][key] || {};
-
-                    return (
-                        <ContentButton onPress={onPress} key={key} data={item} />
-                    )
-                }),
-                campaing = <CampaingSlider size={ScreenWidth - SideBarWidth - 40} type={'type-2'} firstNElemenet={3} data={data} />;
-
             view = (
-                <ScrollView
-                    keyboardShouldPersistTaps='handled'
-                    showsVerticalScrollIndicator={false}
+                <FlatList
                     style={{ flex: 1 }}
-                    contentContainerStyle={{ padding: 20 }}
-                >
-                    {campaing}
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', marginTop: 10 }}>
-                        {btn}
-                    </View>
-
-                </ScrollView>
+                    contentContainerStyle={{ paddingHorizontal: 20, paddingVertical: 20 }}
+                    data={data}
+                    renderItem={({ item }) => {
+                        return (
+                            <ContentButton data={item} />
+                        );
+                    }}
+                    keyExtractor={item => item.title}
+                />
             );
         }
         return view
@@ -183,7 +178,7 @@ class Routes extends PureComponent {
         if (onRef) onRef(null);
     }
 
-    _contentCallback = (obj) => {
+    _callback = (obj) => {
         const _self = this,
             { callback } = _self.props;
         if (callback)
@@ -203,7 +198,7 @@ class Routes extends PureComponent {
                     { catName = '' } = item;
 
                 _routes[catName] = {
-                    screen: props => <Content callback={_self._contentCallback} data={item} {...props} />,
+                    screen: props => <Content data={item} {...props} />,
                     navigationOptions: {
                         title: catName,
                     }
@@ -213,7 +208,7 @@ class Routes extends PureComponent {
         return _routes;
     }
 
-    _Navigator = createBottomTabNavigator(
+    _Navigator = createMaterialTopTabNavigator(
         this._get(),
         {
             tabBarComponent: () => { return null; },
@@ -234,7 +229,18 @@ class Routes extends PureComponent {
     render() {
         const _self = this,
             Navigator = createAppContainer(_self._Navigator);
-        return <Navigator ref={ref => _self.Ref = ref} />
+        return (
+            <Navigator
+                onNavigationStateChange={(prevState, currentState = {}) => {
+                    /* 
+                        dinamik oluşturulan routes içerisinde aktif routes döndürür,
+                        bununlada sidebar nesnesinde aktif item seçili hale getirilir
+                    */
+                    _self._callback({ value: currentState.index || 0, type: 'currentRouteIndex' });
+                }}
+                ref={ref => _self.Ref = ref}
+            />
+        );
     }
 }
 
@@ -271,7 +277,7 @@ class SideBarButton extends Component {
     }
 
     _measureDimensions = (e) => {
-        console.log(e.nativeEvent.layout)
+        //console.log(e.nativeEvent.layout)
     }
 
     render() {
@@ -279,6 +285,7 @@ class SideBarButton extends Component {
             { catName = '', active = false } = _self.props.data || {},
             ico = _self._getIcon(),
             activeButtonWrapper = active ? styles.sideBarButtonActiveWrapper : {},
+            activeButtonText = active ? styles.sideBarButtonActiveText : {},
             triangle = active ? <View style={styles.triangle} /> : null;
 
         return (
@@ -289,7 +296,7 @@ class SideBarButton extends Component {
                 onPress={_self._onPress}>
                 {triangle}
                 {ico}
-                <Text style={styles.sideBarButtonText}>{catName}</Text>
+                <Text style={[styles.sideBarButtonText, activeButtonText]}>{catName}</Text>
             </TouchableOpacity>
         );
     }
@@ -305,19 +312,31 @@ class SideBar extends Component {
         };
     }
 
+    componentDidMount() {
+        const _self = this,
+            { onRef } = _self.props;
+        if (onRef) onRef(this);
+    }
+
+    componentWillUnmount() {
+        const _self = this,
+            { onRef } = _self.props;
+        if (onRef) onRef(null);
+    }
+
     _focused = (sequence) => {
         const _self = this,
             h = 85, //  buton yüksekliği eşit olduğu için fix yazılır
             y = Math.round((sequence - 1) * h);
 
-        _self.ScrollView.scrollTo({ X: y });
+        _self.ScrollView.scrollTo({ x: y });
     }
 
-    _onPress = (obj) => {
+    _callback = (obj) => {
         const _self = this,
             { callback } = _self.props,
             { data, temp = 0 } = _self.state,
-            { sequence = 0 } = obj;
+            { sequence = 0 } = obj; console.log('_onPress', sequence);
 
         data[temp]['active'] = false;
         data[sequence]['active'] = true;
@@ -346,7 +365,7 @@ class SideBar extends Component {
                             sequence={key}
                             key={key}
                             data={item}
-                            onPress={_self._onPress}
+                            onPress={_self._callback}
                         />
                     )
                 });
@@ -358,6 +377,7 @@ class SideBar extends Component {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     style={styles.sideBarScrollerWrapper}
+                    contentContainerStyle={{ paddingHorizontal: 20 }}
                 >
                     {btn}
                 </ScrollView>
@@ -460,7 +480,13 @@ class Main extends Component {
             };
 
         if (Utils.detect(data))
-            view = <SideBar callback={callback} data={data} />;
+            view = (
+                <SideBar
+                    onRef={(ref) => _self.SideBar = ref}
+                    callback={callback}
+                    data={data}
+                />
+            );
 
         return view;
     }
@@ -470,8 +496,18 @@ class Main extends Component {
     */
 
     _routesCallback = (obj) => {
-        const _self = this;
-        _self.props.navigation.navigate('Detail', obj);
+        const _self = this,
+            type = obj['type'] || '';
+
+
+        switch (type) {
+            case 'currentRouteIndex':
+                _self.SideBar._callback({ sequence: obj['value'] || 0 });
+                break;
+
+            default:
+                break;
+        }
     }
 
     _getRoutes = () => {
@@ -480,7 +516,13 @@ class Main extends Component {
             view = null;
 
         if (Utils.detect(data))
-            view = <Routes callback={_self._routesCallback} onRef={ref => _self.Navigator = ref} data={data} />;
+            view = (
+                <Routes
+                    onRef={ref => _self.Navigator = ref}
+                    callback={_self._routesCallback}
+                    data={data}
+                />
+            );
 
         return view;
     }
@@ -492,92 +534,16 @@ class Main extends Component {
 
         return (
             <View style={styles.wrapper}>
-                {sideBar}
-                {routes}
                 <View style={styles.sideBarWrapper}>
-                    
+                    {sideBar}
                 </View>
                 <View style={styles.contentWrapper}>
-                    
+                    {routes}
                 </View>
             </View>
         );
     }
 }
-
-/* 
-    Detail
-*/
-
-class Detail extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: []
-        };
-    }
-
-    componentDidMount() {
-        let _self = this,
-            { state = {} } = _self.props.navigation,
-            { params = {} } = state || {},
-            childs = params['childs'] || [],
-            data = [...childs];
-
-        data.unshift({ catId: params.catId, catName: 'Tümü' })
-
-        _self.setState({ data: data });
-    }
-
-    _onPress = (obj) => {
-        console.log(obj);
-    }
-
-    _getButton = (obj) => {
-        const _self = this;
-
-        return (
-            <TouchableOpacity onPress={_self._onPress.bind(this, obj)} activeOpacity={.8}>
-                <Text style={styles.detailButtonText}>{obj.catName}</Text>
-            </TouchableOpacity>
-        );
-    }
-
-    _getView = () => {
-        let _self = this,
-            { data = [] } = _self.state || {},
-            view = null;
-
-        if (Utils.detect(data)) {
-            const btn = Object
-                .keys(data)
-                .map(key => {
-                    const item = data[key] || {};
-
-                    return _self._getButton(item);
-                });
-
-            view = (
-                <ScrollView
-                    keyboardShouldPersistTaps='handled'
-                    showsVerticalScrollIndicator={false}
-                    style={styles.sideBarScrollerWrapper}
-                    contentContainerStyle={{ paddingHorizontal: 40, paddingVertical: 30 }}
-                >
-                    {btn}
-                </ScrollView>
-            );
-        }
-
-        return view;
-    }
-
-    render() {
-        const _self = this;
-        return _self._getView();
-    }
-}
-
 
 /* 
     Navigator
@@ -590,10 +556,6 @@ const CampaingPage = createAppContainer(createStackNavigator(
             navigationOptions: () => ({
                 header: null
             }),
-        },
-
-        Detail: {
-            screen: props => <Detail {...props} />,
         },
     }
 ));
@@ -610,29 +572,30 @@ const styles = StyleSheet.create({
     */
     wrapper: {
         flex: 1,
-        flexDirection: 'row'
+        //flexDirection: 'row'
     },
 
     /* 
         sidebar
     */
     sideBarWrapper: {
-        width: SideBarWidth,
         borderRightWidth: 1,
         borderRightStyle: 'solid',
         borderRightColor: '#ebedf6',
         zIndex: 2
     },
     sideBarScrollerWrapper: {
-        flex: 1,
+        //flex: 1,
         overflow: 'visible'
     },
     sideBarButtonWrapper: {
-        paddingTop: 9,
-        paddingBottom: 13,
+        padding: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
+        borderBottomWidth: 1,
+        borderBottomColor: '#ebedf6',
+        borderBottomStyle: 'solid',
     },
     sideBarButtonIcon: {
         width: 42,
@@ -641,28 +604,29 @@ const styles = StyleSheet.create({
     sideBarButtonText: {
         fontSize: 12,
         color: '#535d7e',
-        marginTop: 6
+        marginTop: 6,
     },
     sideBarButtonActiveWrapper: {
-        backgroundColor: '#f1f4ff'
+
+    },
+    sideBarButtonActiveText: {
+        //fontWeight: 'bold'
     },
     triangle: {
         position: 'absolute',
-        right: -12,
-        top: '60%',
-
+        bottom: -12,
         width: 0,
         height: 0,
         backgroundColor: 'transparent',
         borderStyle: 'solid',
-        borderLeftWidth: 6,
-        borderRightWidth: 6,
+        borderLeftWidth: 8,
+        borderRightWidth: 8,
         borderBottomWidth: 11,
         borderLeftColor: 'transparent',
         borderRightColor: 'transparent',
-        borderBottomColor: '#f1f4ff',
+        borderBottomColor: '#ebedf6',
         transform: [
-            { rotate: '90deg' }
+            { rotate: '180deg' }
         ]
     },
 

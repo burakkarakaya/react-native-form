@@ -801,8 +801,8 @@ module.exports = {
   getQueryStringParams: query => {
     if (query.indexOf('?') != -1)
       query = query.substr(query.indexOf('?'), query.length);
-    
-      return query
+
+    return query
       ? (/^[?#]/.test(query) ? query.slice(1) : query)
         .split('&')
         .reduce((params, param) => {
@@ -820,7 +820,8 @@ module.exports = {
         type: {
           'list': 'product_list',
           'detail': 'product_detail',
-          'content': 'content'
+          'content': 'content',
+          'service': 'service_list'
         }
       },
       uriType = (url) => {
@@ -831,6 +832,8 @@ module.exports = {
           type = _prefix.type.detail;
         else if (url.indexOf('icerik.aspx') != -1)
           type = _prefix.type.content;
+        else if (url.indexOf('servis_liste.aspx') != -1)
+          type = _prefix.type.service;
 
         return type;
       },
@@ -840,8 +843,8 @@ module.exports = {
         */
         return url.indexOf('.aspx') != -1 ? true : false;
       },
-      send = (url) => {
-        const obj = _self.mapping({
+      getQueryObj = (url) => {
+        return _self.mapping({
           data: _self.getQueryStringParams(url),
           keys: {
             'kat': 'catId',
@@ -852,26 +855,61 @@ module.exports = {
             'ps': 'pageSize',
             'page': 'page',
             'opf': 'filter',
-            'lang': 'language'
+            'lang': 'language',
+            'icr': 'contentId',
+            'ulk': 'countryId',
+            'shr': 'cityId',
+            'ilc': 'districtName',
+            'dst': 'distance',
+            'lat': 'latitude',
+            'long': 'longitude'
           }
-        }),
+        });
+      },
+      send = (url) => {
+        const obj = getQueryObj(url),
           type = uriType(url);
 
         if (type == _prefix.type.list);
         else if (type == _prefix.type.detail);
         else if (type == _prefix.type.content);
+        else if (type == _prefix.type.service);
 
-        console.log(obj);
+        console.log(type, obj);
       };
 
-
-    console.log('sadasd', uri);
+    console.log('gelen url', uri);
 
     if (uriControl(uri))
       send(uri);
     else
       _self.fetch(_self.getURL({ key: 'content', subKey: 'getDataByUrl' }), JSON.stringify({ Url: uri }), (res) => {
-        console.log('gelen', res);
+        const { data, status } = res;
+        if (status == 200) {
+          /* 
+            önemli not: 
+            urlString => burası BE gönderilen url karşılığı olarak dönmeli göndermezlerse 
+          */
+          const {
+            id = '',
+            type = null,
+            urlString = '/urun_liste.aspx?lang=tr-TR&kat=22104&opf=m742,m7428,m7429'
+          } = data || {};
+
+          send(urlString);
+
+          /*
+          urlString döndüremezlerse bu yöntem
+          if (type != null) {
+
+            if (type == 'icr');
+            else if (type == 'kat');
+            else if (type == 'urn');
+            else if (type == 'rw');
+
+          }
+          */
+        }
       });
   }
 };

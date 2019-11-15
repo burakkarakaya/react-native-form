@@ -213,7 +213,7 @@ class Routes extends PureComponent {
         {
             tabBarComponent: () => { return null; },
             lazy: true,
-            tabBarPosition: 'top',
+            tabBarPosition: 'top'
         }
     );
 
@@ -428,7 +428,7 @@ class Main extends Component {
         //console.log(JSON.stringify(_getArrImgPath(data)));
         setTimeout(() => {
             _self.setState({ data: data });
-        }, 1);
+        }, 10);
     }
 
     componentWillUnmount() {

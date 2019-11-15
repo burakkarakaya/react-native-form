@@ -271,7 +271,7 @@ class SideBarButton extends Component {
     }
 
     _measureDimensions = (e) => {
-        console.log(e.nativeEvent.layout)
+        //console.log(e.nativeEvent.layout)
     }
 
     render() {

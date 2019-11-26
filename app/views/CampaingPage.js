@@ -161,9 +161,15 @@ class Content extends PureComponent {
     Routes
 */
 class Routes extends PureComponent {
+
+    /* 
+        navigationState => 2 kere tetiklenme olayını engellmek için ekstra değişken oluşturulur. Tıklama yapılırsa false değeri atanır.
+    */
+
     constructor(props) {
         super(props);
         this.Ref = null;
+        this.navigationState = true;
     }
 
     componentDidMount() {
@@ -224,11 +230,15 @@ class Routes extends PureComponent {
         const _self = this;
         if (_self.Ref)
             _self.Ref._navigation.navigate({ routeName: routesName });
+
+
+        _self.navigationState = false;
     }
 
     render() {
         const _self = this,
             Navigator = createAppContainer(_self._Navigator);
+
         return (
             <Navigator
                 onNavigationStateChange={(prevState, currentState = {}) => {
@@ -236,7 +246,11 @@ class Routes extends PureComponent {
                         dinamik oluşturulan routes içerisinde aktif routes döndürür,
                         bununlada sidebar nesnesinde aktif item seçili hale getirilir
                     */
-                    _self._callback({ value: currentState.index || 0, type: 'currentRouteIndex' });
+
+                    if (_self.navigationState)
+                        _self._callback({ value: currentState.index || 0, type: 'currentRouteIndex' });
+
+                    _self.navigationState = true;
                 }}
                 ref={ref => _self.Ref = ref}
             />
@@ -324,7 +338,7 @@ class SideBar extends Component {
         if (onRef) onRef(null);
     }
 
-    _focused = (sequence) => {
+    _scrollTo = (sequence) => {
         const _self = this,
             h = 85, //  buton yüksekliği eşit olduğu için fix yazılır
             y = Math.round((sequence - 1) * h);
@@ -332,7 +346,7 @@ class SideBar extends Component {
         _self.ScrollView.scrollTo({ x: y });
     }
 
-    _callback = (obj) => {
+    _focused = (obj) => {
         const _self = this,
             { callback } = _self.props,
             { data, temp = 0 } = _self.state,
@@ -342,7 +356,7 @@ class SideBar extends Component {
         data[sequence]['active'] = true;
 
         _self.setState({ data: data, temp: sequence }, () => {
-            _self._focused(sequence);
+            _self._scrollTo(sequence);
         });
 
         if (callback)
@@ -365,7 +379,7 @@ class SideBar extends Component {
                             sequence={key}
                             key={key}
                             data={item}
-                            onPress={_self._callback}
+                            onPress={_self._focused}
                         />
                     )
                 });
@@ -502,7 +516,7 @@ class Main extends Component {
 
         switch (type) {
             case 'currentRouteIndex':
-                _self.SideBar._callback({ sequence: obj['value'] || 0 });
+                _self.SideBar._focused({ sequence: obj['value'] || 0 });
                 break;
 
             default:
